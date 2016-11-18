@@ -1,7 +1,5 @@
 
 # SUST Society
-
-TODO:
         + All Department Society of SUST in one panel
 		+ User Panel
 		+ Upcoming Events
@@ -10,7 +8,7 @@ TODO:
 	    + Event Registration System
 
 
-##Developer
+##Developers
 
 * **[Md. Abu Talha](https://github.com/talha08)**
 *Registration No*: 2012331008
