@@ -21,7 +21,7 @@ TODO:
 
 ##Supervisor
 
-* **[Md. Masum]
+* **[Md. Masum](https://github.com/)**
 **Associate Professor**, *Department of Computer Science and Engineering*, Shahjalal University of Science and Technology.
 
 
