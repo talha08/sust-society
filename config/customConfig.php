@@ -2,7 +2,7 @@
 
 return [
     'names' =>[
-        'siteName' => 'InfancyIT'
+        'siteName' => 'SUST Society'
     ],
     'roles' =>[
         'admin' => 'Admin',

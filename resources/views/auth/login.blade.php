@@ -9,12 +9,14 @@
     {!! Html::style('css/animate.css') !!}
     {!! Html::style('css/style.css') !!}
     {!! Html::style('css/plugins/bootstrapSocial/bootstrap-social.css') !!}
+            <!-- Toastr style -->
+    {!! Html::style('css/plugins/toastr/toastr.min.css') !!}
 </head>
 <body class="gray-bg">
 <div class="loginColumns animated fadeInDown">
     <div class="row">
         <div class="col-md-6">
-            <h2 class="font-bold">Welcome to InfancyIT</h2>
+            <h2 class="font-bold">Welcome to SUST Society</h2>
             <p>
                 Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
             </p>
@@ -31,15 +33,15 @@
         <div class="col-md-6">
             <div class="ibox-content">
                 <div class="panel-heading">
-                    <h2 class="text-center m-t-10"><strong> Sign In</strong> </h2>
+                    <h2 class="text-center m-t-10"><strong>SUST Society | Sign In</strong> </h2>
                 </div>
                 @include('includes.alert')
                 {!! Form::open(array('route' => 'login', 'method' => 'post', 'class' => 'form-horizontal m-t-40')) !!}
                 <div class="form-group ">
-                    {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'type'=>'text','autofocus')) !!}
+                    {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'type'=>'text','autofocus', 'required')) !!}
                 </div>
                 <div class="form-group ">
-                    {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password','type'=>'text')) !!}
+                    {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password','type'=>'text', 'required')) !!}
                 </div>
                 <div class="form-group m-t-30">
                     <div class="col-sm-5">
@@ -55,18 +57,6 @@
                     <br>
                 </div>
                 {!! Form::submit('Log in', array('class' => 'btn btn-primary block full-width m-b', 'type'=>'submit')) !!}
-
-
-                <div class="ibox-content">
-                    <h4 class="text-center"><b> OR</b></h4>
-                    <a href="{!! route('login/fb') !!}" class="btn btn-block btn-social btn-facebook" >
-                        <span class="fa fa-facebook"></span> Sign in with Facebook
-                    </a>
-
-                    <a href="{!! route('login/gp') !!}" class="btn btn-block btn-social btn-google" >
-                        <span class="fa fa-google"></span> Sign in with Google
-                    </a>
-                </div>
 
 
 
@@ -100,7 +90,7 @@
             <div class="modal-body">
                 <p>Enter your e-mail address below to reset your password.</p>
                 {!! Form::open(array('action' => 'RemindersController@postEmail', 'method' => 'post')) !!}
-                {!! Form::email('email', '', array('class' => 'form-control placeholder-no-fix', 'placeholder' => 'Email Address', 'autocomplete'=>'off')) !!}
+                {!! Form::email('email', '', array('class' => 'form-control placeholder-no-fix', 'placeholder' => 'Email Address', 'autocomplete'=>'off',  'required')) !!}
             </div>
             <div class="modal-footer">
                 <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
@@ -114,5 +104,9 @@
 <!-- Mainly scripts -->
 {!! Html::script('js/jquery-2.1.1.js') !!}
 {!! Html::script('js/bootstrap.min.js') !!}
+        <!-- toastr -->
+{!! Html::script('js/plugins/toastr/toastr.min.js') !!}
+@include('includes.toastr')
+
 </body>
 </html>

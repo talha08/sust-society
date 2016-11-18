@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCashiersTable extends Migration
+class CreateCommitteeMemberListTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,11 @@ class CreateCashiersTable extends Migration
      */
     public function up()
     {
-        Schema::create('cashiers', function (Blueprint $table) {
+        Schema::create('committee_member_list', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')
-                ->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('member_type_id');
+            $table->integer('user_id');
+            $table->integer('committee_id');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateCashiersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('cashiers');
+        Schema::drop('committee_member_list');
     }
 }

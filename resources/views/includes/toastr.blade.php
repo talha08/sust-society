@@ -8,7 +8,7 @@
 				showMethod: 'slideDown',
 				timeOut: 4000
 			};
-			toastr.success('InfancyIT Web App', "<?php echo $success ?>");
+			toastr.success('SUST Society', "<?php echo $success ?>");
 
 		}, 1300);
 
@@ -26,7 +26,7 @@
 					showMethod: 'slideDown',
 					timeOut: 4000
 				};
-				toastr.error('InfancyIT Web App', "<?php echo $error ?>");
+				toastr.error('SUST Society', "<?php echo $error ?>");
 
 			}, 1300);
 
@@ -44,7 +44,7 @@
 					showMethod: 'slideDown',
 					timeOut: 4000
 				};
-				toastr.warning('InfancyIT Web App', "<?php echo $warning ?>");
+				toastr.warning('SUST Society', "<?php echo $warning ?>");
 
 			}, 1300);
 
@@ -62,7 +62,7 @@
 					showMethod: 'slideDown',
 					timeOut: 4000
 				};
-				toastr.info('InfancyIT Web App', "<?php echo $info ?>");
+				toastr.info('SUST Society', "<?php echo $info ?>");
 
 			}, 1300);
 
@@ -82,7 +82,7 @@
 					showMethod: 'slideDown',
 					timeOut: 4000
 				};
-				toastr.error('InfancyIT Web App', "<?php echo $error ?>");
+				toastr.error('SUST Society', "<?php echo $error ?>");
 
 			}, 1300);
 

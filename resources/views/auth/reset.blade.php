@@ -12,7 +12,7 @@
 <div class="wrapper-page animated fadeInDown">
 	<div class="panel panel-color panel-primary">
 		<div class="panel-heading">
-			<h3 class="text-center m-t-10"> Reset Password || <strong>InfancyIT</strong></h3>
+			<h3 class="text-center m-t-10"> Reset Password || <strong>SUST Society</strong></h3>
 		</div>
 		<br>
 
@@ -24,11 +24,11 @@
 
 		<input type='hidden' name='token' value="{!!$token!!}">
 		<br/>
-		{!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus')) !!}
+		{!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus', 'required')) !!}
 		<br/>
-		{!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'New Password')) !!}
+		{!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'New Password', 'required')) !!}
 		<br/>
-		{!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm New Password')) !!}
+		{!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm New Password', 'required')) !!}
 		<br/>
 		{!! Form::submit('Reset Password', array('class' => 'btn btn-lg btn-login btn-block btn-purple ')) !!}
 		<br/>

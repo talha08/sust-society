@@ -3,19 +3,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InfancyIT | Sign Up </title>
+    <title>SUST Society | Sign Up </title>
 
     {!! Html::style('css/bootstrap.min.css') !!}
     {!! Html::style('font-awesome/css/font-awesome.css') !!}
     {!! Html::style('css/animate.css') !!}
     {!! Html::style('css/style.css') !!}
     {!! Html::style('css/plugins/bootstrapSocial/bootstrap-social.css') !!}
+            <!-- Toastr style -->
+    {!! Html::style('css/plugins/toastr/toastr.min.css') !!}
 </head>
 <body class="gray-bg">
 <div class="loginColumns animated fadeInDown">
     <div class="row">
         <div class="col-md-6">
-            <h2 class="font-bold">Welcome to InfancyIT</h2>
+            <h2 class="font-bold">Welcome to SUST Society</h2>
             <p>
                 Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
             </p>
@@ -38,19 +40,19 @@
                 {!! Form::open(array('route' => 'user.store', 'method' => 'post', 'class' => 'form-signin')) !!}
 
                 <div class="form-group ">
-                        {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Full Name', 'autofocus')) !!}
+                        {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Full Name', 'autofocus', 'required')) !!}
                 </div>
 
                 <div class="form-group ">
-                        {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus')) !!}
+                        {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus', 'required')) !!}
                 </div>
 
                 <div class="form-group ">
-                        {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) !!}
+                        {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password', 'required')) !!}
                 </div>
 
                 <div class="form-group ">
-                        {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm Password')) !!}
+                        {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm Password', 'required')) !!}
                 </div>
 
                 {!! Form::submit('Log in', array('class' => 'btn btn-primary block full-width m-b', 'type'=>'submit')) !!}
@@ -91,6 +93,12 @@
 
 
 <!-- End of Modal -->
+<!-- Mainly scripts -->
+{!! Html::script('js/jquery-2.1.1.js') !!}
+{!! Html::script('js/bootstrap.min.js') !!}
+        <!-- toastr -->
+{!! Html::script('js/plugins/toastr/toastr.min.js') !!}
+@include('includes.toastr')
 
 </body>
 </html>

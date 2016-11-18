@@ -11,7 +11,7 @@
 
     <ul class="nav navbar-top-links navbar-right">
         <li>
-            <span class="m-r-sm text-muted welcome-message">Welcome to InfancyIT.</span>
+            <span class="m-r-sm text-muted welcome-message">Welcome to SUST Society.</span>
         </li>
 
 
