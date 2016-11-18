@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InfancyIT | Login </title>
+    <title>SUST Society | Login </title>
     {!! Html::style('css/bootstrap.min.css') !!}
     {!! Html::style('font-awesome/css/font-awesome.css') !!}
     {!! Html::style('css/animate.css') !!}
