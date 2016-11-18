@@ -58,16 +58,6 @@
                 {!! Form::submit('Log in', array('class' => 'btn btn-primary block full-width m-b', 'type'=>'submit')) !!}
 
 
-                <div class="ibox-content">
-                    <h4 class="text-center"><b> OR</b></h4>
-                    <a href="{!! route('login/fb') !!}" class="btn btn-block btn-social btn-facebook" >
-                        <span class="fa fa-facebook"></span> Sign up with Facebook
-                    </a>
-
-                    <a href="{!! route('login/gp') !!}" class="btn btn-block btn-social btn-google" >
-                        <span class="fa fa-google"></span> Sign up with Google
-                    </a>
-                </div>
 
 
 
