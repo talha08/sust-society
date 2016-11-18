@@ -33,7 +33,7 @@
         <div class="col-md-6">
             <div class="ibox-content">
                 <div class="panel-heading">
-                    <h2 class="text-center m-t-10"><strong>SUST Society | Sign In</strong> </h2>
+                    <h2 class="text-center m-t-10"><strong>Sign In</strong> </h2>
                 </div>
                 @include('includes.alert')
                 {!! Form::open(array('route' => 'login', 'method' => 'post', 'class' => 'form-horizontal m-t-40')) !!}
