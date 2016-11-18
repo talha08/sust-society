@@ -83,7 +83,7 @@
     <hr/>
     <div class="row">
         <div class="col-md-6">
-            Copyright &copy; InfancyIT
+            Copyright &copy; SUST Society
         </div>
         <div class="col-md-6 text-right">
             <small> &copy; 2015 - <?php echo date("Y") ?></small>
