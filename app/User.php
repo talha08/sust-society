@@ -43,5 +43,8 @@ class User extends Model implements AuthenticatableContract,
 
 
 
+    public function album(){
+        return $this->hasMany('App\Album','user_id','id');
+    }
 
 }

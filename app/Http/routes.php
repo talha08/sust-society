@@ -42,6 +42,18 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
 
 
+
+	//Image
+	Route::get('album', array('as' => 'album.index', 'uses' => 'AlbumController@index'));
+	Route::get('album/search/{id}', array('as' => 'album.search', 'uses' => 'AlbumController@search'));
+	Route::get('album/create', ['as'=>'album.create','uses' => 'AlbumController@create']);
+	Route::post('album/create', ['as'=>'album.store','uses' => 'AlbumController@store']);
+	//Route::get('album/{id}/edit', array('as' => 'album.edit', 'uses' => 'AlbumController@edit'));
+	Route::post('album/update', array('as' => 'album.update', 'uses' => 'AlbumController@updateAlbumImage'));
+	//Route::delete('album/{id}', array('as' => 'album.delete', 'uses' => 'AlbumController@destroy'));
+	Route::delete('album/{id}', array('as' => 'photo.delete', 'uses' => 'AlbumController@photoDestroy'));
+
+
 });
 
 

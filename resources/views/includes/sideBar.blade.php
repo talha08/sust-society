@@ -4,7 +4,7 @@
             <li class="nav-header">
                 <div class="dropdown profile-element">
                <span>
-               <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+               <img alt="image" class="img-circle" src="{!! asset('img/profile_small.jpg') !!}" />
                </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">&nbsp;</strong>
@@ -20,16 +20,31 @@
                     IN+
                 </div>
             </li>
-            <li>
-                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
+
+
+            <li class="{!! Menu::areActiveRoutes(['album.index', 'album.create']) !!}">
+                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Photo Album</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="#">Dashboard v.1</a></li>
-                    <li><a href="#">Dashboard v.2</a></li>
+                    <li class="{!! Menu::isActiveRoute('album.index') !!}">
+                        <a href="{!!  URL::route( 'album.index') !!}">Your Album</a>
+                    </li>
+
+                    <li class="{!! Menu::isActiveRoute('album.create') !!}">
+                        <a href="{!!  URL::route( 'album.create') !!}">Create New Album</a>
+                    </li>
                 </ul>
             </li>
+
+
             <li>
                 <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a>
             </li>
+
+
+
+
+
+
         </ul>
     </div>
 </nav>
