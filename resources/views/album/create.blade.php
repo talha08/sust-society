@@ -2,7 +2,7 @@
 @section('content')
 
 
-    <br><br>
+
 	<div class="wraper container-fluid">
 
 		@include('includes.alert')

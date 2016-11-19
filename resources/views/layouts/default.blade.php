@@ -16,7 +16,7 @@
         </div>
 
 
-
+        <br><br>
          @yield('content')
 
          @include('includes.footer')

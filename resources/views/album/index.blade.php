@@ -3,10 +3,18 @@
 	@include('includes.alert')
 
 
-	<center><br><br>
+	<center>
 		<div class="album">
 			@foreach($albums as $album)
-				<a href="{!! route('album.search',$album->id) !!}"><button class="btn btn-default">{!! $album->album_title !!}</button></a>
+				@if(Route::currentRouteName() != 'album.index')
+					@if($album->id == $al->id )
+						<a href="{!! route('album.search',$album->id) !!}"><button class="btn btn-success">{!! $album->album_title !!}</button></a>
+				    @else
+						<a href="{!! route('album.search',$album->id) !!}"><button class="btn btn-default">{!! $album->album_title !!}</button></a>
+				    @endif
+				@else
+					<a href="{!! route('album.search',$album->id) !!}"><button class="btn btn-default">{!! $album->album_title !!}</button></a>
+				@endif
 			@endforeach
 		</div><br>
 		Photos From  <b>{!!  $al->album_title or ' All '  !!}</b> Album
@@ -34,8 +42,17 @@
 							@if(!empty(count($photos)))
 								@foreach($photos as $photo)
 
-									<img height="200" width="220" data-target="#myModal_{!!$photo->id!!}" data-toggle="modal" class="id_check"
-										 src='{!!asset($photo->album_photo)!!}' alt='' />
+
+									<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+										<div class="hovereffect">
+											<img class="img-responsive id_check" data-target="#myModal_{!!$photo->id!!}" data-toggle="modal"   height="200" width="220" src="{!!asset($photo->album_photo)!!}" alt="">
+											<div class="overlay">
+												<h2>Album - {!! $photo->album->album_title !!}</h2>
+												<a  data-target="#myModal_{!!$photo->id!!}" data-toggle="modal" class="info">Full View</a>
+											</div>
+										</div>
+									</div>
+
 
 									<!-- Modal -->
 									<div id="myModal_{!!$photo->id!!}" class="modal fade" role="dialog">
@@ -43,11 +60,12 @@
 											<!-- Modal content-->
 											<div class="modal-content" >
 												<center>
+													<br>
 													Album : {!! $photo->album->album_title !!}<br><br>
-													<img height="400" width="420" src='{!!asset($photo->album_photo)!!}' alt='' />
+													<img height="400" width="480" src='{!!asset($photo->album_photo)!!}' alt='' />
 												</center>
 												<div class="modal-footer">
-													<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+													<button type="button" class="btn btn-info btn-xs btn-archive" data-dismiss="modal">Close</button>
 													<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $photo->id !!}" >Delete</a>
 												</div>
 											</div>
@@ -143,6 +161,96 @@
 	<style>
 		#uploadPreview img{
 			height: 64px;
+		}
+
+		.hovereffect {
+			width: 100%;
+			height: 100%;
+			float: left;
+			overflow: hidden;
+			position: relative;
+			text-align: center;
+			cursor: default;
+		}
+
+		.hovereffect .overlay {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			overflow: hidden;
+			top: 0;
+			left: 0;
+			background-color: rgba(0,0,0,0.6);
+			opacity: 0;
+			filter: alpha(opacity=0);
+			-webkit-transform: translate(460px, -100px) rotate(180deg);
+			-ms-transform: translate(460px, -100px) rotate(180deg);
+			transform: translate(460px, -100px) rotate(180deg);
+			-webkit-transition: all 0.2s 0.4s ease-in-out;
+			transition: all 0.2s 0.4s ease-in-out;
+		}
+
+		.hovereffect img {
+			display: block;
+			position: relative;
+			-webkit-transition: all 0.2s ease-in;
+			transition: all 0.2s ease-in;
+		}
+
+		.hovereffect h2 {
+			text-transform: uppercase;
+			color: #fff;
+			text-align: center;
+			position: relative;
+			font-size: 17px;
+			padding: 10px;
+			background: rgba(0, 0, 0, 0.6);
+		}
+
+		.hovereffect a.info {
+			display: inline-block;
+			text-decoration: none;
+			padding: 7px 14px;
+			text-transform: uppercase;
+			color: #fff;
+			border: 1px solid #fff;
+			margin: 50px 0 0 0;
+			background-color: transparent;
+			-webkit-transform: translateY(-200px);
+			-ms-transform: translateY(-200px);
+			transform: translateY(-200px);
+			-webkit-transition: all 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out;
+		}
+
+		.hovereffect a.info:hover {
+			box-shadow: 0 0 5px #fff;
+		}
+
+		.hovereffect:hover .overlay {
+			opacity: 1;
+			filter: alpha(opacity=100);
+			-webkit-transition-delay: 0s;
+			transition-delay: 0s;
+			-webkit-transform: translate(0px, 0px);
+			-ms-transform: translate(0px, 0px);
+			transform: translate(0px, 0px);
+		}
+
+		.hovereffect:hover h2 {
+			-webkit-transform: translateY(0px);
+			-ms-transform: translateY(0px);
+			transform: translateY(0px);
+			-webkit-transition-delay: 0.5s;
+			transition-delay: 0.5s;
+		}
+
+		.hovereffect:hover a.info {
+			-webkit-transform: translateY(0px);
+			-ms-transform: translateY(0px);
+			transform: translateY(0px);
+			-webkit-transition-delay: 0.3s;
+			transition-delay: 0.3s;
 		}
 	</style>
 @stop

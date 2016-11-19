@@ -23,7 +23,7 @@ class AlbumController extends Controller
         $albums = Album::where('user_id',\Auth::user()->id)->get();
         $albumIds = Album::where('user_id',\Auth::user()->id)->lists('id','id');
         $photos = AlbumPhotos::whereIn('album_id',$albumIds)->get();
-        return view('album.index', compact('albums','photos'))->with('title',"Your Album");
+        return view('album.index', compact('albums','photos'))->with('title',"Your Albums");
     }
 
 
@@ -35,7 +35,7 @@ class AlbumController extends Controller
         //$albumIds = Album::where('id',$id)->first();
         $al = Album::findOrFail($id);
         $photos = AlbumPhotos::where('album_id',$id)->get();
-        return view('album.index', compact('albums','photos','al'))->with('title',"Your Album");
+        return view('album.index', compact('albums','photos','al'))->with('title','Album - '.$al->album_title);
     }
 
 
@@ -79,7 +79,8 @@ class AlbumController extends Controller
 
                     list($width, $height) = getimagesize($file);
                     $h = ($height/$width)*600;
-                    Image::make($file)->resize(600, $h)->save(public_path($img_url));
+               //     Image::make($file)->resize(600, $h)->save(public_path($img_url));
+                    Image::make($file)->save(public_path($img_url));
 
                     $albumFile = new AlbumPhotos();
                     $albumFile->album_id = $album->id;
@@ -88,7 +89,7 @@ class AlbumController extends Controller
                     $albumFile->save();
                 }
             }
-            return redirect()->route('album.index')->with('success', 'Resource Successfully Created');
+            return redirect()->route('album.index')->with('success', 'Album Successfully Created');
         }
         return redirect()->route('album.index')->with('error', 'Something went wrong');
     }
@@ -155,14 +156,15 @@ class AlbumController extends Controller
                 // Image::make($file)->crop(558, 221, 30, 30)->save(public_path($img_url));
                 list($width, $height) = getimagesize($file);
                 $h = ($height/$width)*600;
-                Image::make($file)->resize(600, $h)->save(public_path($img_url));
+               // Image::make($file)->resize(600, $h)->save(public_path($img_url));
+                Image::make($file)->save(public_path($img_url));
                 $albumFile = new AlbumPhotos();
                 $albumFile->album_id = $data['album_id'];
                 $albumFile->album_photo = $img_url;
                 $albumFile->album_photo_title = 'newImage-' . rand(11111, 99999) . rand(7889, 546678);
                 $albumFile->save();
             }
-            return redirect()->route('album.search', $data['album_id'])->with('success', 'Resource Successfully Created');
+            return redirect()->route('album.search', $data['album_id'])->with('success', 'Photos Successfully Updated');
 
         }else{
             return redirect()->route('album.search', $data['album_id'])->with('error', 'Something went wrong');
