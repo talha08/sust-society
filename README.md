@@ -34,6 +34,6 @@
 
 
 ### License
- 	Apache License
+ 	MIT License
 
 
