@@ -10,11 +10,11 @@
 					@if($album->id == $al->id )
 						<a href="{!! route('album.search',$album->id) !!}"><button class="btn btn-success">{!! $album->album_title !!}</button></a>
 				    @else
+
 						<a href="{!! route('album.search',$album->id) !!}"><button class="btn btn-default">{!! $album->album_title !!}</button></a>
 				    @endif
-				@else
-					<a href="{!! route('album.search',$album->id) !!}"><button class="btn btn-default">{!! $album->album_title !!}</button></a>
 				@endif
+					<a href="{!! route('album.search',$album->id) !!}"><button class="btn btn-default">{!! $album->album_title !!}</button></a>
 			@endforeach
 		</div><br>
 		Photos From  <b>{!!  $al->album_title or ' All '  !!}</b> Album
