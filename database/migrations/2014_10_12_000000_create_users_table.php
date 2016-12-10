@@ -18,6 +18,11 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password', 60);
             $table->rememberToken();
+
+            $table->integer('dept_id')->unsigned();
+            $table->foreign('dept_id')->references('id')->on('department')->onUpdate('cascade')->onDelete('cascade');
+
+
             $table->timestamps();
         });
     }

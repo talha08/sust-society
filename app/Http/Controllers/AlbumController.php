@@ -20,8 +20,8 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        $albums = Album::where('user_id',\Auth::user()->id)->get();
-        $albumIds = Album::where('user_id',\Auth::user()->id)->lists('id','id');
+        $albums = Album::where('dept_id',\Auth::user()->dept->id)->get();
+        $albumIds = Album::where('dept_id',\Auth::user()->dept->id)->lists('id','id');
         $photos = AlbumPhotos::whereIn('album_id',$albumIds)->get();
         return view('album.index', compact('albums','photos'))->with('title',"Your Albums");
     }
@@ -31,7 +31,7 @@ class AlbumController extends Controller
 
 
     public function search($id){
-        $albums = Album::where('user_id',\Auth::user()->id)->get();
+        $albums = Album::where('dept_id',\Auth::user()->dept->id)->get();
         //$albumIds = Album::where('id',$id)->first();
         $al = Album::findOrFail($id);
         $photos = AlbumPhotos::where('album_id',$id)->get();
@@ -60,7 +60,7 @@ class AlbumController extends Controller
         $data = $request->all();
 
         $album = new Album();
-        $album->user_id = \Auth::user()->id;
+        $album->dept_id = $request->dept_id;
         $album->album_title = $data['album_title'];
         $album->album_details = $data['album_details'];
         if($album->save()){

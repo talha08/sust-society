@@ -10,11 +10,11 @@
 					@if($album->id == $al->id )
 						<a href="{!! route('album.search',$album->id) !!}"><button class="btn btn-success">{!! $album->album_title !!}</button></a>
 				    @else
-
 						<a href="{!! route('album.search',$album->id) !!}"><button class="btn btn-default">{!! $album->album_title !!}</button></a>
 				    @endif
-				@endif
+				@else
 					<a href="{!! route('album.search',$album->id) !!}"><button class="btn btn-default">{!! $album->album_title !!}</button></a>
+				@endif
 			@endforeach
 		</div><br>
 		Photos From  <b>{!!  $al->album_title or ' All '  !!}</b> Album
@@ -45,7 +45,7 @@
 
 									<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
 										<div class="hovereffect">
-											<img class="img-responsive id_check" data-target="#myModal_{!!$photo->id!!}" data-toggle="modal"   height="200" width="220" src="{!!asset($photo->album_photo)!!}" alt="">
+											<img class="img-responsive id_check test" data-target="#myModal_{!!$photo->id!!}" data-toggle="modal"   height="200" width="220" src="{!!asset($photo->album_photo)!!}" alt="">
 											<div class="overlay">
 												<h2>Album - {!! $photo->album->album_title !!}</h2>
 												<a  data-target="#myModal_{!!$photo->id!!}" data-toggle="modal" class="info">Full View</a>
@@ -159,6 +159,11 @@
 @section('style')
 
 	<style>
+
+		.test{
+			height: 200px;
+			width: 300px;
+		}
 		#uploadPreview img{
 			height: 64px;
 		}

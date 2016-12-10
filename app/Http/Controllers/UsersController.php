@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Profile;
 use Illuminate\Http\Request;
 use App\User;
 use Validator;
@@ -59,7 +60,9 @@ class UsersController extends Controller
             $user->email = $data['email'];
             $user->password = Hash::make($data['password']);
 
+
             if($user->save()){
+
                 Auth::logout();
                 return redirect()->route('login')
                             ->with('success','Registered successfully. Sign In Now.');

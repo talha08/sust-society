@@ -15,6 +15,8 @@ class CreateDepartmentTable extends Migration
         Schema::create('department', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('logo_path')->default('upload/logo.png');
             $table->timestamps();
         });
     }

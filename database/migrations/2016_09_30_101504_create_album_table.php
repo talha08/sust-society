@@ -12,7 +12,10 @@ class CreateAlbumTable extends Migration
             $table->string('album_title')->nullable();
             $table->integer('user_id')->unsigned();
             $table->text('album_details')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->integer('dept_id')->unsigned();
+            $table->foreign('dept_id')->references('id')->on('department')->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

@@ -55,6 +55,7 @@
 									<div id="uploadPreview"></div><br><br>
 
 
+									{!! Form::hidden('dept_id', \Auth::user()->dept->id) !!}
 									<div class="form-group">
 										{!! Form::submit('Create Album', array('class' => 'btn btn-primary')) !!}
 									</div>

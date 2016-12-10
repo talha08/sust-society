@@ -23,11 +23,6 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::post('user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
 	Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
 
-
-	// social login route
-	Route::get('login/fb', ['as'=>'login/fb','uses' => 'SocialController@loginWithFacebook']);
-	Route::get('login/gp', ['as'=>'login/gp','uses' => 'SocialController@loginWithGoogle']);
-
 });
 
 
@@ -43,7 +38,7 @@ Route::group(array('middleware' => 'auth'), function()
 
 
 
-	//Image
+	//Album Section
 	Route::get('album', array('as' => 'album.index', 'uses' => 'AlbumController@index'));
 	Route::get('album/search/{id}', array('as' => 'album.search', 'uses' => 'AlbumController@search'));
 	Route::get('album/create', ['as'=>'album.create','uses' => 'AlbumController@create']);
@@ -52,6 +47,31 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::post('album/update', array('as' => 'album.update', 'uses' => 'AlbumController@updateAlbumImage'));
 	//Route::delete('album/{id}', array('as' => 'album.delete', 'uses' => 'AlbumController@destroy'));
 	Route::delete('album/{id}', array('as' => 'photo.delete', 'uses' => 'AlbumController@photoDestroy'));
+
+
+
+	//event section  complete
+	Route::get('event/status/{id}', array('as' => 'event.status', 'uses' => 'EventController@statusUpdate'));
+	Route::get('event', array('as' => 'event.index', 'uses' => 'EventController@index'));
+	Route::get('event/create', array('as' => 'event.create', 'uses' => 'EventController@create'));
+	Route::post('event', array('as' => 'event.store', 'uses' => 'EventController@store'));
+	Route::get('event/{id}/edit', array('as' => 'event.edit', 'uses' => 'EventController@edit'));
+	Route::put('event/{id}/update', array('as' => 'event.update', 'uses' => 'EventController@update'));
+	Route::delete('event/{id}', array('as' => 'event.delete', 'uses' => 'EventController@destroy'));
+
+	Route::get('event-file-upload', array('as' => 'event.eventFileUpload', 'uses' => 'EventController@fileUploadView')); //file upload dropdown view
+	Route::post('eventFileUpload', array('as' => 'event.upload', 'uses' => 'EventController@fileUpload')); //file upload from dropdown event
+	Route::post('singleFileUpload', array('as' => 'event.singleUpload', 'uses' => 'EventController@singleFileUpload')); //for modal file upload
+
+
+
+	//Society section  complete
+	Route::get('society', array('as' => 'department.index', 'uses' => 'DepartmentController@index'));
+	Route::get('society/create', array('as' => 'department.create', 'uses' => 'DepartmentController@create'));
+	Route::post('society', array('as' => 'department.store', 'uses' => 'DepartmentController@store'));
+	Route::get('society/{id}/edit', array('as' => 'department.edit', 'uses' => 'DepartmentController@edit'));
+	Route::put('society/{id}/update', array('as' => 'department.update', 'uses' => 'DepartmentController@update'));
+	Route::delete('society/{id}', array('as' => 'department.delete', 'uses' => 'DepartmentController@destroy'));
 
 
 });
