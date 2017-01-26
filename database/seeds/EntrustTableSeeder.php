@@ -14,12 +14,16 @@ class EntrustTableSeeder extends Seeder
     public function run()
     {
         $admin = Role::where('name',config('customConfig.roles.admin'))->first();
-        $user = Role::where('name',config('customConfig.roles.user'))->first();
+        $teacher = Role::where('name',config('customConfig.roles.teacher'))->first();
+        $student = Role::where('name',config('customConfig.roles.student'))->first();
+
         $adminUser = User::first();
         $adminUser->attachRole($admin);
+
+
         $getAllusers = User::all();
         foreach ($getAllusers as $person) {
-            $person->attachRole($user);
+            $person->attachRole($student);
         }
     }
 }

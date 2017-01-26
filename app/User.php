@@ -53,5 +53,9 @@ class User extends Model implements AuthenticatableContract,
         return $this->belongsTo('App\Department','dept_id','id');
     }
 
+    public function committeMemberlist(){
+        return $this->hasMany('App\CommitteeMemberList','committee_member_list','id');
+    }
+
 
 }

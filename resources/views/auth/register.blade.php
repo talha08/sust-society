@@ -11,6 +11,7 @@
     {!! Html::style('css/style.css') !!}
     {!! Html::style('css/plugins/bootstrapSocial/bootstrap-social.css') !!}
             <!-- Toastr style -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     {!! Html::style('css/plugins/toastr/toastr.min.css') !!}
 </head>
 <body class="gray-bg">
@@ -39,6 +40,10 @@
                 @include('includes.alert')
                 {!! Form::open(array('route' => 'user.store', 'method' => 'post', 'class' => 'form-signin')) !!}
 
+                <div class="form-group">
+                    {!!Form::select('dept_id', $dept_id, '',array('class' => 'select2', 'autofocus'))!!}
+                </div><br/>
+
                 <div class="form-group ">
                         {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Full Name', 'autofocus', 'required')) !!}
                 </div>
@@ -46,6 +51,7 @@
                 <div class="form-group ">
                         {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus', 'required')) !!}
                 </div>
+
 
                 <div class="form-group ">
                         {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password', 'required')) !!}
@@ -87,8 +93,44 @@
 {!! Html::script('js/jquery-2.1.1.js') !!}
 {!! Html::script('js/bootstrap.min.js') !!}
         <!-- toastr -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 {!! Html::script('js/plugins/toastr/toastr.min.js') !!}
 @include('includes.toastr')
+
+    <script type="text/javascript">
+
+            jQuery(document).ready(function() {
+
+
+
+
+                $('.summernote').summernote({
+                    height: 200,                 // set editor height
+
+                    minHeight: null,             // set minimum height of editor
+                    maxHeight: null,             // set maximum height of editor
+
+                    focus: true                 // set focus to editable area after initializing summernote
+                });
+
+
+                // Date Picker
+                jQuery('#datepicker').datepicker();
+                jQuery('#datepicker2').datepicker();
+
+                // Time Picker
+                jQuery('#timepicker3').timepicker({minuteStep: 15});
+
+
+            });
+
+    $(".select2").select2({
+        width: '100%',
+        theme: "classic"
+    });
+
+</script>
+
 
 </body>
 </html>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
 use App\Profile;
 use Illuminate\Http\Request;
 use App\User;
@@ -30,7 +31,9 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('auth.register')
+        $dept_id = Department::lists('name','id');
+
+        return view('auth.register',compact('dept_id'))
                     ->with('title', 'Register');
     }
 
@@ -46,7 +49,8 @@ class UsersController extends Controller
             'name'                  => 'required',
             'email'                 => 'required|unique:users,email',
             'password'              => 'required|confirmed',
-            'password_confirmation' => 'required'
+            'password_confirmation' => 'required',
+            'dept_id'               => 'required'
         ];
         $data = $request->all();
 
@@ -58,10 +62,19 @@ class UsersController extends Controller
             $user = new User;
             $user->name = $data['name'];
             $user->email = $data['email'];
+            $user->dept_id = $data['dept_id'];
             $user->password = Hash::make($data['password']);
 
-
             if($user->save()){
+
+//                if($data['user_type']== 2){
+//                    $role = Role::find(2);  //role attach 2 that means teacher
+//                    $user->attachRole($role);
+//                }else if($data['user_type']==3){
+//                    $role = Role::find(3);  //role attach 1 that means sudent
+//                    $user->attachRole($role);
+//                }
+//
 
                 Auth::logout();
                 return redirect()->route('login')
@@ -72,6 +85,7 @@ class UsersController extends Controller
             }
         }
     }
+
 
     /**
      * Display the profile Info.
@@ -84,6 +98,8 @@ class UsersController extends Controller
          return view('auth.profile')
                     ->with('title', 'Profile')->with('user', Auth::user());
     }
+
+
     /**
      * Display the specified resource.
      *

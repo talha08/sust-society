@@ -19,4 +19,8 @@ class Department extends Model
     public function album(){
         return $this->hasMany('App\Album','dept_id','id');
     }
+
+    public function committee(){
+        return $this->hasMany('App\Committee','dept_id','id');
+    }
 }

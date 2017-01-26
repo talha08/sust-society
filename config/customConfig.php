@@ -6,8 +6,8 @@ return [
     ],
     'roles' =>[
         'admin' => 'Admin',
-        'user' => 'User'
-
+        'teacher' => 'Teacher',
+        'student' => 'Student'
     ]
 ];
 

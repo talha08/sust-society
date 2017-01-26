@@ -74,6 +74,15 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::delete('society/{id}', array('as' => 'department.delete', 'uses' => 'DepartmentController@destroy'));
 
 
+	//Society section  complete
+	Route::get('society', array('as' => 'department.index', 'uses' => 'DepartmentController@index'));
+	Route::get('society/create', array('as' => 'department.create', 'uses' => 'DepartmentController@create'));
+	Route::post('society', array('as' => 'department.store', 'uses' => 'DepartmentController@store'));
+	Route::get('society/{id}/edit', array('as' => 'department.edit', 'uses' => 'DepartmentController@edit'));
+	Route::put('society/{id}/update', array('as' => 'department.update', 'uses' => 'DepartmentController@update'));
+	Route::delete('society/{id}', array('as' => 'department.delete', 'uses' => 'DepartmentController@destroy'));
+
+
 });
 
 

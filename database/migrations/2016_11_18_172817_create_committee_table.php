@@ -16,8 +16,8 @@ class CreateCommitteeTable extends Migration
             $table->increments('id');
             $table->string('year');
             $table->boolean('is_current');
-            $table->integer('department_id')->unsigned();
-            $table->foreign('department_id')->references('id')->on('department')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('dept_id')->unsigned();
+            $table->foreign('dept_id')->references('id')->on('department')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });
