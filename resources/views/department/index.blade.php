@@ -34,12 +34,11 @@
 										@foreach ($departments as $department)
 											<tr>
 												<td>{!! $department->id !!}</td>
-												<td> <a data-toggle="modal" style="color: teal;" data-target="#myModal_{{$department->id}}" >{!!  Str::limit($department->name,30) !!}</a></td>
+												<td> <a data-toggle="modal" style="color: teal;" data-target="#myModal_{{$department->id}}" >{!! str_limit($department->name,30) !!}</a></td>
 												<td>{!! str_limit($department->description,100) !!}</td>
 												<td>
-												     <a data-toggle="modal" class="btn btn-success btn-xs btn-archive Editbtn" data-target="#myDataModal_{{$department->id}}" ><i class="ion-upload" aria-hidden="true"></i></a>
-													<a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('description.edit',$department->id)!!}"  style="margin-right: 3px;"><i class="ion-compose" aria-hidden="true"></i></a>
-													<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn"  data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $department->id!!}"><i class="ion-trash-a" aria-hidden="true"></i></a>
+													<a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('department.edit',$department->id)!!}"  style="margin-right: 3px;"><i class="fa fa-edit" aria-hidden="true"></i></a>
+													<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn"  data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $department->id!!}"><i class="fa fa-trash" aria-hidden="true"></i></a>
 												</td>
 											</tr>
 
@@ -59,9 +58,10 @@
 															<div class="modal-body" >
 
 																<center>
-																	<img src="{!! assets($department->logo_path)!!}" alt="Test Image" />
+																	<img src="{!! ($department->logo_path)!!}" alt="Test Image" />
+																<br><br>
+																<p><b></b>{{ $department->description}}</p><br/>
 																</center>
-																<p><b>Start Time: </b>{{ $department->description}}</p><br/>
 
 															</div>
 														</center>
