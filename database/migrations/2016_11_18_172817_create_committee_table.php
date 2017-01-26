@@ -15,7 +15,7 @@ class CreateCommitteeTable extends Migration
         Schema::create('committee', function (Blueprint $table) {
             $table->increments('id');
             $table->string('year');
-            $table->boolean('is_current');
+            $table->string('is_current');
             $table->integer('dept_id')->unsigned();
             $table->foreign('dept_id')->references('id')->on('department')->onUpdate('cascade')->onDelete('cascade');
 

@@ -74,13 +74,22 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::delete('society/{id}', array('as' => 'department.delete', 'uses' => 'DepartmentController@destroy'));
 
 
-	//Society section  complete
-	Route::get('society', array('as' => 'department.index', 'uses' => 'DepartmentController@index'));
-	Route::get('society/create', array('as' => 'department.create', 'uses' => 'DepartmentController@create'));
-	Route::post('society', array('as' => 'department.store', 'uses' => 'DepartmentController@store'));
-	Route::get('society/{id}/edit', array('as' => 'department.edit', 'uses' => 'DepartmentController@edit'));
-	Route::put('society/{id}/update', array('as' => 'department.update', 'uses' => 'DepartmentController@update'));
-	Route::delete('society/{id}', array('as' => 'department.delete', 'uses' => 'DepartmentController@destroy'));
+	//Committee
+	Route::get('committee', array('as' => 'committee.index', 'uses' => 'CommitteeController@index'));
+	Route::get('committee/create', array('as' => 'committee.create', 'uses' => 'CommitteeController@create'));
+	Route::post('committee', array('as' => 'committee.store', 'uses' => 'CommitteeController@store'));
+	Route::get('committee/{id}/edit', array('as' => 'committee.edit', 'uses' => 'CommitteeController@edit'));
+	Route::put('committee/{id}/update', array('as' => 'committee.update', 'uses' => 'CommitteeController@update'));
+	Route::delete('committee/{id}', array('as' => 'committee.delete', 'uses' => 'CommitteeController@destroy'));
+
+
+	//Committee Member Type
+	Route::get('committeeMemberType', array('as' => 'committeeMemberType.index', 'uses' => 'CommitteeMemberTypeController@index'));
+	Route::get('committeeMemberType/create', array('as' => 'committeeMemberType.create', 'uses' => 'CommitteeMemberTypeController@create'));
+	Route::post('committeeMemberType', array('as' => 'committeeMemberType.store', 'uses' => 'CommitteeMemberTypeController@store'));
+	Route::get('committeeMemberType/{id}/edit', array('as' => 'committeeMemberType.edit', 'uses' => 'CommitteeMemberTypeController@edit'));
+	Route::put('committeeMemberType/{id}/update', array('as' => 'committeeMemberType.update', 'uses' => 'CommitteeMemberTypeController@update'));
+	Route::delete('committeeMemberType/{id}', array('as' => 'committeeMemberType.delete', 'uses' => 'CommitteeMemberTypeController@destroy'));
 
 
 });
