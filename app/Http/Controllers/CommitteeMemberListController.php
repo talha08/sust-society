@@ -1,0 +1,148 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
+class CommitteeMemberListController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        if(\Auth::user()->id ==1){
+            $committees = Committee::orderBy('id', 'desc')->get();
+        }
+        else{
+            $committees = Committee::orderBy('id', 'desc')->where('dept_id',\Auth::user()->dept->id)->get();
+        }
+        return view('committee.index', compact('committees'))->with('title',"Committee List");
+    }
+
+
+
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $is_current = [
+            'Running' => 'Running Committee',
+            'Previous' => 'Previous Committee'
+        ];
+        $departments = Department::lists('name','id');
+        return view('committee.create', compact('departments','is_current'))->with('title',"Create New Committee");
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $request)
+    {
+        $committee = new Committee();
+        $committee->year = $request->year;
+        $committee->is_current = $request->is_current;
+        if(\Auth::user()->id ==1){
+            $committee->dept_id = $request->dept_id;
+        }else{
+            $committee->dept_id = \Auth::user()->dept->id;
+        }
+
+
+        if($committee->save()) {
+            return redirect()->back()->with('success', 'Committee Successfully Created!');
+        }
+        else{
+            return redirect()->back()->with('error', 'Something went wrong please try again!');
+        }
+
+    }
+
+
+
+
+
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $is_current = [
+            'Running' => 'Running Committee',
+            'Previous' => 'Previous Committee'
+        ];
+        $departments = Department::lists('name','id');
+        $committee = Committee::findOrFail($id);
+        return view('committee.edit', compact('departments','committee','is_current'))->with('title',"Edit Committee");
+    }
+
+
+
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request, $id)
+    {
+        $committee = Committee::findOrFail($id);
+        $committee->year = $request->year;
+        $committee->is_current = $request->is_current;
+        if(\Auth::user()->id ==1){
+            $committee->dept_id = $request->dept_id;
+        }else{
+            $committee->dept_id = \Auth::user()->dept->id;
+        }
+
+        if($committee->save()) {
+            return redirect()->back()->with('success', 'Committee Successfully Updated!');
+        }
+        else{
+            return redirect()->back()->with('error', 'Something went wrong please try again!');
+        }
+
+    }
+
+
+
+
+
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        Committee::destroy($id);
+        return redirect()->route('committee.index')->with('success',"Committee Successfully deleted");
+    }
+
+
+
+}

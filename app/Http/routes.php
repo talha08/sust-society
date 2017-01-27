@@ -92,6 +92,16 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::delete('committeeMemberType/{id}', array('as' => 'committeeMemberType.delete', 'uses' => 'CommitteeMemberTypeController@destroy'));
 
 
+	//Committee Member List
+	Route::get('committeeMemberList', array('as' => 'committeeMemberList.index', 'uses' => 'CommitteeMemberListController@index'));
+	Route::get('committeeMemberList/create', array('as' => 'committeeMemberList.create', 'uses' => 'CommitteeMemberListController@create'));
+	Route::post('committeeMemberList', array('as' => 'committeeMemberList.store', 'uses' => 'CommitteeMemberListController@store'));
+	Route::get('committeeMemberList/{id}/edit', array('as' => 'committeeMemberList.edit', 'uses' => 'CommitteeMemberListController@edit'));
+	Route::put('committeeMemberList/{id}/update', array('as' => 'committeeMemberList.update', 'uses' => 'CommitteeMemberListController@update'));
+	Route::delete('committeeMemberList/{id}', array('as' => 'committeeMemberList.delete', 'uses' => 'CommitteeMemberListController@destroy'));
+
+
+
 });
 
 
