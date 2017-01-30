@@ -82,6 +82,8 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::put('committee/{id}/update', array('as' => 'committee.update', 'uses' => 'CommitteeController@update'));
 	Route::delete('committee/{id}', array('as' => 'committee.delete', 'uses' => 'CommitteeController@destroy'));
 
+	Route::get('committee/{id}/show', array('as' => 'committee.show', 'uses' => 'CommitteeController@show'));
+
 
 	//Committee Member Type
 	Route::get('committeeMemberType', array('as' => 'committeeMemberType.index', 'uses' => 'CommitteeMemberTypeController@index'));

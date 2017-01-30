@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Committee;
+use App\CommitteeMemberList;
+use App\CommitteeMemberType;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -9,6 +13,7 @@ use App\Http\Controllers\Controller;
 
 class CommitteeMemberListController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -16,13 +21,10 @@ class CommitteeMemberListController extends Controller
      */
     public function index()
     {
-        if(\Auth::user()->id ==1){
-            $committees = Committee::orderBy('id', 'desc')->get();
-        }
-        else{
-            $committees = Committee::orderBy('id', 'desc')->where('dept_id',\Auth::user()->dept->id)->get();
-        }
-        return view('committee.index', compact('committees'))->with('title',"Committee List");
+        
+        $committee = Committee::where('dept_id', \Auth::user()->dept_id)->lists('id','id');
+        $comLists = CommitteeMemberList::whereIn('committee_id',$committee )->orderBy('id', 'desc')->get();
+        return view('committeeMemberList.index', compact('comLists'))->with('title',"Committee Member List ");
     }
 
 
@@ -35,12 +37,10 @@ class CommitteeMemberListController extends Controller
      */
     public function create()
     {
-        $is_current = [
-            'Running' => 'Running Committee',
-            'Previous' => 'Previous Committee'
-        ];
-        $departments = Department::lists('name','id');
-        return view('committee.create', compact('departments','is_current'))->with('title',"Create New Committee");
+        $type = CommitteeMemberType::lists('name','id');
+        $com = Committee::where('dept_id', \Auth::user()->dept_id)->lists('year','id');
+        $user = User::where('dept_id', \Auth::user()->dept_id)->lists('name','id');
+        return view('committeeMemberList.create', compact('user','type','com'))->with('title',"Create New Committee Member");
     }
 
 
@@ -52,17 +52,11 @@ class CommitteeMemberListController extends Controller
      */
     public function store(Request $request)
     {
-        $committee = new Committee();
-        $committee->year = $request->year;
-        $committee->is_current = $request->is_current;
-        if(\Auth::user()->id ==1){
-            $committee->dept_id = $request->dept_id;
-        }else{
-            $committee->dept_id = \Auth::user()->dept->id;
-        }
-
-
-        if($committee->save()) {
+        $com = new CommitteeMemberList();
+        $com->user_id = $request->user_id;
+        $com->committee_id = $request->committee_id;
+        $com->member_type_id = $request->member_type_id;
+        if($com->save()){
             return redirect()->back()->with('success', 'Committee Successfully Created!');
         }
         else{
@@ -85,13 +79,11 @@ class CommitteeMemberListController extends Controller
      */
     public function edit($id)
     {
-        $is_current = [
-            'Running' => 'Running Committee',
-            'Previous' => 'Previous Committee'
-        ];
-        $departments = Department::lists('name','id');
-        $committee = Committee::findOrFail($id);
-        return view('committee.edit', compact('departments','committee','is_current'))->with('title',"Edit Committee");
+        $type = CommitteeMemberType::lists('name','id');
+        $com = Committee::where('dept_id', \Auth::user()->dept_id)->lists('year','id');
+        $user = User::where('dept_id', \Auth::user()->dept_id)->lists('name','id');
+        $comList = CommitteeMemberList::findOrFail($id);
+        return view('committeeMemberList.edit', compact('com','user','type','comList'))->with('title',"Edit Committee");
     }
 
 
@@ -107,16 +99,11 @@ class CommitteeMemberListController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $committee = Committee::findOrFail($id);
-        $committee->year = $request->year;
-        $committee->is_current = $request->is_current;
-        if(\Auth::user()->id ==1){
-            $committee->dept_id = $request->dept_id;
-        }else{
-            $committee->dept_id = \Auth::user()->dept->id;
-        }
-
-        if($committee->save()) {
+        $com =  CommitteeMemberList::findOrFail($id);
+        $com->user_id = $request->user_id;
+        $com->committee_id = $request->committee_id;
+        $com->member_type_id = $request->member_type_id;
+        if($com->save()) {
             return redirect()->back()->with('success', 'Committee Successfully Updated!');
         }
         else{
@@ -139,8 +126,8 @@ class CommitteeMemberListController extends Controller
      */
     public function destroy($id)
     {
-        Committee::destroy($id);
-        return redirect()->route('committee.index')->with('success',"Committee Successfully deleted");
+        CommitteeMemberList::destroy($id);
+        return redirect()->route('committeeMemberList.index')->with('success',"Committee Member List Successfully deleted");
     }
 
 

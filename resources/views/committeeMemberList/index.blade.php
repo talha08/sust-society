@@ -14,7 +14,7 @@
 						<div class="panel-heading">
 							<h3 class="panel-title">{!!$title!!}</h3>
 							<span class="pull-right">
-								   <a href="{!! route('committee.create')!!}"><button class="btn btn-success">Create New Committee</button></a>
+								   <a href="{!! route('committeeMemberList.create')!!}"><button class="btn btn-success">Create New Committee List</button></a>
 							</span>
 						</div><br>
 
@@ -28,55 +28,24 @@
 										<thead>
 										<tr>
 											<th>id</th>
-											<th>Society</th>
 											<th>Year</th>
-											<th>Status</th>
+											<th>Type</th>
+											<th>Name</th>
 											<th>Actions</th>
 										</tr>
 										</thead>
 										<tbody>
-										@foreach ($committees as $committee)
+										@foreach ($comLists as $com)
 											<tr>
-												<td>{!! $committee->id !!}</td>
-												<td> <a data-toggle="modal" style="color: teal;" data-target="#myModal_{{$committee->id}}" >{!! $committee->year  !!}</a></td>
-												<td>{!!$committee->department->name !!}</td>
-												<td>{!!$committee->is_current !!}</td>
+												<td>{!! $com->id !!}</td>
+												<td>{!!$com->committee->year !!}</td>
+												<td>{!!$com->committeMemberType->name !!}</td>
+												<td>{!!$com->user->name !!}</td>
 												<td>
-													<a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('committee.edit',$committee->id)!!}"  style="margin-right: 3px;"><i class="fa fa-edit" aria-hidden="true"></i></a>
-													<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn"  data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $committee->id!!}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+													<a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('committeeMemberList.edit',$com->id)!!}"  style="margin-right: 3px;"><i class="fa fa-edit" aria-hidden="true"></i></a>
+													<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn"  data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $com->id!!}"><i class="fa fa-trash" aria-hidden="true"></i></a>
 												</td>
 											</tr>
-
-											<!-- Details View Modal -->
-											<div id="myModal_{{$committee->id}}" class="modal fade" role="dialog">
-												<div class="modal-dialog">
-													<!-- Modal content-->
-													<div class="modal-content" >
-														<center>
-															<div class="modal-header">
-																<button type="button" class="close" data-dismiss="modal">&times;</button>
-																<h4 class="modal-title">
-																	<br/><br/>
-																	<h2>{{ $committee->year}}</h2>
-																</h4>
-															</div>
-															<div class="modal-body" >
-
-																<center>
-																	<img src="{!! $committee->department->logo_path !!}" alt="Test Image" />
-																<br><br>
-																<p><b></b>{{ $committee->is_current}}</p><br/>
-																</center>
-
-															</div>
-														</center>
-														<div class="modal-footer">
-															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!--modal -->
 
 
 
@@ -109,7 +78,7 @@
 					Are you sure to delete?
 				</div>
 				<div class="modal-footer">
-					{!! Form::open(array('route' => array('committee.delete', 0), 'method'=> 'delete', 'class' => 'deleteForm')) !!}
+					{!! Form::open(array('route' => array('committeeMemberList.delete', 0), 'method'=> 'delete', 'class' => 'deleteForm')) !!}
 					<button type="button" class="btn btn-info" data-dismiss="modal">No</button>
 					{!! Form::submit('Yes, Delete', array('class' => 'btn btn-danger')) !!}
 					{!! Form::close() !!}
@@ -154,7 +123,7 @@
 			/* do not add datatable method/function here , its always loaded from footer -- masiur */
 			$(document).on("click", ".deleteBtn", function() {
 				var deleteId = $(this).attr('deleteId');
-				var url = "<?php echo URL::route('committee.index'); ?>";
+				var url = "<?php echo URL::route('committeeMemberList.index'); ?>";
 				$(".deleteForm").attr("action", url+'/'+deleteId);
 			});
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Department;
 use App\Profile;
+use App\Role;
 use Illuminate\Http\Request;
 use App\User;
 use Validator;
@@ -31,9 +32,14 @@ class UsersController extends Controller
      */
     public function create()
     {
+        $user_type= [
+            '2' => 'Faculty Member',
+            '3' => 'Student',
+
+        ];
         $dept_id = Department::lists('name','id');
 
-        return view('auth.register',compact('dept_id'))
+        return view('auth.register',compact('dept_id','user_type'))
                     ->with('title', 'Register');
     }
 
@@ -67,14 +73,22 @@ class UsersController extends Controller
 
             if($user->save()){
 
-//                if($data['user_type']== 2){
-//                    $role = Role::find(2);  //role attach 2 that means teacher
-//                    $user->attachRole($role);
-//                }else if($data['user_type']==3){
-//                    $role = Role::find(3);  //role attach 1 that means sudent
-//                    $user->attachRole($role);
-//                }
-//
+                if($data['user_type']== 2){
+                    $role = Role::find(2);  //role attach 2 that means teacher
+                    $user->attachRole($role);
+                }else if($data['user_type']==3){
+                    $role = Role::find(3);  //role attach 1 that means sudent
+                    $user->attachRole($role);
+                }
+
+                $profile = new Profile();
+                $profile->user_id = $user->id;
+                if($data['user_type']== 2){
+                    $profile->designation = 'Student';
+                }else if($data['user_type']==3){
+                    $profile->designation = 'Faculty';
+                }
+                $profile->save();
 
                 Auth::logout();
                 return redirect()->route('login')

@@ -38,7 +38,7 @@
 										@foreach ($committees as $committee)
 											<tr>
 												<td>{!! $committee->id !!}</td>
-												<td> <a data-toggle="modal" style="color: teal;" data-target="#myModal_{{$committee->id}}" >{!! $committee->year  !!}</a></td>
+												<td> <a href="{!!route('committee.show',$committee->id)!!}" >{!! $committee->year  !!}</a></td>
 												<td>{!!$committee->department->name !!}</td>
 												<td>{!!$committee->is_current !!}</td>
 												<td>

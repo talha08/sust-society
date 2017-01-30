@@ -41,7 +41,12 @@
                 {!! Form::open(array('route' => 'user.store', 'method' => 'post', 'class' => 'form-signin')) !!}
 
                 <div class="form-group">
-                    {!!Form::select('dept_id', $dept_id, '',array('class' => 'select2', 'autofocus'))!!}
+                    {!!Form::select('dept_id', $dept_id, '',array('class' => 'select2', 'autofocus','placeholder' => 'Select Society ....',))!!}
+                </div><br/>
+
+
+                <div class="form-group">
+                    {!!Form::select('user_type', $user_type, '',array('class' => 'select2', 'autofocus','placeholder' => 'Select Your Designation...',))!!}
                 </div><br/>
 
                 <div class="form-group ">
@@ -61,7 +66,7 @@
                         {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm Password', 'required')) !!}
                 </div>
 
-                {!! Form::submit('Log in', array('class' => 'btn btn-primary block full-width m-b', 'type'=>'submit')) !!}
+                {!! Form::submit('Create Account', array('class' => 'btn btn-primary block full-width m-b', 'type'=>'submit')) !!}
 
 
 

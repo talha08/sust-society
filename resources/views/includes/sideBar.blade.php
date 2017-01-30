@@ -73,12 +73,48 @@
 
 
 
-            <li>
-                <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a>
+            <li class="{!! Menu::areActiveRoutes(['committee.index', 'committee.create']) !!}">
+                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Committee</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="{!! Menu::isActiveRoute('committee.index') !!}">
+                        <a href="{!!  URL::route( 'committee.index') !!}">Committee</a>
+                    </li>
+
+                    <li class="{!! Menu::isActiveRoute('committee.create') !!}">
+                        <a href="{!!  URL::route( 'committee.create') !!}">Create New Committee</a>
+                    </li>
+                </ul>
             </li>
 
 
 
+            <li class="{!! Menu::areActiveRoutes(['committeeMemberType.index', 'committeeMemberType.create']) !!}">
+                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Member Type</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="{!! Menu::isActiveRoute('committeeMemberType.index') !!}">
+                        <a href="{!!  URL::route( 'committeeMemberType.index') !!}">Member Type</a>
+                    </li>
+
+                    <li class="{!! Menu::isActiveRoute('committeeMemberType.create') !!}">
+                        <a href="{!!  URL::route( 'committeeMemberType.create') !!}">Create New Type</a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="{!! Menu::areActiveRoutes(['committeeMemberList.index', 'committeeMemberList.create']) !!}">
+                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Member List</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="{!! Menu::isActiveRoute('committeeMemberList.index') !!}">
+                        <a href="{!!  URL::route( 'committeeMemberList.index') !!}">Committee Member List</a>
+                    </li>
+
+                    <li class="{!! Menu::isActiveRoute('committeeMemberList.create') !!}">
+                        <a href="{!!  URL::route( 'committeeMemberList.create') !!}">Create New List</a>
+                    </li>
+                </ul>
+            </li>
 
 
 

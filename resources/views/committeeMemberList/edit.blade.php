@@ -28,24 +28,22 @@
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="panel-body">
 
-									{!!Form::model($committee,['route' => ['committee.update',$committee->id], 'method' => 'put' ])!!}
-
-									@if(Auth::user()->id ==1)
-										<div class="form-group">
-											{!! Form::label('dept_id', 'Department Name :', array('class' => 'control-label')) !!}<br/>
-											{!!Form::select('dept_id', $departments, null,array('class' => 'select2', 'autofocus'))!!}
-										</div><br/>
-									@endif
+									{!!Form::model($comList,['route' => ['committeeMemberList.update',$comList->id], 'method' => 'put' ])!!}
 
 									<div class="form-group">
-										{!! Form::label('year', 'Committee Year :', array('class' => 'control-label')) !!}<br/>
-										{!! Form::selectYear('year', 2013, 2019,null ,array('class' => 'select2', 'autofocus'))!!}
+										{!! Form::label('committee_id', 'Committee Year :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::select('committee_id', $com, '',array('class' => 'select2', 'autofocus'))!!}
 									</div><br/>
 
 
 									<div class="form-group">
-										{!! Form::label('is_current', 'Status :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::select('is_current', $is_current, null,array('class' => 'select2', 'autofocus'))!!}
+										{!! Form::label('member_type_id', 'Member Type :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::select('member_type_id', $type, '',array('class' => 'select2', 'autofocus'))!!}
+									</div><br/>
+
+									<div class="form-group">
+										{!! Form::label('user_id', 'Member Name :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::select('user_id', $user, '',array('class' => 'select2', 'autofocus'))!!}
 									</div><br/>
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Committee;
+use App\CommitteeMemberList;
 use App\Department;
 use Illuminate\Http\Request;
 
@@ -76,6 +77,17 @@ class CommitteeController extends Controller
 
 
 
+
+    public function show($id){
+
+         $comLists = CommitteeMemberList::where('committee_id',$id )->get();
+
+        //for committee Year
+         $first1 = $comLists->first();
+         $year= $first1->committee->year;
+
+        return view('committee.show', compact('comLists'))->with('title',"Committee - ". $year);
+    }
 
 
 
