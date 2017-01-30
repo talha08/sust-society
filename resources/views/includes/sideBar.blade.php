@@ -4,11 +4,12 @@
             <li class="nav-header">
                 <div class="dropdown profile-element">
                <span>
-               <img alt="image" class="img-circle" src="{!! asset('img/profile_small.jpg') !!}" />
+
+                   {!!  HTML::image(Auth::user()->profile->photo, 'alt', array( 'width' => 60, 'height' => 60, 'class'=>'img-circle' )) !!}
                </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">&nbsp;</strong>
-               </span> <span class="text-muted text-xs block"><strong class="font-bold">David Williams</strong><b class="caret"></b></span> </span> </a>
+               </span> <span class="text-muted text-xs block"><strong class="font-bold">{!! Auth::user()->name !!}</strong><b class="caret"></b></span> </span> </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
                         <li><a href="{!! route('profile') !!}">Profile</a></li>
                         <li><a href="{!! route('password.change') !!}">Change Password</a></li>
