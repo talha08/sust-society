@@ -11,6 +11,8 @@ class ProfileTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Profile::create(['designation' => 'Talha']);
+        \App\Profile::create(['designation' => 'Faculty']);
+
     }
 }

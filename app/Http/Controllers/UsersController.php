@@ -114,27 +114,22 @@ class UsersController extends Controller
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
-     * Show the form for editing the specified resource.
+     * Display the profile Info.
      *
-     * @param  int  $id
+     * @param  none
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function userProfile($id)
     {
-        //
+        $user = User::where('id', $id)->first();
+        return view('auth.userProfile', compact('user'))
+            ->with('title','Profile- '.$user->name);
     }
+
+
+
 
     /**
      * Update the specified resource in storage.
@@ -143,19 +138,63 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function profileUpdate(Request $request)
     {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+        $profile = Profile::where('user_id',Auth::user()->id)->first();
+
+        if( $request->hasFile('photo')) {
+            $file = $request->image;
+            //getting the file extension
+            $extension = $file->getClientOriginalExtension();
+            $fileName = md5(rand(11111, 99999)) . '.' . $extension; // renameing image
+            //path set
+            $img_url = 'upload/profile/img-' . $fileName;
+
+            //resize and crop image using Image Intervention
+            //Image::make($file)->crop(558, 221, 0, 0)->save(public_path($img_url));
+            Image::make($file)->resize(200, 200)->save(public_path($img_url));
+
+            $profile->photo = $img_url;
+        }
+
+
+
+        $profile->father_name = $request->father_name;
+        $profile->mother_name = $request->mother_name;
+        $profile->district = $request->district;
+        $profile->designation = $request->designation;
+        $profile->about_me = $request->about_me;
+
+        if(Auth::user()->role ==3){
+            $profile->high_school = $request->high_school;
+            $profile->college = $request->college;
+            $profile->batch = $request->batch;
+            $profile->reg = $request->reg;
+        }
+
+        if($profile->save()){
+            return redirect()->back()->with('success', 'Profile Successfully Updated');
+        }else{
+            return redirect()->back()->with('error', 'Something went wrong, Please try again.');
+        }
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

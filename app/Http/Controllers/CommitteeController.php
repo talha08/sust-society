@@ -83,10 +83,10 @@ class CommitteeController extends Controller
          $comLists = CommitteeMemberList::where('committee_id',$id )->get();
 
         //for committee Year
-         $first1 = $comLists->first();
-         $year= $first1->committee->year;
 
-        return view('committee.show', compact('comLists'))->with('title',"Committee - ". $year);
+         $com= Committee::where('id',$id)->first();
+
+        return view('committee.show', compact('comLists'))->with('title',"Committee - ". $com->year);
     }
 
 

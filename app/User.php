@@ -40,7 +40,7 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
-
+    protected $dates = ['created_at', 'updated_at'];
 
 
     public function album(){

@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="wrapper wrapper-content animated fadeInRight">
-
+                @if($comLists->count() != 0)
                     @foreach($comLists as $com)
 
                         <div class="col-lg-3">
@@ -26,6 +26,9 @@
                             </div>
                         </div>
                     @endforeach
+                   @else
+                    No Member Added Yet
+                    @endif
 
             </div>
         </div>
