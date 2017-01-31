@@ -8,6 +8,7 @@ class Profile extends Model
 {
     protected $table ='profile';
 
+
     /**
      * Profile belongsTo User
      *

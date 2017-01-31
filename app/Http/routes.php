@@ -41,6 +41,10 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
 
 
+	Route::get('user/students', array('as' => 'user.student', 'uses' => 'UsersController@students'));
+	Route::get('user/teachers', array('as' => 'user.teacher', 'uses' => 'UsersController@teachers'));
+
+
 
 	//Album Section
 	Route::get('album', array('as' => 'album.index', 'uses' => 'AlbumController@index'));
@@ -85,7 +89,6 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::get('committee/{id}/edit', array('as' => 'committee.edit', 'uses' => 'CommitteeController@edit'));
 	Route::put('committee/{id}/update', array('as' => 'committee.update', 'uses' => 'CommitteeController@update'));
 	Route::delete('committee/{id}', array('as' => 'committee.delete', 'uses' => 'CommitteeController@destroy'));
-
 	Route::get('committee/{id}/show', array('as' => 'committee.show', 'uses' => 'CommitteeController@show'));
 
 

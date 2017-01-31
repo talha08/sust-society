@@ -43,6 +43,8 @@ class User extends Model implements AuthenticatableContract,
     protected $dates = ['created_at', 'updated_at'];
 
 
+    //protected $with = ['profile','roles'];
+
     public function album(){
         return $this->hasMany('App\Album','user_id','id');
     }

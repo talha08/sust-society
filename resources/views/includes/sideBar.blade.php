@@ -39,6 +39,22 @@
 
 
 
+            <li class="{!! Menu::areActiveRoutes(['user.student', 'user.teacher']) !!}">
+                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Society Members</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="{!! Menu::isActiveRoute('user.student') !!}">
+                        <a href="{!!  URL::route( 'user.student') !!}">Student List</a>
+                    </li>
+
+                    <li class="{!! Menu::isActiveRoute('user.teacher') !!}">
+                        <a href="{!!  URL::route( 'user.teacher') !!}">Teacher List</a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+
 
             <li class="{!! Menu::areActiveRoutes(['album.index', 'album.create']) !!}">
                 <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Photo Album</span> <span class="fa arrow"></span></a>
@@ -116,6 +132,9 @@
                     </li>
                 </ul>
             </li>
+
+
+
 
 
 

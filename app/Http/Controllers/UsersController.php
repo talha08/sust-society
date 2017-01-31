@@ -191,6 +191,36 @@ class UsersController extends Controller
 
 
 
+    public function students(){
+
+          $users =\DB::table('roles')
+            ->join('users', 'roles.id', '=', 'users.id')
+            ->join('profile', 'users.id', '=', 'profile.id')
+            ->where('roles.id', '!=', 2)
+            ->where('users.dept_id', Auth::user()->dept_id)
+            ->get();
+
+
+        return view('user.student')
+            ->with('title', 'Student List')->with('users', $users);
+    }
+
+
+
+
+    public function teachers(){
+
+        $users =\DB::table('users')
+            ->join('roles', 'roles.id', '=', 'users.id')
+            ->join('profile', 'users.id', '=', 'profile.id')
+            ->where('roles.id', 2)
+            ->where('users.dept_id', Auth::user()->dept_id)
+            ->get();
+
+
+        return view('user.teacher')
+            ->with('title', 'Faculty member List')->with('users', $users);
+    }
 
 
 
