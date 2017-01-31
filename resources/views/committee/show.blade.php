@@ -9,8 +9,8 @@
                         <div class="col-lg-3">
                             <div class="contact-box center-version">
 
-                                <a href="profile.html">
-                                    <img alt="image" class="img-circle" src="{!! asset('img/a2.jpg') !!}">
+                                <a href="{!! route('userProfile', $com->user->id) !!}">
+                                    {!!  Html::image($com->user->profile->photo, 'alt', array( 'width' => 80, 'height' => 80, 'class'=>'img-circle' )) !!}
                                     <h3 class="m-b-xs"><strong>{!! $com->user->name !!}</strong></h3>
                                     <div class="font-bold">{!! $com->committeMemberType->name !!}</div>
                                 </a>

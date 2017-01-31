@@ -13,6 +13,7 @@ use Hash;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Intervention\Image\ImageManagerStatic as Image;
 class UsersController extends Controller
 {
     /**
@@ -124,7 +125,7 @@ class UsersController extends Controller
     public function userProfile($id)
     {
         $user = User::where('id', $id)->first();
-        return view('auth.userProfile', compact('user'))
+        return view('auth.profile', compact('user'))
             ->with('title','Profile- '.$user->name);
     }
 
@@ -138,13 +139,13 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function profileUpdate(Request $request)
+    public function profileUpdate(Request $request, $id)
     {
 
-        $profile = Profile::where('user_id',Auth::user()->id)->first();
+        $profile = Profile::where('user_id',$id)->first();
 
         if( $request->hasFile('photo')) {
-            $file = $request->image;
+            $file = $request->photo;
             //getting the file extension
             $extension = $file->getClientOriginalExtension();
             $fileName = md5(rand(11111, 99999)) . '.' . $extension; // renameing image
@@ -160,13 +161,14 @@ class UsersController extends Controller
 
 
 
-        $profile->father_name = $request->father_name;
-        $profile->mother_name = $request->mother_name;
-        $profile->district = $request->district;
+
         $profile->designation = $request->designation;
         $profile->about_me = $request->about_me;
 
-        if(Auth::user()->role ==3){
+        if($profile->user->role ==3){
+            $profile->father_name = $request->father_name;
+            $profile->mother_name = $request->mother_name;
+            $profile->district = $request->district;
             $profile->high_school = $request->high_school;
             $profile->college = $request->college;
             $profile->batch = $request->batch;

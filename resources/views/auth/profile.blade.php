@@ -17,7 +17,7 @@
 
                             <fieldset>
                                 <br/>
-                                <img class="preview" id="preview" alt=" " src="{!!asset(Auth::user()->profile->photo)!!}">
+                                <img class="preview" id="preview" alt=" " src="{!!asset($user->profile->photo)!!}">
                                 <br/>
                                 <br/>
                             </fieldset>
@@ -27,10 +27,11 @@
 
                         </div>
                         <div class="ibox-content profile-content">
-                            <h4><strong>{!! Auth::user()->name  !!}</strong></h4>
-                            <p><i class="fa fa-clock-o"></i>  Joined at {!!  Auth::user()->created_at->diffForHumans() !!}</p>
+                            <h4><strong>{!! $user->name  !!}</strong></h4>
+                            <p><i class="fa fa-clock-o"></i>  Joined at {!! $user->created_at->diffForHumans() !!}</p>
                             <hr><h3>
-                               Admin
+                              {!! $user->dept->name !!}
+
                             </h3><hr>
 
 
@@ -82,57 +83,64 @@
                         <div>
                             <div class="feed-activity-list">
 
+
+
+
+
+                               @if(Auth::user()->id == $user->id)
                                 <div class="feed-element">
                                     <div class="media-body ">
 
-                                        {!!Form::model($user,['route' => ['profile.update',$user->id], 'method' => 'put' ])!!}
+                                        {!!Form::model($user->profile,['route' => ['profile.update',$user->id], 'method' => 'put' , 'files'=>true])!!}
 
-
+                                        @if(Auth::user()->role == 3)
                                         <div class="form-group">
                                             {!! Form::label('father_name', 'Father Name :', array('class' => 'control-label')) !!}<br/>
-                                            {!!Form::text('father_name', '',array('class' => 'form-control','placeholder' =>  'Father Name....'))!!}
+                                            {!!Form::text('father_name', null ,array('class' => 'form-control','placeholder' =>  'Father Name....'))!!}
                                         </div><br/>
 
 
                                         <div class="form-group">
                                             {!! Form::label('mother_name', 'Mother Name :', array('class' => 'control-label')) !!}<br/>
-                                            {!!Form::text('mother_name', '',array('class' => 'form-control','placeholder' =>  'Mother Name.....'))!!}
+                                            {!!Form::text('mother_name',null,array('class' => 'form-control','placeholder' =>  'Mother Name.....'))!!}
                                         </div><br/>
 
                                         <div class="form-group">
                                             {!! Form::label('district', 'District :', array('class' => 'control-label')) !!}<br/>
-                                            {!!Form::text('district', '',array('class' => 'form-control','placeholder' =>  'District...'))!!}
+                                            {!!Form::text('district', null,array('class' => 'form-control','placeholder' =>  'District...'))!!}
                                         </div><br/>
-
 
                                         <div class="form-group">
                                             {!! Form::label('high_school', 'High School :', array('class' => 'control-label')) !!}<br/>
-                                            {!!Form::text('high_school', '',array('class' => 'form-control','placeholder' =>  'High School....'))!!}
+                                            {!!Form::text('high_school', null,array('class' => 'form-control','placeholder' =>  'High School....'))!!}
                                         </div><br/>
                                         <div class="form-group">
                                             {!! Form::label('college', 'College :', array('class' => 'control-label')) !!}<br/>
-                                            {!!Form::text('college', '',array('class' => 'form-control','placeholder' =>  'College...'))!!}
+                                            {!!Form::text('college', null,array('class' => 'form-control','placeholder' =>  'College...'))!!}
                                         </div><br/>
                                         <div class="form-group">
                                             {!! Form::label('batch', 'Batch :', array('class' => 'control-label')) !!}<br/>
-                                            {!!Form::text('batch', '',array('class' => 'form-control','placeholder' =>  'Batch....'))!!}
+                                            {!!Form::text('batch', null,array('class' => 'form-control','placeholder' =>  'Batch....'))!!}
                                         </div><br/>
                                         <div class="form-group">
                                             {!! Form::label('reg', 'Registration :', array('class' => 'control-label')) !!}<br/>
-                                            {!!Form::text('reg', '',array('class' => 'form-control','placeholder' =>  'Registration...'))!!}
+                                            {!!Form::text('reg', null,array('class' => 'form-control','placeholder' =>  'Registration...'))!!}
                                         </div><br/>
+                                        @endif
+
 
                                         <div class="form-group">
                                             {!! Form::label('designation', 'Designation :', array('class' => 'control-label')) !!}<br/>
-                                            {!!Form::text('designation', '',array('class' => 'form-control','placeholder' =>  'Designation....'))!!}
+                                            {!!Form::text('designation', null,array('class' => 'form-control','placeholder' =>  'Designation....'))!!}
                                         </div><br/>
 
                                         <div class="form-group">
                                             {!! Form::label('about_me', 'About Me :', array('class' => 'control-label')) !!}<br/>
-                                            {!!Form::text('about_me', '',array('class' => 'form-control','placeholder' =>  'About me...'))!!}
+                                            {!!Form::textarea('about_me',null,array('class' => 'form-control','placeholder' =>  'About me...'))!!}
                                         </div><br/>
 
                                         <div class="form-group">
+                                            {!! Form::label('photo', 'Change Image :', array('class' => 'control-label')) !!}<br/>
                                             <input type="file" name="photo" id="imgInp " onchange="loadFile(event);">
                                         </div><br/>
 
@@ -143,12 +151,63 @@
                                     </div>
                                 </div>
 
+                            @else
+
+                                @if($user->role == 3)
+                                        <div class="feed-element">
+                                            <div class="media-body ">
+                                                Father name: {!! $user->profile->father_name !!}
+                                            </div>
+                                        </div>
+                                        <div class="feed-element">
+                                            <div class="media-body ">
+                                                Mother Name: {!! $user->profile->mother_name !!}
+                                            </div>
+                                        </div>
+                                        <div class="feed-element">
+                                            <div class="media-body ">
+                                                District: {!! $user->profile->district !!}
+                                            </div>
+                                        </div>
+                                        <div class="feed-element">
+                                            <div class="media-body ">
+                                                High School: {!! $user->profile->high_school !!}
+                                            </div>
+                                        </div>
+                                        <div class="feed-element">
+                                            <div class="media-body ">
+                                                College: {!! $user->profile->college !!}
+                                            </div>
+                                        </div>
+                                        <div class="feed-element">
+                                            <div class="media-body ">
+                                                Registration: {!! $user->profile->reg !!}
+                                            </div>
+                                        </div>
+
+                                        <div class="feed-element">
+                                            <div class="media-body ">
+                                                Batch: {!! $user->profile->batch !!}
+                                            </div>
+                                        </div>
+                                @endif
+
+
+                                   <div class="feed-element">
+                                     <div class="media-body ">
+                                         Designation: {!! $user->profile->designation !!}
+                                     </div>
+                                   </div>
+
+                                    <div class="feed-element">
+                                        <div class="media-body ">
+                                            About User: {!! $user->profile->about_me !!}
+                                        </div>
+                                    </div>
 
 
 
-
-
-
+                            @endif
 
 
 

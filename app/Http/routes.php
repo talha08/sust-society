@@ -33,8 +33,8 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
 	Route::get('profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
 
-	Route::put('profile', ['as' => 'profile.update', 'uses' => 'UsersController@profileUpdate']);
-	//Route::get('userProfile/{id}', ['as' => 'userProfile', 'uses' => 'UsersController@userProfile']);
+	Route::put('profile/{id}', ['as' => 'profile.update', 'uses' => 'UsersController@profileUpdate']);
+	Route::get('userProfile/{id}', ['as' => 'userProfile', 'uses' => 'UsersController@userProfile']);
 
 	Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'Auth\AuthController@dashboard'));
 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
