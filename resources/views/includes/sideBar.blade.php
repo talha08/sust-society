@@ -70,7 +70,7 @@
             </li>
 
 
-            <li class="{!! Menu::areActiveRoutes(['event.index', 'event.create']) !!}">
+            <li class="{!! Menu::areActiveRoutes(['event.index', 'event.create','event.eventFileUpload']) !!}">
                 <a href="#"><i class="fa fa-calendar-o"></i> <span class="nav-label">Event</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li class="{!! Menu::isActiveRoute('event.index') !!}">
@@ -87,6 +87,28 @@
 
                 </ul>
             </li>
+
+
+
+
+            <li class="{!! Menu::areActiveRoutes(['notice.index', 'notice.create','notice.eventFileUpload']) !!}">
+                <a href="#"><i class="fa fa-calendar-o"></i> <span class="nav-label">Notice</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="{!! Menu::isActiveRoute('notice.index') !!}">
+                        <a href="{!!  URL::route('notice.index') !!}">Notices</a>
+                    </li>
+
+                    <li class="{!! Menu::isActiveRoute('notice.create') !!}">
+                        <a href="{!!  URL::route('notice.create') !!}">Create New Notice</a>
+                    </li>
+
+                    <li class="{!! Menu::isActiveRoute('notice.eventFileUpload') !!}">
+                        <a href="{!!  URL::route('notice.eventFileUpload') !!}">Upload Attachment</a>
+                    </li>
+
+                </ul>
+            </li>
+
 
 
 

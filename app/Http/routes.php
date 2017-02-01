@@ -69,7 +69,7 @@ Route::group(array('middleware' => 'auth'), function()
 
 	Route::get('event-file-upload', array('as' => 'event.eventFileUpload', 'uses' => 'EventController@fileUploadView')); //file upload dropdown view
 	Route::post('eventFileUpload', array('as' => 'event.upload', 'uses' => 'EventController@fileUpload')); //file upload from dropdown event
-	Route::post('singleFileUpload', array('as' => 'event.singleUpload', 'uses' => 'EventController@singleFileUpload')); //for modal file upload
+	Route::post('eventsingleFileUpload', array('as' => 'event.singleUpload', 'uses' => 'EventController@singleFileUpload')); //for modal file upload
 
 
 
@@ -80,6 +80,22 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::get('society/{id}/edit', array('as' => 'department.edit', 'uses' => 'DepartmentController@edit'));
 	Route::put('society/{id}/update', array('as' => 'department.update', 'uses' => 'DepartmentController@update'));
 	Route::delete('society/{id}', array('as' => 'department.delete', 'uses' => 'DepartmentController@destroy'));
+
+
+
+	//Notice section  complete
+	Route::get('notice', array('as' => 'notice.index', 'uses' => 'NoticeController@index'));
+	Route::get('notice/create', array('as' => 'notice.create', 'uses' => 'NoticeController@create'));
+	Route::post('notice', array('as' => 'notice.store', 'uses' => 'NoticeController@store'));
+	Route::get('notice/{id}/edit', array('as' => 'notice.edit', 'uses' => 'NoticeController@edit'));
+	Route::put('notice/{id}/update', array('as' => 'notice.update', 'uses' => 'NoticeController@update'));
+	Route::delete('notice/{id}', array('as' => 'notice.delete', 'uses' => 'NoticeController@destroy'));
+
+	Route::get('notice-file-upload', array('as' => 'notice.eventFileUpload', 'uses' => 'NoticeController@fileUploadView')); //file upload dropdown view
+	Route::post('noticeFileUpload', array('as' => 'notice.upload', 'uses' => 'NoticeController@fileUpload')); //file upload from dropdown event
+	Route::post('noticeingleFileUpload', array('as' => 'notice.singleUpload', 'uses' => 'NoticeController@singleFileUpload')); //for modal file upload
+
+
 
 
 	//Committee
