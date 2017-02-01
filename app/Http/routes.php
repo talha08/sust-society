@@ -126,6 +126,9 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::delete('committeeMemberList/{id}', array('as' => 'committeeMemberList.delete', 'uses' => 'CommitteeMemberListController@destroy'));
 
 
+	//Event Registration
+	Route::get('event-registration', array('as' => 'registration.index', 'uses' => 'RegistrationController@index'));
+	Route::get('event-registration/{id}/show', array('as' => 'registration.show', 'uses' => 'RegistrationController@show'));
 
 });
 

@@ -89,6 +89,15 @@
             </li>
 
 
+            <li class="{!! Menu::areActiveRoutes(['registration.index']) !!}">
+                <a href="#"><i class="fa fa-calendar-o"></i> <span class="nav-label">Registration</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="{!! Menu::isActiveRoute('registration.index') !!}">
+                        <a href="{!!  URL::route('registration.index') !!}">Open Events</a>
+                    </li>
+
+                </ul>
+            </li>
 
 
             <li class="{!! Menu::areActiveRoutes(['notice.index', 'notice.create','notice.eventFileUpload']) !!}">

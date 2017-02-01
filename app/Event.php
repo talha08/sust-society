@@ -21,4 +21,9 @@ class Event extends Model
     {
         return $this->belongsTo('App\Department','dept_id','id');
     }
+
+
+    public function registration(){
+        return $this->hasMany('App\Registration','event_id','id');
+    }
 }
