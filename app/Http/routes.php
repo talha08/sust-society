@@ -136,7 +136,7 @@ Route::group(array('middleware' => 'auth'), function()
 
 
 
-Route::get('profile1',function(){
-	return View::make('template.profile')->with('title','Profile');
+Route::get('test',function(){
+	return View::make('welcome')->with('title','Profile');
 });
 
