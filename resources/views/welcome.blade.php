@@ -1,6 +1,7 @@
 @extends('frontend.layouts.default')
 @section('content')
-@include('frontend.includes.map')
+@include('frontend.includes.slider')
+@include('frontend.includes.courses')
 @include('frontend.includes.happyStudents')
 @include('frontend.includes.happyStudents')
 @stop

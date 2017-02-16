@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="testimonial">
-                    <img class="alignleft img-circle" src="upload/student_01.png" alt="">
+                    <img class="alignleft img-circle" src="frontend/upload/student_01.png" alt="">
                     <p>Lorem Ipsum is simply dummy text of the printing and industry. </p>
                     <div class="testimonial-meta">
                         <h4>John DOE <small><a href="#">envato.com</a></small></h4>
@@ -22,7 +22,7 @@
 
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="testimonial">
-                    <img class="alignleft img-circle" src="upload/student_02.png" alt="">
+                    <img class="alignleft img-circle" src="frontend/upload/student_02.png" alt="">
                     <p>Lorem Ipsum is simply dummy text of the most popular items.</p>
                     <div class="testimonial-meta">
                         <h4>Jenny Anderson <small><a href="#">photodune.com</a></small></h4>
@@ -32,7 +32,7 @@
 
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="testimonial">
-                    <img class="alignleft img-circle" src="upload/student_03.png" alt="">
+                    <img class="alignleft img-circle" src="frontend/upload/student_03.png" alt="">
                     <p>Lorem Ipsum is simply dummy text of the printing.</p>
                     <div class="testimonial-meta">
                         <h4>Mark BOBS <small><a href="#">tutsplus.com</a></small></h4>

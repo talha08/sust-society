@@ -8,7 +8,7 @@
                         <span class="fa fa-bars"></span>
                     </button>
                     <div class="logo">
-                        <a class="navbar-brand" href="index-2.html"><img src="images/logo.png" alt=""></a>
+                        <a class="navbar-brand" href="index-2.html"><img src="frontend/images/logo.png" alt=""></a>
                     </div>
                 </div><!-- end navbar-header -->
 

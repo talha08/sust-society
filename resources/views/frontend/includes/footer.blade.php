@@ -45,31 +45,31 @@
 
                     <ul class="popular-courses">
                         <li>
-                            <a href="single-course.html" title=""><img class="img-thumbnail" src="upload/service_01.png" alt=""></a>
+                            <a href="single-course.html" title=""><img class="img-thumbnail" src="frontend/upload/service_01.png" alt=""></a>
                         </li>
                         <li>
-                            <a href="single-course.html" title=""><img class="img-thumbnail" src="upload/service_02.png" alt=""></a>
+                            <a href="single-course.html" title=""><img class="img-thumbnail" src="frontend/upload/service_02.png" alt=""></a>
                         </li>
                         <li>
-                            <a href="single-course.html" title=""><img class="img-thumbnail" src="upload/service_03.png" alt=""></a>
+                            <a href="single-course.html" title=""><img class="img-thumbnail" src="frontend/upload/service_03.png" alt=""></a>
                         </li>
                         <li>
-                            <a href="single-course.html" title=""><img class="img-thumbnail" src="upload/service_04.png" alt=""></a>
+                            <a href="single-course.html" title=""><img class="img-thumbnail" src="frontend/upload/service_04.png" alt=""></a>
                         </li>
                         <li>
-                            <a href="single-course.html" title=""><img class="img-thumbnail" src="upload/service_05.png" alt=""></a>
+                            <a href="single-course.html" title=""><img class="img-thumbnail" src="frontend/upload/service_05.png" alt=""></a>
                         </li>
                         <li>
-                            <a href="single-course.html" title=""><img class="img-thumbnail" src="upload/service_06.png" alt=""></a>
+                            <a href="single-course.html" title=""><img class="img-thumbnail" src="frontend/upload/service_06.png" alt=""></a>
                         </li>
                         <li>
-                            <a href="single-course.html" title=""><img class="img-thumbnail" src="upload/service_07.png" alt=""></a>
+                            <a href="single-course.html" title=""><img class="img-thumbnail" src="frontend/upload/service_07.png" alt=""></a>
                         </li>
                         <li>
-                            <a href="single-course.html" title=""><img class="img-thumbnail" src="upload/service_08.png" alt=""></a>
+                            <a href="single-course.html" title=""><img class="img-thumbnail" src="frontend/upload/service_08.png" alt=""></a>
                         </li>
                         <li>
-                            <a href="single-course.html" title=""><img class="img-thumbnail" src="upload/service_09.png" alt=""></a>
+                            <a href="single-course.html" title=""><img class="img-thumbnail" src="frontend/upload/service_09.png" alt=""></a>
                         </li>
                     </ul>
                 </div><!-- end widget -->

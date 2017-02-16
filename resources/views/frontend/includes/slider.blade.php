@@ -2,8 +2,8 @@
     <div class="tp-banner-container">
         <div class="tp-banner">
             <ul>
-                <li data-transition="fade" data-slotamount="1" data-masterspeed="500" data-thumb="upload/slider_new_01.jpg"  data-saveperformance="off"  data-title="Slide">
-                    <img src="upload/slider_new_01.jpg"  alt="fullslide1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+                <li data-transition="fade" data-slotamount="1" data-masterspeed="500" data-thumb="frontend/upload/slider_new_01.jpg"  data-saveperformance="off"  data-title="Slide">
+                    <img src="frontend/upload/slider_new_01.jpg"  alt="fullslide1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
                     <div class="tp-caption slider_layer_01 text-center lft tp-resizeme"
                          data-x="center"
                          data-y="220"

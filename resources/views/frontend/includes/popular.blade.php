@@ -13,7 +13,7 @@
             <div class="owl-featured">
                 <div class="shop-item-list entry">
                     <div class="">
-                        <img src="upload/course_01.png" alt="">
+                        <img src="frontend/upload/course_01.png" alt="">
                         <div class="magnifier">
                         </div>
                     </div>
@@ -40,7 +40,7 @@
             <div class="owl-featured">
                 <div class="shop-item-list entry">
                     <div class="">
-                        <img src="upload/course_02.png" alt="">
+                        <img src="frontend/upload/course_02.png" alt="">
                         <div class="magnifier">
                         </div>
                     </div>
@@ -67,7 +67,7 @@
             <div class="owl-featured">
                 <div class="shop-item-list entry">
                     <div class="">
-                        <img src="upload/course_03.png" alt="">
+                        <img src="frontend/upload/course_03.png" alt="">
                         <div class="magnifier">
                         </div>
                     </div>
@@ -94,7 +94,7 @@
             <div class="owl-featured">
                 <div class="shop-item-list entry">
                     <div class="">
-                        <img src="upload/course_04.png" alt="">
+                        <img src="frontend/upload/course_04.png" alt="">
                         <div class="magnifier">
                         </div>
                     </div>
