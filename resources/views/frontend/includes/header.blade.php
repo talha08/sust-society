@@ -34,6 +34,7 @@
     {!! Html::style('frontend/css/menu.css') !!}
     {!! Html::style('frontend/css/carousel.css') !!}
     {!! Html::style('frontend/css/style.css') !!}
+    {!! Html::style('frontend/css/style2.css') !!}
 
 
     <!-- COLORS -->

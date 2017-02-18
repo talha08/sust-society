@@ -39,8 +39,8 @@ class UsersController extends Controller
 
         ];
         $dept_id = Department::lists('name','id');
-
-        return view('auth.register',compact('dept_id','user_type'))
+            //auth.register
+        return view('auth.login',compact('dept_id','user_type'))
                     ->with('title', 'Register');
     }
 

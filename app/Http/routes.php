@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'guest'], function(){
 	Route::controller('password', 'RemindersController');
-	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
+	Route::get('login-or-register', ['as'=>'login','uses' => 'Auth\AuthController@login']);
 	Route::get('user/create', ['as'=>'user.create','uses' => 'UsersController@create']);
 	Route::post('user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
 	Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
@@ -133,10 +133,16 @@ Route::group(array('middleware' => 'auth'), function()
 });
 
 
+//Route::group(['prefix' => '/v1'], function () {
+
+	Route::get('test',function(){
+		return View::make('welcome')->with('title','Profile');
+	});
+
+
+//});
 
 
 
-Route::get('test',function(){
-	return View::make('welcome')->with('title','Profile');
-});
+
 

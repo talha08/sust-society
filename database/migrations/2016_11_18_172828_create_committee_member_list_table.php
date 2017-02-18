@@ -18,6 +18,10 @@ class CreateCommitteeMemberListTable extends Migration
             $table->integer('committee_id')->unsigned();
             $table->foreign('committee_id')->references('id')->on('committee')->onUpdate('cascade')->onDelete('cascade');
 
+            //no need
+         //  $table->integer('order'); // 1 for president, 2 for cashier, 3 for vP, 4 for Gs, 5 for Ags, 6 for Os, 7 Member
+
+
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
 

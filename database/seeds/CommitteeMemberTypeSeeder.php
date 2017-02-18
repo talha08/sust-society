@@ -13,6 +13,7 @@ class CommitteeMemberTypeSeeder extends Seeder
     public function run()
     {
         CommitteeMemberType::create(['name' => 'President']);
+        CommitteeMemberType::create(['name' => 'Treasure']);
         CommitteeMemberType::create(['name' => 'Vice President']);
         CommitteeMemberType::create(['name' => 'General Secretary']);
         CommitteeMemberType::create(['name' => 'Assitant General Secretary']);

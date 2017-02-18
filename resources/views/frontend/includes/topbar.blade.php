@@ -16,20 +16,20 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-lock"></i> Login & Register</a>
                         <div class="dropdown-menu">
-                            <form method="post">
+                            {!! Form::open(array('route' => 'login', 'method' => 'post')) !!}
                                 <div class="form-title">
                                     <h4>Login Area</h4>
                                     <hr>
                                 </div>
-                                <input class="form-control" type="text" name="username" placeholder="User Name">
+                            {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'type'=>'text','autofocus', 'required')) !!}
                                 <div class="formpassword">
-                                    <input class="form-control" type="password" name="password" placeholder="******">
+                                    {!! Form::password('password', array('class' => 'form-control', 'placeholder' => '********','type'=>'text', 'required')) !!}
                                 </div>
                                 <div class="clearfix"></div>
                                 <button type="submit" class="btn btn-block btn-primary">Login</button>
                                 <hr>
-                                <h4><a href="#">Create an Account</a></h4>
-                            </form>
+                                <h4><a href="{!! route('login') !!}">Create an Account</a></h4>
+                            {!! Form::close() !!}
                         </div>
                     </li>
                     

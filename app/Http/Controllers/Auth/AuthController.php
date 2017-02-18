@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use App\Department;
 use App\User;
 use Validator;
 use Auth;
@@ -66,8 +66,19 @@ class AuthController extends Controller
         ]);
     }
     public function login(){
+
+
+
+        $user_type= [
+            '2' => 'Faculty Member',
+            '3' => 'Student',
+
+        ];
+        $dept_id = Department::lists('name','id');
+
+
         // return 'Auth Login Panel';
-        return view('auth.login')
+        return view('auth.login',compact('dept_id','user_type'))
                     ->with('title', 'Login');
     }
 

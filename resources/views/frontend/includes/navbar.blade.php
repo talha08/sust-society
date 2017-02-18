@@ -8,9 +8,12 @@
                         <span class="fa fa-bars"></span>
                     </button>
                     <div class="logo">
-                        <a class="navbar-brand" href="index-2.html"><img src="frontend/images/logo.png" alt=""></a>
+                        <a class="navbar-brand" href="#"><img src="frontend/images/logo.png" alt=""></a>
                     </div>
                 </div><!-- end navbar-header -->
+
+
+
 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -22,22 +25,8 @@
                                             <div class="col-md-6">
                                                 <div class="box">
                                                     <ul>
-                                                        <li><a href="index1.html">Home Version 1</a></li>
-                                                        <li><a href="index2.html">Home Version 2</a></li>
-                                                        <li><a href="index3.html">Home Version 3</a></li>
-                                                        <li><a href="index4.html">Home Version 4</a></li>
-                                                        <li><a href="index5.html">Home Version 5</a></li>
-                                                        <li><a href="index6.html">Home Version 6</a></li>
-                                                        <li><a href="index7.html">Home Version 7</a></li>
-                                                    </ul>
-                                                </div><!-- end box -->
-                                            </div><!-- end col -->
-                                            <div class="col-md-6">
-                                                <div class="box">
-                                                    <ul>
-                                                        <li><a href="index8.html">Home Version 8</a></li>
-                                                        <li><a href="index9.html">Home Version 9</a></li>
-                                                        <li><a href="index10.html">Home Version 10</a></li>
+                                                        <li><a href="#">Home Version 1</a></li>
+                                                        <li><a href="#">Home Version 2</a></li>
                                                     </ul>
                                                 </div><!-- end box -->
                                             </div><!-- end col -->
