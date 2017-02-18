@@ -10,6 +10,13 @@
     </div>
 
     <ul class="nav navbar-top-links navbar-right">
+
+        <li class="">
+            <a data-toggle="" class="dropdown-toggle" href="{!!route('welcome')!!}">
+                <span class="btn btn-info btn-xs bg-purple ">Home</span>
+            </a>
+        </li>
+
         <li>
             <span class="m-r-sm text-muted welcome-message">Welcome to SUST Society.</span>
         </li>

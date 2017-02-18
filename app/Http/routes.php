@@ -18,12 +18,24 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'guest'], function(){
 	Route::controller('password', 'RemindersController');
-	Route::get('login-or-register', ['as'=>'login','uses' => 'Auth\AuthController@login']);
+	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
 	Route::get('user/create', ['as'=>'user.create','uses' => 'UsersController@create']);
 	Route::post('user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
 	Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
 
 });
+
+
+
+
+#frontend
+Route::get('home/index', ['as'=>'welcome','uses' => 'FrontendController@index']);
+Route::get('home/events', ['as'=>'event','uses' => 'FrontendController@event']);
+Route::get('home/notices', ['as'=>'notice','uses' => 'FrontendController@notice']);
+Route::get('home/notices/{notice_meta_data}', ['as'=>'notice.details','uses' => 'FrontendController@noticeDetails']);
+Route::get('home/events/{event_meta_data}', ['as'=>'event.details','uses' => 'FrontendController@eventDetails']);
+
+
 
 
 
@@ -135,10 +147,14 @@ Route::group(array('middleware' => 'auth'), function()
 
 //Route::group(['prefix' => '/v1'], function () {
 
-	Route::get('test',function(){
-		return View::make('welcome')->with('title','Profile');
-	});
-
+//	Route::get('test',function(){
+//		return View::make('welcome')->with('title','Profile');
+//	});
+//
+//
+//	Route::get('event',function(){
+//		return View::make('event')->with('title','Profile');
+//	});
 
 //});
 

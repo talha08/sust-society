@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 text-left">
-                <p><i class="fa fa-graduation-cap"></i> Best learning management template for ever.</p>
+                <p><i class="fa fa-graduation-cap"></i> All Society in one place.</p>
             </div><!-- end left -->
 
             <div class="col-md-6 text-right">

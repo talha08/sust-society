@@ -3,7 +3,7 @@
         <div class="tp-banner">
             <ul>
                 <li data-transition="fade" data-slotamount="1" data-masterspeed="500" data-thumb="frontend/upload/slider_new_01.jpg"  data-saveperformance="off"  data-title="Slide">
-                    <img src="frontend/upload/slider_new_01.jpg"  alt="fullslide1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+                    <img src="{!! URL::asset('frontend/upload/home2.jpg') !!}"  alt="fullslide1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
                     <div class="tp-caption slider_layer_01 text-center lft tp-resizeme"
                          data-x="center"
                          data-y="220"
@@ -15,7 +15,7 @@
                          data-elementdelay="0.1"
                          data-endelementdelay="0.1"
                          data-endspeed="1000"
-                         style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;"><i class="fa fa-graduation-cap"></i> Learn<strong>PLUS</strong>
+                         style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;"><i class="fa fa-graduation-cap"></i> SUST<strong>SOCIETY</strong>
                     </div>
                     <div class="tp-caption slider_layer_02 text-center lft tp-resizeme"
                          data-x="center"
@@ -41,7 +41,8 @@
                          data-elementdelay="0.1"
                          data-endelementdelay="0.1"
                          data-endspeed="1000"
-                         style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;"><a href="#" class="btn btn-default">Start Learning</a>
+                         style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">
+                        {{--<a href="#" class="btn btn-default">Start Learning</a>--}}
                     </div>
                 </li>
             </ul>

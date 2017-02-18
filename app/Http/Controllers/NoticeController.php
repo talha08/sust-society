@@ -67,7 +67,7 @@ class NoticeController extends Controller
             $notice->headline = $request->headline;
             $notice->description = $request->description;
             $notice->banner = $img_url;
-            $notice->notice_meta_data =  '/'.date('Y-m-d').'/'.str_slug($request->headline).rand(2345,23142);
+            $notice->notice_meta_data =  str_slug($request->headline).rand(2345,23142);
 
             if($notice->save()){
                 return redirect()->route('notice.index')->with('success', 'Notice Successfully Created');

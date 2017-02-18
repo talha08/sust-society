@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
+use App\Notice;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -9,79 +11,30 @@ use App\Http\Controllers\Controller;
 
 class FrontendController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+
+    public function index(){
+        return view('welcome')->with('title',"Departments");
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+
+    public function notice(){
+        $notices = Notice::orderBy('id')->paginate(10);
+        return view('notice',compact('notices'))->with('title',"Departments Notice");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+
+    public function noticeDetails($event_meta_data){
+        $notice = Notice::where('notice_meta_data', $event_meta_data)->first();
+        return view('noticeFull',compact('notice'))->with('title',$notice->headline);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    public function event(){
+        $events = Event::orderBy('id')->paginate(10);
+        return view('event',compact('events'))->with('title',"Departments Events");
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function eventDetails($event_meta_data){
+        $event = Event::where('event_meta_data', $event_meta_data)->first();
+        return view('eventFull',compact('event'))->with('title',$event->headline);
     }
 }

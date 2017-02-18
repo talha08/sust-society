@@ -80,7 +80,7 @@ class EventController extends Controller
             $event->end_time = $request->end_time;
             $event->open_registration = $request->open_registration;
             $event->banner = $img_url;
-            $event->event_meta_data =  '/'.date('Y-m-d').'/'.str_slug($request->headline).rand(2345,23142);
+            $event->event_meta_data = str_slug($request->headline).rand(2345,23142);
 
             if($event->save()){
                 return redirect()->route('event.index')->with('success', 'Event Successfully Created');
