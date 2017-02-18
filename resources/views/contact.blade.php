@@ -3,7 +3,7 @@
 @section('content')
 
 <article id="contact" class="map-section">
-    <div id="map" class="wow slideInUp"></div>
+        <div id="map-canvas" style="width: 100%; height: 400px"></div>
 </article><!-- end section -->
 
 <section class="white section">
@@ -16,19 +16,25 @@
                 </div>
                 <div id="contact_form" class="contact_form row">
                     <div id="message"></div>
-                    <form id="contactform" action="http://templatevisual.com/demo/learnplus/contact.php" name="contactform" method="post">
+                    @include('includes.alert')
+
+                    {!! Form:: open(array('route' => 'contact.store')) !!}
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Name *">
-                            <input type="text" name="email" id="email" class="form-control" placeholder="Email *">
-                            <input type="text" name="name" id="website" class="form-control" placeholder="Website">
+                            {!! Form:: text ('name', '', array('class'=>'form-control', 'required'=>'required','placeholder' => 'Your Name'))!!}
+                            {!! Form:: email ('email', '', array('class'=>'form-control', 'required'=>'required','placeholder' => 'me@example.com')) !!}
+                            {!! Form:: text ('subject', '', array('class'=>'form-control', 'required'=>'required','placeholder' => 'Your subject'))!!}
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                            <textarea class="form-control" name="comments" id="comments" rows="6" placeholder=""></textarea>
-                            <button type="submit" value="SEND" id="submit" class="btn btn-primary btn-block">Send Message</button>
+                            {!! Form:: textarea ('message', '',array('class'=>'form-control', 'required'=>'required|min:25','placeholder' => 'Message must contain 25 alphabets'))!!}
+                            {!! Form::reset('Clear', array('class' => 'you css class for button')) !!}
+                            {!! Form::submit('Send', array('class' => 'you css class for button')) !!}
                         </div>
-                    </form>
+                    {!! Form:: close() !!}
                 </div><!-- end contact-form -->
             </div><!-- end col -->
+
+
+
 
             <div class="col-md-3 col-sm-3 col-xs-12 content-widget">
                 <div class="widget-title">
@@ -55,9 +61,30 @@
 @stop
 
 @section('script')
+    {!! Html::script('https://maps.googleapis.com/maps/api/js?v=3.exp&amp;AMP;sensor=false') !!}
 
-    <script src="frontend/js/custom.js"></script>
-    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-    <script src="frontend/js/contact.js"></script>
-    <script src="frontend/js/map.js"></script>
+    <script>
+
+        //google map
+        function initialize() {
+            var myLatlng = new google.maps.LatLng(24.918157, 91.830944);
+            var mapOptions = {
+                zoom: 15,
+                scrollwheel: false,
+                center: myLatlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: 'Hello World!'
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+    </script>
 @stop
+

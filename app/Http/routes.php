@@ -30,10 +30,35 @@ Route::group(['middleware' => 'guest'], function(){
 
 #frontend
 Route::get('home/index', ['as'=>'welcome','uses' => 'FrontendController@index']);
-Route::get('home/events', ['as'=>'event','uses' => 'FrontendController@event']);
 Route::get('home/notices', ['as'=>'notice','uses' => 'FrontendController@notice']);
 Route::get('home/notices/{notice_meta_data}', ['as'=>'notice.details','uses' => 'FrontendController@noticeDetails']);
+Route::get('home/events', ['as'=>'event','uses' => 'FrontendController@event']);
 Route::get('home/events/{event_meta_data}', ['as'=>'event.details','uses' => 'FrontendController@eventDetails']);
+
+#contact section
+Route::get('home/contact', array('as' => 'contact', 'uses' => 'ContactController@contact'));
+Route::post('contact',['as' => 'contact.store', 'uses' => 'ContactController@getContactUsForm']);
+
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -7,8 +7,8 @@ LOADER -->
 
     $(window).load(function() {
         $('#loader').delay(300).fadeOut('slow');
-        $('#loader-container').delay(200).fadeOut('slow');
-        $('body').delay(300).css({'overflow':'visible'});
+        $('#loader-container').delay(100).fadeOut('slow');
+        $('body').delay(200).css({'overflow':'visible'});
     })
 
 /* ==============================================

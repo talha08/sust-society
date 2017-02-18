@@ -35,7 +35,8 @@
     {!! Html::style('frontend/css/carousel.css') !!}
     {!! Html::style('frontend/css/style.css') !!}
     {!! Html::style('frontend/css/style2.css') !!}
-
+            <!-- Toastr style -->
+    {!! Html::style('css/plugins/toastr/toastr.min.css') !!}
 
     <!-- COLORS -->
     {!! Html::style('frontend/css/custom.css') !!}

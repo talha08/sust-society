@@ -7,7 +7,10 @@
     </div>
 </div>
 <div id="wrapper">
-    @include('frontend.includes.topbar')
+
+    @if(! Auth::user())
+        @include('frontend.includes.topbar')
+    @endif
     @include('frontend.includes.navbar')
 
         @yield('content')

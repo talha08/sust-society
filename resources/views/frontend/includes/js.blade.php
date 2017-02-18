@@ -8,6 +8,12 @@
         <!-- SLIDER REV -->
 {!! Html::script('frontend/rs-plugin/js/jquery.themepunch.tools.min.js') !!}
 {!! Html::script('frontend/rs-plugin/js/jquery.themepunch.revolution.min.js') !!}
+
+        <!-- toastr -->
+{!! Html::script('js/plugins/toastr/toastr.min.js') !!}
+@include('includes.toastr')
+
+
 <script>
     jQuery(document).ready(function() {
         jQuery('.tp-banner').show().revolution(
