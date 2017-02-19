@@ -46,9 +46,9 @@
             </div><!-- end col -->
             <div class="col-md-6 text-right">
                 <ul class="list-inline">
-                    <li><a href="#">Terms of Usage</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Sitemap</a></li>
+                    {{--<li><a href="#">Terms of Usage</a></li>--}}
+                    {{--<li><a href="#">Privacy Policy</a></li>--}}
+                    {{--<li><a href="#">Sitemap</a></li>--}}
 
                 </ul>
             </div>

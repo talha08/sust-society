@@ -8,7 +8,7 @@
                     <div class="blog-wrapper">
                         <div class="row second-bread">
                             <div class="col-md-6 text-left">
-                                <h1>Blog & News</h1>
+                                <h1>Notice</h1>
                             </div><!-- end col -->
                             <div class="col-md-6 text-right">
                                 <div class="bread">

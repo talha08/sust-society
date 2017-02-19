@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
 use App\Event;
 use App\Notice;
 use Illuminate\Http\Request;
@@ -13,7 +14,11 @@ class FrontendController extends Controller
 {
 
     public function index(){
-        return view('welcome')->with('title',"Departments");
+         $depts = Department::all();
+         $events = Event::orderBy('id', 'desc')
+                 ->take(10)
+                 ->get();
+        return view('welcome', compact('events','depts'))->with('title',"Departments");
     }
 
 

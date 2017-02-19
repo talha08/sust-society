@@ -27,21 +27,22 @@ Route::group(['middleware' => 'guest'], function(){
 
 
 
+Route::group(['prefix' => '/home'], function () {
 
 #frontend
-Route::get('home/index', ['as'=>'welcome','uses' => 'FrontendController@index']);
-Route::get('home/notices', ['as'=>'notice','uses' => 'FrontendController@notice']);
-Route::get('home/notices/{notice_meta_data}', ['as'=>'notice.details','uses' => 'FrontendController@noticeDetails']);
-Route::get('home/events', ['as'=>'event','uses' => 'FrontendController@event']);
-Route::get('home/events/{event_meta_data}', ['as'=>'event.details','uses' => 'FrontendController@eventDetails']);
+Route::get('index', ['as'=>'welcome','uses' => 'FrontendController@index']);
+Route::get('notices', ['as'=>'notice','uses' => 'FrontendController@notice']);
+Route::get('notices/{notice_meta_data}', ['as'=>'notice.details','uses' => 'FrontendController@noticeDetails']);
+Route::get('events', ['as'=>'event','uses' => 'FrontendController@event']);
+Route::get('events/{event_meta_data}', ['as'=>'event.details','uses' => 'FrontendController@eventDetails']);
 
 #contact section
-Route::get('home/contact', array('as' => 'contact', 'uses' => 'ContactController@contact'));
+Route::get('contact', array('as' => 'contact', 'uses' => 'ContactController@contact'));
 Route::post('contact',['as' => 'contact.store', 'uses' => 'ContactController@getContactUsForm']);
 
 #
 
-
+});
 
 
 
@@ -170,19 +171,10 @@ Route::group(array('middleware' => 'auth'), function()
 });
 
 
-//Route::group(['prefix' => '/v1'], function () {
 
-//	Route::get('test',function(){
-//		return View::make('welcome')->with('title','Profile');
-//	});
-//
-//
 //	Route::get('event',function(){
 //		return View::make('event')->with('title','Profile');
 //	});
-
-//});
-
 
 
 

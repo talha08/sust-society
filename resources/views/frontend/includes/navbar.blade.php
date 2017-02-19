@@ -17,27 +17,10 @@
 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="dropdown ttmenu-half"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Home <b class="fa fa-angle-down"></b></a>
-                            <ul class="dropdown-menu menu-bg wbg">
-                                <li>
-                                    <div class="ttmenu-content">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="box">
-                                                    <ul>
-                                                        <li><a href="#">Home Version 1</a></li>
-                                                        <li><a href="#">Home Version 2</a></li>
-                                                    </ul>
-                                                </div><!-- end box -->
-                                            </div><!-- end col -->
-                                        </div><!-- end row -->
-                                    </div><!-- end ttmenu-content -->
-                                </li>
-                            </ul>
-                        </li><!-- end mega menu -->
-                        <li><a href="page-about.html">About</a></li>
+                        <li><a href="{!! route('welcome') !!}">Home</a></li>
+                        {{--<li><a href="page-about.html">About</a></li>--}}
 
-                        <li class="dropdown ttmenu-half"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Features <b class="fa fa-angle-down"></b></a>
+                        <li class="dropdown ttmenu-half"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Departments <b class="fa fa-angle-down"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <div class="ttmenu-content">
@@ -45,21 +28,29 @@
                                             <div class="col-md-6">
                                                 <div class="box">
                                                     <ul>
-                                                        <li><a href="page-services.html">Our Services</a></li>
-                                                        <li><a href="page-contact.html">Contact Us</a></li>
-                                                        <li><a href="page-pricing.html">Pricing Tables</a></li>
+                                                      @foreach($department as $dept)
+                                                            <li><a href="#">{!! $dept->name !!}</a></li>
+                                                      @endforeach
                                                     </ul>
                                                 </div><!-- end box -->
                                             </div><!-- end col -->
-
+                                            <div class="col-md-6">
+                                                <div class="box">
+                                                    <ul>
+                                                        @foreach($department as $dept)
+                                                            <li><a href="#">{!! $dept->name !!}</a></li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div><!-- end box -->
+                                            </div><!-- end col -->
                                         </div><!-- end row -->
                                     </div><!-- end ttmenu-content -->
                                 </li>
                             </ul>
-                        </li><!-- end mega menu -->
-                        <li><a href="forums.html">Community</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="page-contact.html">Contact</a></li>
+
+                        <li><a href="{!! route('notice') !!}">Notice</a></li>
+                        <li><a href="{!! route('event') !!}">Events</a></li>
+                        <li><a href="{!! route('contact') !!}">Contact</a></li>
                     </ul><!-- end nav navbar-nav -->
 
 

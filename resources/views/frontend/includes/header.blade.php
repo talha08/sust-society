@@ -13,7 +13,7 @@
     <meta name="author" content="">
     <meta name="keywords" content="">
 
-    <title>LearnPLUS | Learning Management System HTML Template</title>
+    <title>{!! $title or  "SUST Society" !!}</title>
 
     <link rel="shortcut icon" href="frontend/images/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="frontend/images/apple-touch-icon.png" />
