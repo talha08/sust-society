@@ -24,38 +24,16 @@
 
     <div class="widget">
         <div class="widget-title">
-            <h4>Recent Notices</h4>
+            <h4>Recent Events</h4>
             <hr>
         </div>
 
         <ul class="popular-courses">
+           @foreach($events as $event)
             <li>
-                <a href="#" title=""><img class="img-thumbnail" src="{!! asset('frontend/upload/service_01.png') !!}" alt=""></a>
+                <a href="{!! route('event.details', $event->event_meta_data) !!}" title=""><img class="img-thumbnail" src="{!! asset($event->banner) !!}" height="100px" width="100px" alt=""></a>
             </li>
-            <li>
-                <a href="#" title=""><img class="img-thumbnail" src="{!! asset('frontend/upload/service_01.png') !!}" alt=""></a>
-            </li>
-            <li>
-                <a href="#" title=""><img class="img-thumbnail" src="{!! asset('frontend/upload/service_01.png') !!}" alt=""></a>
-            </li>
-            <li>
-                <a href="#" title=""><img class="img-thumbnail" src="{!! asset('frontend/upload/service_01.png') !!}" alt=""></a>
-            </li>
-            <li>
-                <a href="#" title=""><img class="img-thumbnail" src="{!! asset('frontend/upload/service_01.png') !!}" alt=""></a>
-            </li>
-            <li>
-                <a href="#" title=""><img class="img-thumbnail" src="{!! asset('frontend/upload/service_01.png') !!}" alt=""></a>
-            </li>
-            <li>
-                <a href="#" title=""><img class="img-thumbnail" src="{!! asset('frontend/upload/service_01.png') !!}" alt=""></a>
-            </li>
-            <li>
-                <a href="#" title=""><img class="img-thumbnail" src="{!! asset('frontend/upload/service_01.png') !!}" alt=""></a>
-            </li>
-            <li>
-                <a href="#" title=""><img class="img-thumbnail" src="{!! asset('frontend/upload/service_01.png') !!}" alt=""></a>
-            </li>
+           @endforeach
         </ul>
     </div><!-- end widget -->
 

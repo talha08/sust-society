@@ -65,22 +65,28 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
-    public function login(){
 
 
 
-        $user_type= [
-            '2' => 'Faculty Member',
-            '3' => 'Student',
 
-        ];
-        $dept_id = Department::lists('name','id');
+//    public function login(){
+//
+//        $user_type= [
+//            '2' => 'Faculty Member',
+//            '3' => 'Student',
+//
+//        ];
+//        $dept_id = Department::lists('name','id');
+//        // return 'Auth Login Panel';
+//        return view('auth.login',compact('dept_id','user_type'))
+//                    ->with('title', 'Login');
+//    }
 
 
-        // return 'Auth Login Panel';
-        return view('auth.login',compact('dept_id','user_type'))
-                    ->with('title', 'Login');
-    }
+
+
+
+
 
     public function doLogin(Request $request)
     {
@@ -115,7 +121,7 @@ class AuthController extends Controller
                 return redirect()->intended('dashboard')->with('success','Welcome to SUST Society');
             } else
             {
-                return redirect()->route('login')
+                return redirect()->route('user.create')
                             ->withInput()
                             ->withErrors('Error in Email Address or Password.');
             }
@@ -127,7 +133,7 @@ class AuthController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('login')
+        return redirect()->route('user.create')
                     ->with('success',"You are successfully logged out.");
         // return 'Logout Panel';
     }
@@ -163,7 +169,7 @@ class AuthController extends Controller
 
             if($user->save()){
                 Auth::logout();
-                return redirect()->route('login')
+                return redirect()->route('user.create')
                             ->with('success','Your password changed successfully.');
             }else{
                 return redirect()->route('dashboard')

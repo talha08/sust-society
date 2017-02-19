@@ -29,8 +29,9 @@ class FrontendController extends Controller
 
 
     public function noticeDetails($event_meta_data){
+        $events = Event::orderBy('id', 'desc')->take(9)->get();
         $notice = Notice::where('notice_meta_data', $event_meta_data)->first();
-        return view('noticeFull',compact('notice'))->with('title',$notice->headline);
+        return view('noticeFull',compact('notice', 'events'))->with('title',$notice->headline);
     }
 
     public function event(){
@@ -39,7 +40,8 @@ class FrontendController extends Controller
     }
 
     public function eventDetails($event_meta_data){
+        $events = Event::orderBy('id', 'desc')->take(9)->get();
         $event = Event::where('event_meta_data', $event_meta_data)->first();
-        return view('eventFull',compact('event'))->with('title',$event->headline);
+        return view('eventFull',compact('event', 'events'))->with('title',$event->headline);
     }
 }

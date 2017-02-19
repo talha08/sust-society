@@ -57,7 +57,7 @@
                                 {{--<span class="day">21</span>--}}
                                 {{--<span class="month">Feb</span>--}}
                             {{--</div>--}}
-                            <p>{!! str_limit($event->description, 100) !!}</p>
+                            <p>{!! strip_tags( str_limit($event->description, 100)) !!}</p>
                             <a href="{!! route('event.details', $event->event_meta_data) !!}" class="readmore">Read More</a>
                         </div><!-- end desc -->
                     </div><!-- end blog-wrapper -->

@@ -92,7 +92,7 @@ class UsersController extends Controller
                 $profile->save();
 
                 Auth::logout();
-                return redirect()->route('login')
+                return redirect()->route('user.create')
                             ->with('success','Registered successfully. Sign In Now.');
             }else{
                 return redirect()->route('dashboard')

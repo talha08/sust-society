@@ -46,7 +46,7 @@
 
                             <div class="blog-desc">
 
-                                <p> {!! str_limit($notice->description, 150) !!}</p>
+                                <p> {!! strip_tags(str_limit($notice->description, 150)) !!}</p>
                                 <a href="{!! route('notice.details',$notice->notice_meta_data) !!}" class="readmore">Read More</a>
                             </div><!-- end desc -->
                         </div><!-- end blog-wrapper -->
