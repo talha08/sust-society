@@ -4,10 +4,14 @@
             <div class="col-md-6 col-md-6 col-xs-12">
                 <div class="widget">
                     <div class="widget-title">
-                        <h4>About LearnPLUS</h4>
+                        <h4>About SUST Society</h4>
                         <hr>
                     </div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took...</p>
+                    <p>
+                        Shahjalal University of Science and Technology, Sylhet(SUST)<br>
+                        Computer Science and Engineering Department(CSE)
+
+                    </p>
                 </div><!-- end widget -->
             </div><!-- end col -->
 
@@ -22,11 +26,11 @@
                     </div>
 
                     <ul class="contact-details">
-                        <li><i class="fa fa-link"></i> <a href="#">www.yoursite.com</a></li>
+                        <li><i class="fa fa-link"></i> <a href="#">www.sustsociety.com</a></li>
                         <li><i class="fa fa-envelope"></i> <a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
                         <li><i class="fa fa-phone"></i> +90 123 45 67</li>
                         <li><i class="fa fa-fax"></i> +90 123 45 68</li>
-                        <li><i class="fa fa-home"></i> Envato INC 22 Elizabeth Str. Melbourne. Victoria 8777.</li>
+                        <li><i class="fa fa-home"></i> Sylhet, Bangladesh.</li>
                     </ul>
 
                 </div><!-- end widget -->

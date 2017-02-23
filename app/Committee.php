@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Committee extends Model
 {
     protected $table = 'committee';
+//    public $with = ['committeeMemberList'];
 
     public function committeeMemberList(){
         return $this->hasMany('App\Committee','committee_id','id');

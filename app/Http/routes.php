@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-	return Redirect::route('dashboard');
+	return Redirect::route('welcome');
 });
 
 
@@ -30,7 +30,7 @@ Route::group(['middleware' => 'guest'], function(){
 Route::group(['prefix' => '/home'], function () {
 
 #frontend
-Route::get('index', ['as'=>'welcome','uses' => 'FrontendController@index']);
+Route::get('welcome', ['as'=>'welcome','uses' => 'FrontendController@index']);
 Route::get('notices', ['as'=>'notice','uses' => 'FrontendController@notice']);
 Route::get('notices/{notice_meta_data}', ['as'=>'notice.details','uses' => 'FrontendController@noticeDetails']);
 Route::get('events', ['as'=>'event','uses' => 'FrontendController@event']);
@@ -40,32 +40,14 @@ Route::get('events/{event_meta_data}', ['as'=>'event.details','uses' => 'Fronten
 Route::get('contact', array('as' => 'contact', 'uses' => 'ContactController@contact'));
 Route::post('contact',['as' => 'contact.store', 'uses' => 'ContactController@getContactUsForm']);
 
-#
+#department
+Route::get('department/{id}',['as' => 'department', 'uses' => 'FrontendController@department']);
 
 });
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Route::group(array('middleware' => 'auth'), function()
+Route::group(array('prefix' => '/admin','middleware' => 'auth'), function()
 {
 
 	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);

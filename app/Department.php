@@ -8,8 +8,14 @@ class Department extends Model
 {
     protected $table = 'department';
 
+    //public $with = ['committee'];
+
     public function event(){
         return $this->hasMany('App\Event','dept_id','id');
+    }
+
+    public function notice(){
+        return $this->hasMany('App\Notice','dept_id','id');
     }
 
     public function users(){
@@ -22,5 +28,9 @@ class Department extends Model
 
     public function committee(){
         return $this->hasMany('App\Committee','dept_id','id');
+    }
+
+    public function slider(){
+        return $this->hasMany('App\DeptSlider','dept_id','id');
     }
 }

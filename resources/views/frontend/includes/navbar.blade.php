@@ -29,7 +29,7 @@
                                                 <div class="box">
                                                     <ul>
                                                       @foreach($department as $dept)
-                                                            <li><a href="#">{!! $dept->name !!}</a></li>
+                                                            <li><a href="{!! route('department', $dept->id) !!}">{!! $dept->name !!}</a></li>
                                                       @endforeach
                                                     </ul>
                                                 </div><!-- end box -->
@@ -38,7 +38,7 @@
                                                 <div class="box">
                                                     <ul>
                                                         @foreach($department as $dept)
-                                                            <li><a href="#">{!! $dept->name !!}</a></li>
+                                                            <li><a href="{!! route('department', $dept->id) !!}">{!! $dept->name !!}</a></li>
                                                         @endforeach
                                                     </ul>
                                                 </div><!-- end box -->

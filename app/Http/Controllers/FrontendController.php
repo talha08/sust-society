@@ -46,4 +46,14 @@ class FrontendController extends Controller
         $event = Event::where('event_meta_data', $event_meta_data)->first();
         return view('eventFull',compact('event','evenImg'))->with('title',$event->headline);
     }
+
+
+
+    public function department($id){
+        $dept = Department::where('id', $id)->first();
+        //return $dept->committee;
+        return view('department',compact('dept'))->with('title',$dept->name);
+    }
+
+
 }
