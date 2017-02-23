@@ -54,6 +54,18 @@
 
 
 
+            <li class="{!! Menu::areActiveRoutes(['slider.index', 'slider.create']) !!}">
+                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Slide</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="{!! Menu::isActiveRoute('slider.index') !!}">
+                        <a href="{!!  URL::route('slider.index') !!}">Slider</a>
+                    </li>
+
+                    <li class="{!! Menu::isActiveRoute('slider.create') !!}">
+                        <a href="{!!  URL::route('slider.create') !!}">New Slide</a>
+                    </li>
+                </ul>
+            </li>
 
 
             <li class="{!! Menu::areActiveRoutes(['album.index', 'album.create']) !!}">

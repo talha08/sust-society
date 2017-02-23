@@ -14,13 +14,12 @@ class CreateDeptSliderTable extends Migration
     {
         Schema::create('dept_slider', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('slider_path');
-
+            $table->string('img_url');
+            $table->string('thumb_url');
+            $table->string('slider_title');
+            $table->string('slider_desc');
             $table->integer('dept_id')->unsigned();
             $table->foreign('dept_id')->references('id')->on('department')->onUpdate('cascade')->onDelete('cascade');
-
-
-
             $table->timestamps();
         });
     }

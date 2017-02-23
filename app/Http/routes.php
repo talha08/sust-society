@@ -49,7 +49,7 @@ Route::get('department/{id}',['as' => 'department', 'uses' => 'FrontendControlle
 
 Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
 {
-	#User section
+	#User Section
 	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
 	Route::get('profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
 	Route::put('profile/{id}', ['as' => 'profile.update', 'uses' => 'UsersController@profileUpdate']);
@@ -74,7 +74,7 @@ Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
 
 
 
-	#event section  complete
+	#Event Section  Complete
 	Route::get('event/status/{id}', array('as' => 'event.status', 'uses' => 'EventController@statusUpdate'));
 	Route::get('event', array('as' => 'event.index', 'uses' => 'EventController@index'));
 	Route::get('event/create', array('as' => 'event.create', 'uses' => 'EventController@create'));
@@ -88,7 +88,7 @@ Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
 
 
 
-	#Society section  complete
+	#Society Section  Complete
 	Route::get('society', array('as' => 'department.index', 'uses' => 'DepartmentController@index'));
 	Route::get('society/create', array('as' => 'department.create', 'uses' => 'DepartmentController@create'));
 	Route::post('society', array('as' => 'department.store', 'uses' => 'DepartmentController@store'));
@@ -98,7 +98,7 @@ Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
 
 
 
-	#Notice section complete
+	#Notice Section Complete
 	Route::get('notice', array('as' => 'notice.index', 'uses' => 'NoticeController@index'));
 	Route::get('notice/create', array('as' => 'notice.create', 'uses' => 'NoticeController@create'));
 	Route::post('notice', array('as' => 'notice.store', 'uses' => 'NoticeController@store'));
@@ -111,8 +111,7 @@ Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
 
 
 
-
-	#Committee
+	#Committee Section Complete
 	Route::get('committee', array('as' => 'committee.index', 'uses' => 'CommitteeController@index'));
 	Route::get('committee/create', array('as' => 'committee.create', 'uses' => 'CommitteeController@create'));
 	Route::post('committee', array('as' => 'committee.store', 'uses' => 'CommitteeController@store'));
@@ -145,7 +144,7 @@ Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
 	Route::get('event-registration/{id}/show', array('as' => 'registration.show', 'uses' => 'RegistrationController@show'));
 
 
-	#slider image
+	#Slider image
 	Route::get('slider', array('as' => 'slider.index', 'uses' => 'SliderController@index'));
 	Route::get('slider/create', array('as' => 'slider.create', 'uses' => 'SliderController@create'));
 	Route::post('slider', array('as' => 'slider.store', 'uses' => 'SliderController@store'));

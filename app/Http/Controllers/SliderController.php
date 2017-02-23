@@ -37,10 +37,10 @@ class SliderController extends Controller
     /**
      * Store slider data
      *
-     * @param SliderRequest $request
+     * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(SliderRequest $request)
+    public function store(Request $request)
     {
         // return $request->all();
 
@@ -50,20 +50,20 @@ class SliderController extends Controller
             $extension = $file->getClientOriginalExtension();
             $fileName = md5(rand(11111, 99999)) . '.' . $extension; // renameing image
             //path set
-            $img_url = 'upload/slider/img/sliderMain-'.$fileName;
-            $thumb_url = 'upload/slider/thumb/sliderThumb-'.$fileName;
+            $img_url = 'upload/slider/sliderMain-'.$fileName;
+            $thumb_url = 'upload/slider/sliderThumb-'.$fileName;
 
             //resize and crop image using Image Intervention
             //Image::make($file)->crop(1140, 400, 0, 0)->save(public_path($img_url));
             Image::make($file)->resize(1140, 400)->save(public_path($img_url));
             Image::make($file)->resize(41, 41)->save(public_path($thumb_url));
 
-            $slider = new Slider();
+            $slider = new DeptSlider();
             $slider->slider_title = $request->slider_title;
             $slider->slider_desc = $request->slider_desc;
-            $slider->slider_position = $request->slider_position;
             $slider->img_url = $img_url;
             $slider->thumb_url = $thumb_url;
+            $slider->dept_id = Auth::user()->dept_id;
             if($slider->save()){
                 return redirect()->back()->with('success', "Slider Successfully Added");
             }else{
@@ -85,7 +85,7 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        Slider::destroy($id);
+        DeptSlider::destroy($id);
         return redirect()->route('slider.index')->with('success',"Slider Successfully deleted");
     }
 
