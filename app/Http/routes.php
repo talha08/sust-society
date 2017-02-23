@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'guest'], function(){
 	Route::controller('password', 'RemindersController');
-	//Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
+	#Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
 	Route::get('user/createOrLogin', ['as'=>'user.create','uses' => 'UsersController@create']);
 	Route::post('user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
 	Route::post('login', ['as'=>'login','uses' => 'Auth\AuthController@doLogin']);
@@ -47,38 +47,34 @@ Route::get('department/{id}',['as' => 'department', 'uses' => 'FrontendControlle
 
 
 
-Route::group(array('prefix' => '/admin','middleware' => 'auth'), function()
+Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
 {
-
+	#User section
 	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
 	Route::get('profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
-
 	Route::put('profile/{id}', ['as' => 'profile.update', 'uses' => 'UsersController@profileUpdate']);
 	Route::get('userProfile/{id}', ['as' => 'userProfile', 'uses' => 'UsersController@userProfile']);
-
 	Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'Auth\AuthController@dashboard'));
 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
-
-
 	Route::get('user/students', array('as' => 'user.student', 'uses' => 'UsersController@students'));
 	Route::get('user/teachers', array('as' => 'user.teacher', 'uses' => 'UsersController@teachers'));
 
 
 
-	//Album Section
+	#Album Section
 	Route::get('album', array('as' => 'album.index', 'uses' => 'AlbumController@index'));
 	Route::get('album/search/{id}', array('as' => 'album.search', 'uses' => 'AlbumController@search'));
 	Route::get('album/create', ['as'=>'album.create','uses' => 'AlbumController@create']);
 	Route::post('album/create', ['as'=>'album.store','uses' => 'AlbumController@store']);
-	//Route::get('album/{id}/edit', array('as' => 'album.edit', 'uses' => 'AlbumController@edit'));
+	#Route::get('album/{id}/edit', array('as' => 'album.edit', 'uses' => 'AlbumController@edit'));
 	Route::post('album/update', array('as' => 'album.update', 'uses' => 'AlbumController@updateAlbumImage'));
-	//Route::delete('album/{id}', array('as' => 'album.delete', 'uses' => 'AlbumController@destroy'));
+	#Route::delete('album/{id}', array('as' => 'album.delete', 'uses' => 'AlbumController@destroy'));
 	Route::delete('album/{id}', array('as' => 'photo.delete', 'uses' => 'AlbumController@photoDestroy'));
 
 
 
-	//event section  complete
+	#event section  complete
 	Route::get('event/status/{id}', array('as' => 'event.status', 'uses' => 'EventController@statusUpdate'));
 	Route::get('event', array('as' => 'event.index', 'uses' => 'EventController@index'));
 	Route::get('event/create', array('as' => 'event.create', 'uses' => 'EventController@create'));
@@ -86,14 +82,13 @@ Route::group(array('prefix' => '/admin','middleware' => 'auth'), function()
 	Route::get('event/{id}/edit', array('as' => 'event.edit', 'uses' => 'EventController@edit'));
 	Route::put('event/{id}/update', array('as' => 'event.update', 'uses' => 'EventController@update'));
 	Route::delete('event/{id}', array('as' => 'event.delete', 'uses' => 'EventController@destroy'));
-
-	Route::get('event-file-upload', array('as' => 'event.eventFileUpload', 'uses' => 'EventController@fileUploadView')); //file upload dropdown view
-	Route::post('eventFileUpload', array('as' => 'event.upload', 'uses' => 'EventController@fileUpload')); //file upload from dropdown event
-	Route::post('eventsingleFileUpload', array('as' => 'event.singleUpload', 'uses' => 'EventController@singleFileUpload')); //for modal file upload
-
+	Route::get('event-file-upload', array('as' => 'event.eventFileUpload', 'uses' => 'EventController@fileUploadView')); #file upload dropdown view
+	Route::post('eventFileUpload', array('as' => 'event.upload', 'uses' => 'EventController@fileUpload')); #file upload from dropdown event
+	Route::post('eventsingleFileUpload', array('as' => 'event.singleUpload', 'uses' => 'EventController@singleFileUpload')); #for modal file upload
 
 
-	//Society section  complete
+
+	#Society section  complete
 	Route::get('society', array('as' => 'department.index', 'uses' => 'DepartmentController@index'));
 	Route::get('society/create', array('as' => 'department.create', 'uses' => 'DepartmentController@create'));
 	Route::post('society', array('as' => 'department.store', 'uses' => 'DepartmentController@store'));
@@ -103,22 +98,21 @@ Route::group(array('prefix' => '/admin','middleware' => 'auth'), function()
 
 
 
-	//Notice section  complete
+	#Notice section complete
 	Route::get('notice', array('as' => 'notice.index', 'uses' => 'NoticeController@index'));
 	Route::get('notice/create', array('as' => 'notice.create', 'uses' => 'NoticeController@create'));
 	Route::post('notice', array('as' => 'notice.store', 'uses' => 'NoticeController@store'));
 	Route::get('notice/{id}/edit', array('as' => 'notice.edit', 'uses' => 'NoticeController@edit'));
 	Route::put('notice/{id}/update', array('as' => 'notice.update', 'uses' => 'NoticeController@update'));
 	Route::delete('notice/{id}', array('as' => 'notice.delete', 'uses' => 'NoticeController@destroy'));
-
-	Route::get('notice-file-upload', array('as' => 'notice.eventFileUpload', 'uses' => 'NoticeController@fileUploadView')); //file upload dropdown view
-	Route::post('noticeFileUpload', array('as' => 'notice.upload', 'uses' => 'NoticeController@fileUpload')); //file upload from dropdown event
-	Route::post('noticeingleFileUpload', array('as' => 'notice.singleUpload', 'uses' => 'NoticeController@singleFileUpload')); //for modal file upload
-
+	Route::get('notice-file-upload', array('as' => 'notice.eventFileUpload', 'uses' => 'NoticeController@fileUploadView')); #file upload dropdown view
+	Route::post('noticeFileUpload', array('as' => 'notice.upload', 'uses' => 'NoticeController@fileUpload')); #file upload from dropdown event
+	Route::post('noticeingleFileUpload', array('as' => 'notice.singleUpload', 'uses' => 'NoticeController@singleFileUpload')); #for modal file upload
 
 
 
-	//Committee
+
+	#Committee
 	Route::get('committee', array('as' => 'committee.index', 'uses' => 'CommitteeController@index'));
 	Route::get('committee/create', array('as' => 'committee.create', 'uses' => 'CommitteeController@create'));
 	Route::post('committee', array('as' => 'committee.store', 'uses' => 'CommitteeController@store'));
@@ -128,7 +122,7 @@ Route::group(array('prefix' => '/admin','middleware' => 'auth'), function()
 	Route::get('committee/{id}/show', array('as' => 'committee.show', 'uses' => 'CommitteeController@show'));
 
 
-	//Committee Member Type
+	#Committee Member Type
 	Route::get('committeeMemberType', array('as' => 'committeeMemberType.index', 'uses' => 'CommitteeMemberTypeController@index'));
 	Route::get('committeeMemberType/create', array('as' => 'committeeMemberType.create', 'uses' => 'CommitteeMemberTypeController@create'));
 	Route::post('committeeMemberType', array('as' => 'committeeMemberType.store', 'uses' => 'CommitteeMemberTypeController@store'));
@@ -137,7 +131,7 @@ Route::group(array('prefix' => '/admin','middleware' => 'auth'), function()
 	Route::delete('committeeMemberType/{id}', array('as' => 'committeeMemberType.delete', 'uses' => 'CommitteeMemberTypeController@destroy'));
 
 
-	//Committee Member List
+	#Committee Member List
 	Route::get('committeeMemberList', array('as' => 'committeeMemberList.index', 'uses' => 'CommitteeMemberListController@index'));
 	Route::get('committeeMemberList/create', array('as' => 'committeeMemberList.create', 'uses' => 'CommitteeMemberListController@create'));
 	Route::post('committeeMemberList', array('as' => 'committeeMemberList.store', 'uses' => 'CommitteeMemberListController@store'));
@@ -146,17 +140,24 @@ Route::group(array('prefix' => '/admin','middleware' => 'auth'), function()
 	Route::delete('committeeMemberList/{id}', array('as' => 'committeeMemberList.delete', 'uses' => 'CommitteeMemberListController@destroy'));
 
 
-	//Event Registration
+	#Event Registration
 	Route::get('event-registration', array('as' => 'registration.index', 'uses' => 'RegistrationController@index'));
 	Route::get('event-registration/{id}/show', array('as' => 'registration.show', 'uses' => 'RegistrationController@show'));
+
+
+	#slider image
+	Route::get('slider', array('as' => 'slider.index', 'uses' => 'SliderController@index'));
+	Route::get('slider/create', array('as' => 'slider.create', 'uses' => 'SliderController@create'));
+	Route::post('slider', array('as' => 'slider.store', 'uses' => 'SliderController@store'));
+	Route::delete('slider/{id}', array('as' => 'slider.delete', 'uses' => 'SliderController@destroy'));
 
 });
 
 
 
-//	Route::get('event',function(){
-//		return View::make('event')->with('title','Profile');
-//	});
+#	Route::get('event',function(){
+#		return View::make('event')->with('title','Profile');
+#	});
 
 
 

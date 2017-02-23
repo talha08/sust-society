@@ -13,3 +13,5 @@ class DeptSlider extends Model
         return $this->belongsTo('App\Department','dept_id','id');
     }
 }
+
+
