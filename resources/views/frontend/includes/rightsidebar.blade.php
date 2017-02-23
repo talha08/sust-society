@@ -29,9 +29,9 @@
         </div>
 
         <ul class="popular-courses">
-           @foreach($events as $event)
+           @foreach($evenImg as $eventNav)
             <li>
-                <a href="{!! route('event.details', $event->event_meta_data) !!}" title=""><img class="img-thumbnail" src="{!! asset($event->banner) !!}" height="100px" width="100px" alt=""></a>
+                <a href="{!! route('event.details', $eventNav->event_meta_data) !!}" title=""><img class="img-thumbnail" src="{!! asset($eventNav->banner) !!}" height="100px" width="100px" alt=""></a>
             </li>
            @endforeach
         </ul>
