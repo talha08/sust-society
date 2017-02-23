@@ -74,7 +74,7 @@ Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
 
 
 
-	#Event Section  Complete
+	#Event Section Complete
 	Route::get('event/status/{id}', array('as' => 'event.status', 'uses' => 'EventController@statusUpdate'));
 	Route::get('event', array('as' => 'event.index', 'uses' => 'EventController@index'));
 	Route::get('event/create', array('as' => 'event.create', 'uses' => 'EventController@create'));
@@ -144,7 +144,7 @@ Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
 	Route::get('event-registration/{id}/show', array('as' => 'registration.show', 'uses' => 'RegistrationController@show'));
 
 
-	#Slider image
+	#Slider Image
 	Route::get('slider', array('as' => 'slider.index', 'uses' => 'SliderController@index'));
 	Route::get('slider/create', array('as' => 'slider.create', 'uses' => 'SliderController@create'));
 	Route::post('slider', array('as' => 'slider.store', 'uses' => 'SliderController@store'));
