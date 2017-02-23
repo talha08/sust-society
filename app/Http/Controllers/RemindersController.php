@@ -13,10 +13,16 @@ use App\Http\Controllers\Controller;
 
 class RemindersController extends Controller
 {
+    /**
+     * Getting Email
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getEmail()
     {
         return view('auth.password');
     }
+
+
 
     /**
      * Send a reset link to the given user.
@@ -41,6 +47,9 @@ class RemindersController extends Controller
         }
     }
 
+
+
+
     /**
      * Get the e-mail subject line to be used for the reset link email.
      *
@@ -50,6 +59,9 @@ class RemindersController extends Controller
     {
         return property_exists($this, 'subject') ? $this->subject : 'Your Password Reset Link';
     }
+
+
+
 
     /**
      * Display the password reset view for the given token.
@@ -65,6 +77,8 @@ class RemindersController extends Controller
 
         return view('auth.reset')->with('token', $token);
     }
+
+
 
 
     /**
@@ -99,6 +113,9 @@ class RemindersController extends Controller
                     ->withErrors(['email' => trans($response)]);
         }
     }
+
+
+
 
     /**
      * Reset the given user's password.

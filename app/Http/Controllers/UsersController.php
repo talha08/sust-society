@@ -16,6 +16,8 @@ use App\Http\Controllers\Controller;
 use Intervention\Image\ImageManagerStatic as Image;
 class UsersController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -25,6 +27,9 @@ class UsersController extends Controller
     {
         //
     }
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -43,6 +48,10 @@ class UsersController extends Controller
         return view('auth.login',compact('dept_id','user_type'))
                     ->with('title', 'Register');
     }
+
+
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -102,6 +111,9 @@ class UsersController extends Controller
     }
 
 
+
+
+
     /**
      * Display the profile Info.
      *
@@ -113,6 +125,9 @@ class UsersController extends Controller
          return view('auth.profile')
                     ->with('title', 'Profile')->with('user', Auth::user());
     }
+
+
+
 
 
 
@@ -128,6 +143,8 @@ class UsersController extends Controller
         return view('auth.profile', compact('user'))
             ->with('title','Profile- '.$user->name);
     }
+
+
 
 
 
@@ -185,12 +202,10 @@ class UsersController extends Controller
         }
 
 
-
-
-
-
-
-
+    /**
+     * Getting ALl Students List By Department
+     * @return mixed
+     */
     public function students(){
 
           $users =\DB::table('roles')
@@ -206,8 +221,10 @@ class UsersController extends Controller
     }
 
 
-
-
+    /**
+     * Getting ALl Teachers List By Department
+     * @return mixed
+     */
     public function teachers(){
 
         $users =\DB::table('users')

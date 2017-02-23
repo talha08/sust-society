@@ -7,5 +7,6 @@ use Zizaco\Entrust\EntrustRole;
 
 class Role extends EntrustRole
 {
+    #table initialized
     protected $fillable = ['name'];
 }

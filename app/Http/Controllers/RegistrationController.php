@@ -23,6 +23,11 @@ class RegistrationController extends Controller
     }
 
 
+    /**
+     * Event Registration
+     * @param $id
+     * @return $this
+     */
     public function show($id)
     {
         $regis = Registration::where('event_id', $id)->get();

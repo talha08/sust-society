@@ -76,8 +76,11 @@ class CommitteeController extends Controller
     }
 
 
-
-
+    /**
+     * Committee Show
+     * @param $id
+     * @return $this
+     */
     public function show($id){
 
          $comLists = CommitteeMemberList::where('committee_id',$id )->get();

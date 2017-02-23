@@ -40,26 +40,46 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    #date in timestamps
     protected $dates = ['created_at', 'updated_at'];
 
 
     //protected $with = ['profile','roles'];
 
+
+    /**
+     * One to Many Relation with Album
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function album(){
         return $this->hasMany('App\Album','user_id','id');
     }
 
 
+    /**
+     * One to Many Relation with Department
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function dept()
     {
         return $this->belongsTo('App\Department','dept_id','id');
     }
 
+
+    /**
+     * One to Many Relation with CommitteeMemberList
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function committeMemberlist(){
         return $this->hasMany('App\CommitteeMemberList','committee_member_list','id');
     }
 
 
+    /**
+     * One to One Relation with Profile
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function profile(){
         return $this->hasOne('App\Profile','user_id','id');
     }

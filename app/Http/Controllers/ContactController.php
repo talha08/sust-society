@@ -11,13 +11,22 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Pagination;
 class ContactController extends Controller
 {
+
+    /**
+     * Contact form
+     * @param none
+     * @return $this
+     */
     public function contact()
     {
         return view('contact')->with('title',"Contact | SUST Society");
     }
 
 
-
+    /**
+     * Contact Information Submit Form
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function getContactUsForm(){
         //Get all the data and store it inside Store Variable
          $data = \Input::all();

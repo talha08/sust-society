@@ -23,7 +23,7 @@ class SliderController extends Controller
 
 
 
-    /**
+     /**
      * Show the form for creating a new slider.
      *
      * @return \Illuminate\Http\Response

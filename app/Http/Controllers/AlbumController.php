@@ -27,9 +27,10 @@ class AlbumController extends Controller
     }
 
 
-
-
-
+    /**
+     * @param $id
+     * @return $this
+     */
     public function search($id){
         $albums = Album::where('dept_id',\Auth::user()->dept->id)->get();
         //$albumIds = Album::where('id',$id)->first();

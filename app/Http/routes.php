@@ -36,11 +36,11 @@ Route::get('notices/{notice_meta_data}', ['as'=>'notice.details','uses' => 'Fron
 Route::get('events', ['as'=>'event','uses' => 'FrontendController@event']);
 Route::get('events/{event_meta_data}', ['as'=>'event.details','uses' => 'FrontendController@eventDetails']);
 
-#contact section
+#Contact Section
 Route::get('contact', array('as' => 'contact', 'uses' => 'ContactController@contact'));
 Route::post('contact',['as' => 'contact.store', 'uses' => 'ContactController@getContactUsForm']);
 
-#department
+#Department
 Route::get('department/{id}',['as' => 'department', 'uses' => 'FrontendController@department']);
 
 });
