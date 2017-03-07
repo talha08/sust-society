@@ -105,6 +105,8 @@ Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
 	Route::get('notice/{id}/edit', array('as' => 'notice.edit', 'uses' => 'NoticeController@edit'));
 	Route::put('notice/{id}/update', array('as' => 'notice.update', 'uses' => 'NoticeController@update'));
 	Route::delete('notice/{id}', array('as' => 'notice.delete', 'uses' => 'NoticeController@destroy'));
+
+
 	Route::get('notice-file-upload', array('as' => 'notice.eventFileUpload', 'uses' => 'NoticeController@fileUploadView')); #file upload dropdown view
 	Route::post('noticeFileUpload', array('as' => 'notice.upload', 'uses' => 'NoticeController@fileUpload')); #file upload from dropdown event
 	Route::post('noticeingleFileUpload', array('as' => 'notice.singleUpload', 'uses' => 'NoticeController@singleFileUpload')); #for modal file upload

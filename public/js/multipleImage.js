@@ -16,7 +16,7 @@ function readImage(file) {
                 t = file.type, // ext only: // file.type.split('/')[1],
                 n = file.name,
                 s = ~~(file.size/1024) +'KB';
-            $('#uploadPreview').append('<img src="' + this.src + '"> ' + w + 'x' + h + ' ' + s + ' ' + t + ' ' + n + '<br>');
+            $('#uploadPreview').append('<img src="' + this.src + '"> '   );
         };
 
         image.onerror= function() {

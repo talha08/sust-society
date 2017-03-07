@@ -28,7 +28,7 @@
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="panel-body">
 
-									{!!Form::model($notice,['route' => ['notice.update',$notice->id], 'method' => 'put' ])!!}
+									{!!Form::model($notice,['route' => ['notice.update'], 'method' => 'put' ])!!}
 
 
 									<div class="form-group">

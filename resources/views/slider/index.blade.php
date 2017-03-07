@@ -19,7 +19,7 @@
 									<table class="table table-striped table-bordered" id="datatable">
 										<thead>
 										<tr>
-											<th>id</th>
+											{{--<th>id</th>--}}
 											<th>Slide Title</th>
 											{{--
                                             <th>Slide Short Desc.</th>
@@ -31,14 +31,14 @@
 										<tbody>
 										@foreach ($sliders as $slide)
 											<tr>
-												<td>{!! $slide->id !!}</td>
-												<td> <a data-toggle="modal" style="color: teal;" data-target="#myModal_{{$slide->id}}" >{!!Str::limit($slide->slider_title,50) !!}</a></td>
+												{{--<td>{!! $slide->id !!}</td>--}}
+												<td> <a data-toggle="modal" style="color: teal;" data-target="#myModal_{{$slide->id}}" >{!! $slide->slider_title !!}</a></td>
 												{{--
                                                 <td>{!!Str::limit($slide->slider_desc,30) !!}</td>
                                                 --}}
-												<td> <img class="" src="{!! $slide->thumb_url !!}" alt=""></td>
+												<td> <img class="" src="{!! asset($slide->thumb_url) !!}" alt=""></td>
 												<td>
-													<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $slide->id!!}"><i class="ion-trash-a" aria-hidden="true"></i></a>
+													<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $slide->id!!}"><i class="fa fa-trash" aria-hidden="true"></i></a>
 												</td>
 											</tr>
 											<!-- Modal -->
@@ -49,7 +49,7 @@
 														<center>
 															<div class="modal-header">
 																<button type="button" class="close" data-dismiss="modal">&times;</button>
-																<h4 class="modal-title"><img class="" src="{!! $slide->img_url !!}" height="300px" width="900px" alt="" align="left"> <br/>
+																<h4 class="modal-title"><img class="" src="{!! asset($slide->img_url) !!}" height="300px" width="900px" alt="" align="left"> <br/>
 																	<br/><br/>
 																</h4>
 															</div>
@@ -106,7 +106,7 @@
 @section('script')
 	{!! Html::script('assets/datatables/jquery.dataTables.min.js') !!}
 	{!! Html::script('assets/datatables/dataTables.bootstrap.js') !!}
-	//for Datatable
+	
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#datatable').dataTable();

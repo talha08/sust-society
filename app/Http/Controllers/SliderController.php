@@ -63,7 +63,7 @@ class SliderController extends Controller
             $slider->slider_desc = $request->slider_desc;
             $slider->img_url = $img_url;
             $slider->thumb_url = $thumb_url;
-            $slider->dept_id = Auth::user()->dept_id;
+            $slider->dept_id = \Auth::user()->dept_id;
             if($slider->save()){
                 return redirect()->back()->with('success', "Slider Successfully Added");
             }else{

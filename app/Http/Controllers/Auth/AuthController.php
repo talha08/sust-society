@@ -118,7 +118,7 @@ class AuthController extends Controller
 
             if (Auth::attempt($credentials,$remember))
             {
-                return redirect()->intended('dashboard')->with('success','Welcome to SUST Society');
+                return redirect()->route('dashboard')->with('success','Welcome to SUST Society');
             } else
             {
                 return redirect()->route('user.create')

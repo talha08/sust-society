@@ -58,7 +58,7 @@
                        @if(Auth::user())
                             <li><a class="btn btn-primary" href="{!! route('dashboard') !!}"><i class="fa fa-sign-in"></i> Dashboard</a></li>
                        @else
-                            <li><a class="btn btn-primary" href="{!! route('login') !!}"><i class="fa fa-sign-in"></i> Register Now</a></li>
+                            <li><a class="btn btn-primary" href="{!! route('user.create') !!}"><i class="fa fa-sign-in"></i> Register Now</a></li>
                        @endif
                     </ul>
 

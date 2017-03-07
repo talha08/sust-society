@@ -28,7 +28,7 @@
                                 <div class="clearfix"></div>
                                 <button type="submit" class="btn btn-block btn-primary">Login</button>
                                 <hr>
-                                <h4><a href="{!! route('login') !!}">Create an Account</a></h4>
+                                <h4><a href="{!! route('user.create') !!}">Create an Account</a></h4>
                             {!! Form::close() !!}
                         </div>
                     </li>
