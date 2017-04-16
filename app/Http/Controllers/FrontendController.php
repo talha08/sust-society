@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Department;
+use App\DeptSlider;
 use App\Event;
 use App\Notice;
 use Illuminate\Http\Request;
@@ -91,7 +92,9 @@ class FrontendController extends Controller
      */
     public function department($id){
         $dept = Department::where('id', $id)->first();
+        //$slider = DeptSlider::take(4)->orderBy('id')->get();
         //return $dept->committee;
+        //return count($dept->slider);
         return view('department',compact('dept'))->with('title',$dept->name);
     }
 

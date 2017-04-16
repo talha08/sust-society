@@ -30,8 +30,6 @@
 
 									{!! Form::open(array('route' => 'committee.store',  'files' => true) ) !!}
 
-
-
 									@if(Auth::user()->id ==1)
 									<div class="form-group">
 										{!! Form::label('dept_id', 'Department Name :', array('class' => 'control-label')) !!}<br/>
@@ -54,8 +52,6 @@
 									<div class="form-group">
 										{!! Form::submit('Submit', array('class' => 'btn btn-primary')) !!}
 									</div>
-
-
 
 									{!! Form::close() !!}
 

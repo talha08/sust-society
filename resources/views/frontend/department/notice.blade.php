@@ -20,10 +20,10 @@
                                 </div>
                             </div>
                             <div class="shop-item-title clearfix">
-                                <h4><a href="{!! route('event.details', $dept_notice->notice_meta_data ) !!}">{!! $dept_notice->headline !!}</a></h4>
+                                <h4><a href="{!! route('notice.details', $dept_notice->notice_meta_data ) !!}">{!! $dept_notice->headline !!}</a></h4>
                             </div><!-- end shop-item-title -->
                             <div class="visible-buttons">
-                                <a title="Read More" href="{!! route('event.details', $dept_notice->notice_meta_data ) !!}"><span class="fa fa-search"></span></a>
+                                <a title="Read More" href="{!! route('notice.details', $dept_notice->notice_meta_data ) !!}"><span class="fa fa-search"></span></a>
                             </div><!-- end buttons -->
                         </div><!-- end relative -->
                     </div><!-- end col -->

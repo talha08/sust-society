@@ -17,7 +17,7 @@
                     <hr>
                 </div>
                 <div class="panel-body">
-                    <div class="row">
+
                         <div class="col-lg-12">
 
                             @include('includes.alert')
@@ -97,18 +97,14 @@
                                 </div>
 
                                 </form>
-
-
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
 
 
     <br><br><br><br>
-
 
     <!-- Modal For reset -->
     <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">

@@ -106,7 +106,7 @@
 @section('script')
 	{!! Html::script('assets/datatables/jquery.dataTables.min.js') !!}
 	{!! Html::script('assets/datatables/dataTables.bootstrap.js') !!}
-	
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#datatable').dataTable();

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Committee;
+use App\User;
+use App\CommitteeMemberType;
 use App\CommitteeMemberList;
 use App\Department;
 use Illuminate\Http\Request;
@@ -67,13 +69,15 @@ class CommitteeController extends Controller
 
 
         if($committee->save()) {
-            return redirect()->back()->with('success', 'Committee Successfully Created!');
+            return redirect()->route('committee.show',$committee->id )->with('success', 'Committee Successfully Created!');
          }
         else{
         return redirect()->back()->with('error', 'Something went wrong please try again!');
         }
 
     }
+
+
 
 
     /**
@@ -83,13 +87,17 @@ class CommitteeController extends Controller
      */
     public function show($id){
 
+        //for create member
+        $type = CommitteeMemberType::lists('name','id');
+       // $comm = Committee::where('dept_id', \Auth::user()->dept_id)->lists('year','id');
+        $user = User::where('dept_id', \Auth::user()->dept_id)->lists('name','id');
+        //
+
          $comLists = CommitteeMemberList::where('committee_id',$id )->get();
-
         //for committee Year
+         $curr= Committee::where('id',$id)->first();
 
-         $com= Committee::where('id',$id)->first();
-
-        return view('committee.show', compact('comLists'))->with('title',"Committee - ". $com->year);
+        return view('committee.show', compact('comLists','user','type','curr'))->with('title',"Committee - ". $curr->year);
     }
 
 

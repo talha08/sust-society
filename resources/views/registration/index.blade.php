@@ -28,7 +28,7 @@
                         </div>
                     @endforeach
                 @else
-                    No Member Added Yet
+                    No Event for Registration
                 @endif
 
             </div>

@@ -30,8 +30,6 @@
 
 									{!! Form::open(array('route' => 'committeeMemberList.store',  'files' => true) ) !!}
 
-
-
 									<div class="form-group">
 										{!! Form::label('committee_id', 'Committee Year :', array('class' => 'control-label')) !!}<br/>
 										{!!Form::select('committee_id', $com, '',array('class' => 'select2', 'autofocus'))!!}
@@ -52,8 +50,6 @@
 									<div class="form-group">
 										{!! Form::submit('Submit', array('class' => 'btn btn-primary')) !!}
 									</div>
-
-
 
 									{!! Form::close() !!}
 

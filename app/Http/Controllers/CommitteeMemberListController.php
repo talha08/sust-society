@@ -52,12 +52,14 @@ class CommitteeMemberListController extends Controller
      */
     public function store(Request $request)
     {
+        //return $request->all();
+
         $com = new CommitteeMemberList();
         $com->user_id = $request->user_id;
         $com->committee_id = $request->committee_id;
         $com->member_type_id = $request->member_type_id;
         if($com->save()){
-            return redirect()->back()->with('success', 'Committee Successfully Created!');
+            return redirect()->back()->with('success', 'Member Successfully Created!');
         }
         else{
             return redirect()->back()->with('error', 'Something went wrong please try again!');
@@ -83,7 +85,7 @@ class CommitteeMemberListController extends Controller
         $com = Committee::where('dept_id', \Auth::user()->dept_id)->lists('year','id');
         $user = User::where('dept_id', \Auth::user()->dept_id)->lists('name','id');
         $comList = CommitteeMemberList::findOrFail($id);
-        return view('committeeMemberList.edit', compact('com','user','type','comList'))->with('title',"Edit Committee");
+        return view('committeeMemberList.edit', compact('com','user','type','comList'))->with('title',"Edit Member");
     }
 
 
@@ -104,7 +106,7 @@ class CommitteeMemberListController extends Controller
         $com->committee_id = $request->committee_id;
         $com->member_type_id = $request->member_type_id;
         if($com->save()) {
-            return redirect()->back()->with('success', 'Committee Successfully Updated!');
+            return redirect()->back()->with('success', 'Member Successfully Updated!');
         }
         else{
             return redirect()->back()->with('error', 'Something went wrong please try again!');
