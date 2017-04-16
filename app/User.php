@@ -85,4 +85,15 @@ class User extends Model implements AuthenticatableContract,
     }
 
 
+
+    /**
+     * One to Many Relation with Event
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function registration()
+    {
+        return $this->hasMany('App\Registration','user_id','id');
+    }
+
+
 }

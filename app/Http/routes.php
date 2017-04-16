@@ -144,6 +144,7 @@ Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
 	#Event Registration
 	Route::get('event-registration', array('as' => 'registration.index', 'uses' => 'RegistrationController@index'));
 	Route::get('event-registration/{id}/show', array('as' => 'registration.show', 'uses' => 'RegistrationController@show'));
+	Route::post('event-registration/register', array('as' => 'registration.register', 'uses' => 'RegistrationController@register'));
 
 
 	#Slider Image
@@ -159,6 +160,26 @@ Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
 #	Route::get('event',function(){
 #		return View::make('event')->with('title','Profile');
 #	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

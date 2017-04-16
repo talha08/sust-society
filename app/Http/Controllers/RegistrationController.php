@@ -35,4 +35,17 @@ class RegistrationController extends Controller
         return  view('registration.show',compact('regis'))->with('title', 'Register Members for - '. $event);
     }
 
+
+    public function register(Request $request){
+        //return $request->all();
+
+        $reg = new Registration();
+        $reg->event_id = $request->event;
+        $reg->user_id = $request->user;
+        if($reg->save()){
+            return redirect()->back()->with('success', 'Registration Complete Successfully!');
+        }else{
+            return redirect()->back()->with('error', 'Something went wrong , Please try again!');
+        }
+    }
 }

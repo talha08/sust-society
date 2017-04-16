@@ -16,7 +16,7 @@ class Registration extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function user(){
-        return $this->hasMany('App\User','user_id','id');
+        return $this->belongsTo('App\User','user_id','id');
     }
 
 
