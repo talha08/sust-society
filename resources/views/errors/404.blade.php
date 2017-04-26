@@ -4,9 +4,9 @@
             <img src='http://media.lakto.org/picture/error.jpg'>
         </div>
         <div class='post-content'>
-            <div class='category'>Error 503</div>
+            <div class='category'>Error 404</div>
             <h1 class='title'>This is not the page you are looking for.</h1>
-            <h2 class='sub_title'>503 (Service Unavailable) Error</h2>
+            <h2 class='sub_title'>404 (Page Not Found) Error</h2>
             <p class='description'>
 
             </p>

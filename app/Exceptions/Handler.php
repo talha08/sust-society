@@ -33,6 +33,9 @@ class Handler extends ExceptionHandler
         return parent::report($e);
     }
 
+
+
+    //this function handle MethodNotAllowedHttpException
     /**
      * Render an exception into an HTTP response.
      *
@@ -46,6 +49,14 @@ class Handler extends ExceptionHandler
             $e = new NotFoundHttpException($e->getMessage(), $e);
         }
 
+        if ($e instanceof \Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException) {
+            return abort('503');
+        }
+
         return parent::render($request, $e);
     }
+
+
+
+
 }
