@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="section-title text-center">
                     <h4>Acknowledge</h4>
-                    <p>What Our Students Say About LearnPLUS</p>
+                    <p></p>
                 </div>
             </div><!-- end col -->
         </div><!-- end row -->
@@ -12,30 +12,30 @@
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="testimonial">
-                    <img class="alignleft img-circle" src="{!! asset('frontend/upload/student_01.png') !!}" alt="">
+                    <img class="alignleft img-circle" src="{!! asset('frontend/upload/masum.jpg') !!}" alt="">
                     <p>Lorem Ipsum is simply dummy text of the printing and industry. </p>
                     <div class="testimonial-meta">
-                        <h4>John DOE <small><a href="#">envato.com</a></small></h4>
+                        <h4>Md Masum <small><a href="#"><br>Associate Professor,CSE,SUST</a></small></h4>
                     </div>
                 </div><!-- end dmbox -->
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="testimonial">
-                    <img class="alignleft img-circle" src="{!! asset('frontend/upload/student_02.png') !!}" alt="">
+                    <img class="alignleft img-circle" src="{!! asset('frontend/upload/talha.jpg') !!}" alt="">
                     <p>Lorem Ipsum is simply dummy text of the most popular items.</p>
                     <div class="testimonial-meta">
-                        <h4>Jenny Anderson <small><a href="#">photodune.com</a></small></h4>
+                        <h4>Md. Abu Talha <small><a href="#"><br>Undergraduate Student, CSE, SUST</a></small></h4>
                     </div>
                 </div><!-- end dmbox -->
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="testimonial">
-                    <img class="alignleft img-circle" src="{!! asset('frontend/upload/student_03.png') !!}" alt="">
+                    <img class="alignleft img-circle" src="{!! asset('frontend/upload/farzad.jpg') !!}" alt="">
                     <p>Lorem Ipsum is simply dummy text of the printing.</p>
                     <div class="testimonial-meta">
-                        <h4>Mark BOBS <small><a href="#">tutsplus.com</a></small></h4>
+                        <h4>Farzad Bin Fazle <small><a href="#"><br>Undergraduate Student, CSE, SUST</a></small></h4>
                     </div>
                 </div><!-- end dmbox -->
             </div><!-- end col-lg-4 -->
