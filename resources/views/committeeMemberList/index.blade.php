@@ -108,7 +108,7 @@
 	{!! Html::script('assets/datatables/dataTables.bootstrap.js') !!}
 
 
-	//for Datatable
+
 	<script type="text/javascript">
 
 		$(document).ready(function() {

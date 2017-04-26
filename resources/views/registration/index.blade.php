@@ -19,8 +19,9 @@
 
                                 <div class="contact-box-footer">
                                     <div class="m-t-xs btn-group">
-                                        <a class="btn btn-xs btn-white" href="{!! route('registration.show',$reg->id ) !!}" ><i class="fa fa-phone"></i> Details </a>
-                                        <a class="btn btn-xs btn-white" data-toggle="modal" href="#myModal2"><i class="fa fa-envelope"></i> Register </a>
+                                        <a class="btn btn-xs btn-white" href="{!! route('event.details',$reg->event_meta_data ) !!}" ><i class="fa fa-envelope"></i> Event Details </a>
+                                        <a class="btn btn-xs btn-white" href="{!! route('registration.show',$reg->id ) !!}" ><i class="fa fa-users"></i> Registered Lists </a>
+                                        <a class="btn btn-xs btn-white" data-toggle="modal" href="#myModal2"><i class="fa fa-check-circle"></i> Register </a>
                                     </div>
                                 </div>
 
