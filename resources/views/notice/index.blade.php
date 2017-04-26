@@ -57,7 +57,7 @@
 														<center>
 															<div class="modal-header">
 																<button type="button" class="close" data-dismiss="modal">&times;</button>
-																<h4 class="modal-title"><img class="" src="{!! $notice->banner !!}" alt="" align="left">
+																<h4 class="modal-title"><img class="" src="{!! asset($notice->banner) !!}" alt="" align="left">
 																	<br/><br/>
 																	{{ $notice->headline}}
 																</h4>
@@ -65,7 +65,7 @@
 															<div class="modal-body" >
 
 
-																<p><b>Details: </b>{{ $notice->description}}</p>
+																<p><b>Details: </b>{{ strip_tags($notice->description)}}</p>
 
 
 																<b>Attachment: </b><br>

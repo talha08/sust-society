@@ -21,6 +21,8 @@ abstract class Controller extends BaseController
             //share variable in all view
             $this->department = Department::all();
             view()->share('department', $this->department);
+
+
     }
 
 

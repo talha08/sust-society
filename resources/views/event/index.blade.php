@@ -69,7 +69,7 @@
 														<center>
 															<div class="modal-header">
 																<button type="button" class="close" data-dismiss="modal">&times;</button>
-																<h4 class="modal-title"><img class="" src="{!! $event->banner !!}" alt="" align="left">
+																<h4 class="modal-title"><img class="" src="{!! asset($event->banner) !!}" alt="" align="left">
 																	<br/><br/>
 																	{{ $event->headline}}
 																</h4>
@@ -77,7 +77,7 @@
 															<div class="modal-body" >
 
 
-																<p><b>Details: </b>{{ $event->description}}</p>
+																<p><b>Details: </b>{{ strip_tags($event->description)}}</p>
 																<p><b>Start Date: </b>{{ $event->start_time}}</p>
 																<p><b>End Date: </b>{{ $event->end_time}}</p>
 																<p><b>Venue: </b>{{ $event->venue}}</p><br/>

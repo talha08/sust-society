@@ -128,5 +128,14 @@ class DepartmentController extends Controller
 
 
 
+    /**
+     * All Society Page view
+     * Frontend View
+     */
+    public function allSociety(){
+        $society = Department::orderBy('id', 'desc')->get();
+        return view('society', compact('society'))->with('title',"Society List");
+    }
+
     
 }

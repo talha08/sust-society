@@ -20,7 +20,7 @@
                         <li><a href="{!! route('welcome') !!}">Home</a></li>
                         {{--<li><a href="page-about.html">About</a></li>--}}
 
-                        <li class="dropdown ttmenu-half"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Departments <b class="fa fa-angle-down"></b></a>
+                        <li class="dropdown ttmenu-half"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Society <b class="fa fa-angle-down"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <div class="ttmenu-content">
@@ -34,15 +34,16 @@
                                                     </ul>
                                                 </div><!-- end box -->
                                             </div><!-- end col -->
+
                                             <div class="col-md-6">
                                                 <div class="box">
                                                     <ul>
-                                                        @foreach($department as $dept)
-                                                            <li><a href="{!! route('department', $dept->id) !!}">{!! $dept->name !!}</a></li>
-                                                        @endforeach
+                                                        <li><a href="{!! route('society') !!}" style="color: yellow"> See All Society</a></li>
                                                     </ul>
                                                 </div><!-- end box -->
                                             </div><!-- end col -->
+
+
                                         </div><!-- end row -->
                                     </div><!-- end ttmenu-content -->
                                 </li>
