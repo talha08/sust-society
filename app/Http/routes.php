@@ -88,7 +88,11 @@ Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
 	Route::post('eventFileUpload', array('as' => 'event.upload', 'uses' => 'EventController@fileUpload')); #file upload from dropdown event
 	Route::post('eventsingleFileUpload', array('as' => 'event.singleUpload', 'uses' => 'EventController@singleFileUpload')); #for modal file upload
 
+	//	farzad {start}
+	Route::get('event/search/{string}', array('as' => 'event.search', 'uses' => 'EventController@eventSearch'));
+	// farzad	{end}
 
+	
 
 	#Society Section  Complete
 	Route::get('society', array('as' => 'department.index', 'uses' => 'DepartmentController@index'));
@@ -165,8 +169,8 @@ Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
 
 
 //	farzad
-Route::post('subscribe', array('as' => 'subscribe.store', 'uses' => 'SubscribeController@store'));
-Route::delete('subscribe/{id}', array('as' => 'subscribe.delete', 'uses' => 'SubscribeController@destroy'));
+// Route::post('subscribe', array('as' => 'subscribe.store', 'uses' => 'SubscribeController@store'));
+// Route::delete('subscribe/{id}', array('as' => 'subscribe.delete', 'uses' => 'SubscribeController@destroy'));
 
 
 

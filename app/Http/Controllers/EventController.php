@@ -266,7 +266,7 @@ class EventController extends Controller
     //  farzad
     public function eventSearch($string)
     {
-        $event = Event::where('headline', $string)->where('description', $string)->get();
+        $events = Event::where('headline', $string)->where('description', $string)->get();
         return view('event.search', compact('events'))->with('title',"Event Search");
     }
 
