@@ -23,6 +23,8 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::post('user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
 	Route::post('login', ['as'=>'login','uses' => 'Auth\AuthController@doLogin']);
 
+
+
 });
 
 
@@ -162,7 +164,9 @@ Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
 #	});
 
 
-
+//	farzad
+Route::post('subscribe', array('as' => 'subscribe.store', 'uses' => 'SubscribeController@store'));
+Route::delete('subscribe/{id}', array('as' => 'subscribe.delete', 'uses' => 'SubscribeController@destroy'));
 
 
 
