@@ -24,7 +24,7 @@
                                     <table class="table table-striped table-bordered" id="datatable">
                                         <thead>
                                         <tr>
-                                            <th>id</th>
+
                                             <th>Name</th>
                                             <th>Reg</th>
                                             <th>Session</th>
@@ -34,10 +34,10 @@
                                         <tbody>
                                         @foreach ($users as $user)
                                             <tr>
-                                                <td>{!! $user->id !!}</td>
+
                                                <td>{!! $user->name !!}</td>
-                                               <td>{!! $user->reg !!}</td>
-                                               <td>{!! $user->batch !!}</td>
+                                               <td>{!! $user->reg or "Not Given Yet" !!}</td>
+                                               <td>{!! $user->batch  or "Not Given Yet" !!}</td>
                                                 {{--<td>--}}
                                                     {{--<a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('department.edit',$department->id)!!}"  style="margin-right: 3px;"><i class="fa fa-edit" aria-hidden="true"></i></a>--}}
                                                     {{--<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn"  data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $department->id!!}"><i class="fa fa-trash" aria-hidden="true"></i></a>--}}

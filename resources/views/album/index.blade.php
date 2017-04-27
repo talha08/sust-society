@@ -21,12 +21,14 @@
 		<br>
 		<hr>
 
-		@if(Route::currentRouteName() == 'album.index')
-			<a href="{!! route('album.create') !!}"><button class="btn btn-success">Create New Album</button></a>
-		@else
-			<button type="button" class="btn btn-warning btn-sm btn--edit" data-for="" data-toggle="modal" data-target="#gallery{!! $al->id !!}">
-				<i class="fa fa-pencil-square-o" aria-hidden="true"> Insert New Photo</i>
-			</button>
+		@if(Auth::user()->hasRole('teacher'))
+			@if(Route::currentRouteName() == 'album.index')
+				<a href="{!! route('album.create') !!}"><button class="btn btn-success">Create New Album</button></a>
+			@else
+				<button type="button" class="btn btn-warning btn-sm btn--edit" data-for="" data-toggle="modal" data-target="#gallery{!! $al->id !!}">
+					<i class="fa fa-pencil-square-o" aria-hidden="true"> Insert New Photo</i>
+				</button>
+			@endif
 		@endif
 
 

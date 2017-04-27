@@ -4,7 +4,9 @@
         <div class="col-lg-12">
             <div class="wrapper wrapper-content animated fadeInRight">
                 <center>
-                <a data-toggle="modal" class="btn btn-primary btn-xs" href="#myModal2"><i class="fa fa-user"></i> Add New Member </a>
+                    @if(Auth::user()->hasRole('teacher'))
+                        <a data-toggle="modal" class="btn btn-primary btn-xs" href="#myModal2"><i class="fa fa-user"></i> Add New Member </a>
+                    @endif
                 </center>
                 <br>
                 @if($comLists->count() != 0)
@@ -32,7 +34,7 @@
                     @endforeach
                    @else
                    <center> No Member Added Yet </center>
-                    @endif
+                   @endif
 
             </div>
         </div>

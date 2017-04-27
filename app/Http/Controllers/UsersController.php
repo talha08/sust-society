@@ -212,6 +212,7 @@ class UsersController extends Controller
             ->join('users', 'roles.id', '=', 'users.id')
             ->join('profile', 'users.id', '=', 'profile.id')
             ->where('roles.id', '!=', 2)
+            ->where('roles.id', '!=', 1)
             ->where('users.dept_id', Auth::user()->dept_id)
             ->get();
 
@@ -231,6 +232,7 @@ class UsersController extends Controller
             ->join('roles', 'roles.id', '=', 'users.id')
             ->join('profile', 'users.id', '=', 'profile.id')
             ->where('roles.id', 2)
+            ->where('roles.id', 1)
             ->where('users.dept_id', Auth::user()->dept_id)
             ->get();
 
