@@ -1,20 +1,6 @@
 <footer class="dark footer section">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-6 col-xs-12">
-                <div class="widget">
-                    <div class="widget-title">
-                        <h4>About SUST Society</h4>
-                        <hr>
-                    </div>
-                    <p>
-                        Shahjalal University of Science and Technology, Sylhet(SUST)<br>
-                        Computer Science and Engineering Department(CSE)
-
-                    </p>
-                </div><!-- end widget -->
-            </div><!-- end col -->
-
 
 
 
@@ -35,6 +21,26 @@
 
                 </div><!-- end widget -->
             </div><!-- end col -->
+
+
+            <div class="col-md-6 col-md-6 col-xs-12">
+                <div class="widget">
+                    <div class="widget-title">
+                        <h4>About SUST Society</h4>
+                        <hr>
+                    </div>
+                    <p>
+                        Shahjalal University of Science and Technology, Sylhet(SUST)<br>
+                        Computer Science and Engineering Department(CSE)
+
+                    </p>
+                </div><!-- end widget -->
+            </div><!-- end col -->
+
+
+
+
+
         </div><!-- end row -->
     </div><!-- end container -->
 </footer><!-- end section -->

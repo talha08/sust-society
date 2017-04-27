@@ -61,6 +61,7 @@ class DepartmentController extends Controller
             $department = new Department();
             $department->name = $request->name;
             $department->description = $request->description;
+            $department->contact = $request->contact;
             $department->logo_path = $img_url;
             if($department->save()){
                 return redirect()->back()->with('success', 'Society Successfully Created');
@@ -105,6 +106,7 @@ class DepartmentController extends Controller
         $department = Department::findOrFail($id);
         $department->name = $request->name;
         $department->description = $request->description;
+        $department->contact = $request->contact;
         $department->save();
 
         return redirect()->back()->with('success', 'Society Successfully Updated');

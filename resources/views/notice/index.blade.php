@@ -62,7 +62,7 @@
 																	{{ $notice->headline}}
 																</h4>
 															</div>
-															<div class="modal-body" >
+															<div class="modal-body">
 
 
 																<p><b>Details: </b>{{ strip_tags($notice->description)}}</p>

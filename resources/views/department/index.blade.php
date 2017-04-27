@@ -26,7 +26,7 @@
 										<tr>
 											<th>id</th>
 											<th>Society Name</th>
-											<th>Description</th>
+											{{--<th>Description</th>--}}
 											<th>Actions</th>
 										</tr>
 										</thead>
@@ -35,7 +35,7 @@
 											<tr>
 												<td>{!! $department->id !!}</td>
 												<td> <a data-toggle="modal" style="color: teal;" data-target="#myModal_{{$department->id}}" >{!! str_limit($department->name,30) !!}</a></td>
-												<td>{!! str_limit($department->description,100) !!}</td>
+												{{--<td>{!! str_limit($department->description,100) !!}</td>--}}
 												<td>
 													<a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('department.edit',$department->id)!!}"  style="margin-right: 3px;"><i class="fa fa-edit" aria-hidden="true"></i></a>
 													<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn"  data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $department->id!!}"><i class="fa fa-trash" aria-hidden="true"></i></a>
@@ -50,7 +50,7 @@
 														<center>
 															<div class="modal-header">
 																<button type="button" class="close" data-dismiss="modal">&times;</button>
-																<h4 class="modal-title"><img class="" src="{!! $department->event_image !!}" alt="" align="left">
+																<h4 class="modal-title"><img class="" src="" alt="" align="left">
 																	<br/><br/>
 																	{{ $department->name}}
 																</h4>
@@ -58,7 +58,7 @@
 															<div class="modal-body" >
 
 																<center>
-																	<img src="{!! ($department->logo_path)!!}" alt="Test Image" />
+																	<img src="{!! asset($department->logo_path)!!}" alt="Test Image" />
 																<br><br>
 																<p><b></b>{{ $department->description}}</p><br/>
 																</center>

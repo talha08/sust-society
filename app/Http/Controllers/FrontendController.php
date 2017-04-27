@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Album;
+use App\AlbumPhotos;
 use App\Department;
 use App\DeptSlider;
 use App\Event;
@@ -95,7 +97,13 @@ class FrontendController extends Controller
         //$slider = DeptSlider::take(4)->orderBy('id')->get();
         //return $dept->committee;
         //return count($dept->slider);
-        return view('department',compact('dept'))->with('title',$dept->name);
+
+        $albumIds = Album::where('dept_id',$id)->lists('id','id');
+        $slider = AlbumPhotos::whereIn('album_id',$albumIds)->get();
+
+
+
+        return view('department',compact('dept', 'slider'))->with('title',$dept->name);
     }
 
 

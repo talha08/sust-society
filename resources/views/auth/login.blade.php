@@ -59,9 +59,9 @@
 
 
 
+                            {!! Form::open(array('route' => 'user.store', 'method' => 'post', 'class' => 'form-horizontal m-t-40', 'id'=>'register-form')) !!}
 
 
-                            <form id="register-form" action="user/store" method="post" role="form" style="display: none;">
 
                                 <div class="form-group">
                                     {!!Form::select('dept_id', $dept_id, '',array('class' => 'select2 form-control', 'autofocus','placeholder' => 'Select Society ....',))!!}
@@ -96,7 +96,7 @@
                                     </div>
                                 </div>
 
-                                </form>
+                            {!! Form::close() !!}
                         </div>
                     </div>
             </div>

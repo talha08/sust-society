@@ -10,10 +10,21 @@
 
                     <div class="media-element">
                         <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                        <img src="{!! URl::asset('frontend/upload/about_02.jpg') !!}" alt="" class="img-responsive">
+                                    <img src="{!! URl::asset('frontend/upload/about_02.jpg') !!}" alt="" class="img-responsive">
                                 </div>
+
+                                @if($slider->count() != 0)
+                                    @foreach($slider as $slide)
+                                    <div class="item">
+                                        <img src="{!!asset($slide->album_photo)!!}" height="200px" width="400px" alt="" class="img-responsive">
+                                    </div>
+                                    @endforeach
+                                @endif
+
                             </div>
 
                             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -32,30 +43,22 @@
             <div class="col-md-6">
                 <div class="content-widget">
                     <div class="widget-title">
-                        <h4>Why Choose Us?</h4>
+                        <h4>About Us</h4>
                         <hr>
                     </div>
 
                     <div class="tabbed-widget">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#home">Our Mission</a></li>
-                            <li><a data-toggle="tab" href="#menu1">Our Vission</a></li>
-                            <li><a data-toggle="tab" href="#menu2">Our Goal</a></li>
-                            <li><a data-toggle="tab" href="#menu3">Contact</a></li>
+                            <li class="active"><a data-toggle="tab" href="#home">About us</a></li>
+                            <li><a data-toggle="tab" href="#menu1">Contact</a></li>
                         </ul>
 
                         <div class="tab-content">
                             <div id="home" class="tab-pane fade in active">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                                <p>{!! $dept->description or "Not Update Yet" !!}</p>
                             </div>
                             <div id="menu1" class="tab-pane fade">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                            </div>
-                            <div id="menu2" class="tab-pane fade">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                            </div>
-                            <div id="menu3" class="tab-pane fade">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                                <p>{!! $dept->contact or "Not Update Yet" !!}</p>
                             </div>
                         </div>
                     </div><!-- end tabbed-widget -->
@@ -64,3 +67,6 @@
         </div><!-- end row -->
     </div><!-- end container -->
 </section><!-- end section -->
+
+
+

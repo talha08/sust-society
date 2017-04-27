@@ -37,7 +37,12 @@
 
 									<div class="form-group">
 										{!! Form::label('description', 'Description :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::textarea('description', null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
+										{!!Form::textarea('description', null,array('class' => ' form-control','placeholder' =>  '...................'))!!}
+									</div><br/>
+
+									<div class="form-group">
+										{!! Form::label('contact', 'Contact Information :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::textarea('contact', null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
 									</div><br/>
 
 									<div class="form-group">
@@ -67,29 +72,19 @@
 
 @section('style')
 
-	{!! Html::style('assets/timepicker/bootstrap-datepicker.min.css') !!}
 	{!! Html::style('assets/summernote/summernote.css') !!}
-	{!! Html::style('assets/timepicker/bootstrap-timepicker.min.css') !!}
-
 
 @stop
 
 
 @section('script')
 
-
-	{!! Html::script('assets/timepicker/bootstrap-timepicker.min.js') !!}
 	{!! Html::script('assets/summernote/summernote.min.js') !!}
-	{!! Html::script('assets/timepicker/bootstrap-datepicker.js') !!}
-
-
 
 
 	<script type="text/javascript">
 
 		jQuery(document).ready(function() {
-
-
 
 
 			$('.summernote').summernote({
@@ -102,12 +97,6 @@
 			});
 
 
-			// Date Picker
-			jQuery('#datepicker').datepicker();
-			jQuery('#datepicker2').datepicker();
-
-			// Time Picker
-			jQuery('#timepicker3').timepicker({minuteStep: 15});
 
 
 		});
