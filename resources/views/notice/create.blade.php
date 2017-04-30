@@ -40,7 +40,7 @@
 
 									<div class="form-group">
 										{!! Form::label('description', 'Description :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::textarea('description', '',array('class' => 'summernote form-control','placeholder' =>  'Notice Details Here','required'))!!}
+										{!!Form::textarea('description', '',array('class' => 'summernote form-control','placeholder' =>  'Notice Details Here'))!!}
 									</div><br/>
 
 

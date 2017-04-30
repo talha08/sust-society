@@ -38,7 +38,7 @@
 
 									<div class="form-group">
 										{!! Form::label('description', 'Description :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::textarea('description',null,array('class' => 'summernote form-control','placeholder' =>  '...................','required'))!!}
+										{!!Form::textarea('description',null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
 									</div><br/>
 
 

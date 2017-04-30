@@ -24,6 +24,17 @@
 
 
 
+
+            @if( Auth::user()->hasRole('teacher'))
+                <li>
+                    <a href="{!!route('department.edit',Auth::user()->dept->id)!!}">
+                        <i class="fa fa-tasks"></i>
+                        <span>Edit {!! Auth::user()->dept->name !!}  </span>
+                    </a>
+                </li>
+            @endif
+
+
             <li class="{!! Menu::areActiveRoutes(['album.index', 'album.create']) !!}">
                 <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Photo Album</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
@@ -43,7 +54,11 @@
 
 
 
-            @if(Auth::user()->hasRole('admin'))
+
+
+
+
+            @if( Auth::user()->hasRole('admin'))
                 <li class="{!! Menu::areActiveRoutes(['department.index', 'department.create']) !!}">
                     <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Society</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
