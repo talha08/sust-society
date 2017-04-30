@@ -94,9 +94,9 @@ class UsersController extends Controller
                 $profile = new Profile();
                 $profile->user_id = $user->id;
                 if($data['user_type']== 2){
-                    $profile->designation = 'Student';
-                }else if($data['user_type']==3){
                     $profile->designation = 'Faculty';
+                }else if($data['user_type']==3){
+                    $profile->designation = 'Student';
                 }
                 $profile->save();
 
@@ -211,8 +211,9 @@ class UsersController extends Controller
           $users =\DB::table('roles')
             ->join('users', 'roles.id', '=', 'users.id')
             ->join('profile', 'users.id', '=', 'profile.id')
-            ->where('roles.id', '!=', 2)
-            ->where('roles.id', '!=', 1)
+            //->where('roles.id', '!=', 2)
+            //->where('roles.id', '!=', 1)
+            ->where('roles.id', '=', 3)
             ->where('users.dept_id', Auth::user()->dept_id)
             ->get();
 
@@ -228,11 +229,12 @@ class UsersController extends Controller
      */
     public function teachers(){
 
-        $users =\DB::table('users')
-            ->join('roles', 'roles.id', '=', 'users.id')
+
+        $users =\DB::table('roles')
+            ->join('users', 'roles.id', '=', 'users.id')
             ->join('profile', 'users.id', '=', 'profile.id')
-            ->where('roles.id', 2)
-            ->where('roles.id', 1)
+            ->where('roles.id', '=', 2)
+//            ->where('roles.id', '!=', 1)
             ->where('users.dept_id', Auth::user()->dept_id)
             ->get();
 

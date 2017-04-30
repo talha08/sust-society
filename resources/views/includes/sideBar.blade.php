@@ -44,18 +44,18 @@
 
 
             @if(Auth::user()->hasRole('admin'))
-            <li class="{!! Menu::areActiveRoutes(['department.index', 'department.create']) !!}">
-                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Society</span> <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li class="{!! Menu::isActiveRoute('department.index') !!}">
-                        <a href="{!!  URL::route( 'department.index') !!}">Society List</a>
-                    </li>
+                <li class="{!! Menu::areActiveRoutes(['department.index', 'department.create']) !!}">
+                    <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Society</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li class="{!! Menu::isActiveRoute('department.index') !!}">
+                            <a href="{!!  URL::route( 'department.index') !!}">Society List</a>
+                        </li>
 
-                    <li class="{!! Menu::isActiveRoute('department.create') !!}">
-                        <a href="{!!  URL::route('department.create') !!}">Create New Society</a>
-                    </li>
-                </ul>
-            </li>
+                        <li class="{!! Menu::isActiveRoute('department.create') !!}">
+                            <a href="{!!  URL::route('department.create') !!}">Create New Society</a>
+                        </li>
+                    </ul>
+                </li>
             @endif
 
 

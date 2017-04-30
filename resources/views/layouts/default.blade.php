@@ -11,7 +11,15 @@
 
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-12">
-                <h2 class="text-center"><b>{!! $title or "InfancyIT" !!}</b></h2>
+                @if(Auth::user()->hasRole('admin'))
+                    <h2 class="text-center"><b>{!! $title or "SUSTSOCIETY" !!}</b> (Admin)</h2>
+                @elseif(Auth::user()->hasRole('teacher'))
+                    <h2 class="text-center"><b>{!! $title or "SUSTSOCIETY" !!}</b> (Faculty)</h2>
+                @elseif(Auth::user()->hasRole('student'))
+                    <h2 class="text-center"><b>{!! $title  or "SUSTSOCIETY" !!}</b> (Student)</h2>
+                @endif
+
+
             </div>
         </div>
 
