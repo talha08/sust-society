@@ -15,8 +15,8 @@ class CreateDepartmentTable extends Migration
         Schema::create('department', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->text('description')->default('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'); //about
-            $table->text('contact')->default('www.sustsociety.com | info@yoursite.com | +90 123 45 67 | Sylhet, Bangladesh.');
+            $table->text('description')->nullable();
+            $table->text('contact')->nullable();
             $table->string('logo_path')->default('upload/logo.png');
             $table->timestamps();
         });

@@ -208,12 +208,10 @@ class UsersController extends Controller
      */
     public function students(){
 
-          $users =\DB::table('roles')
-            ->join('users', 'roles.id', '=', 'users.id')
+        $users =\DB::table('role_user')
+            ->join('users', 'role_user.user_id', '=', 'users.id')
             ->join('profile', 'users.id', '=', 'profile.id')
-            //->where('roles.id', '!=', 2)
-            //->where('roles.id', '!=', 1)
-            ->where('roles.id', '=', 3)
+            ->where('role_user.role_id', '=', 3)
             ->where('users.dept_id', Auth::user()->dept_id)
             ->get();
 
@@ -230,13 +228,18 @@ class UsersController extends Controller
     public function teachers(){
 
 
-        $users =\DB::table('roles')
-            ->join('users', 'roles.id', '=', 'users.id')
+//          $user = User::where('dept_id', Auth::user()->dept_id)->lists('id');
+//
+//         return  $roles = \DB::table('role_user')->where('role_id', 3)->lists('user_id');
+
+
+        $users =\DB::table('role_user')
+            ->join('users', 'role_user.user_id', '=', 'users.id')
             ->join('profile', 'users.id', '=', 'profile.id')
-            ->where('roles.id', '=', 2)
-//            ->where('roles.id', '!=', 1)
+            ->where('role_user.role_id', '=', 2)
             ->where('users.dept_id', Auth::user()->dept_id)
             ->get();
+
 
 
         return view('user.teacher')
