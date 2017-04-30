@@ -32,7 +32,11 @@
                                             <tr>
                                                 <td>{!! $reg->id !!}</td>
                                                 <td>{!! $reg->user->name !!}</td>
+                                                @if(Auth::user()->hasRole('teacher'))
+                                                    <td><b>Faculty Member</b></td>
+                                                @else
                                                 <td>{!! $reg->user->profile->reg or 'Not Available' !!}</td>
+                                                @endif
                                             </tr>
                                         @endforeach
                                         </tbody>

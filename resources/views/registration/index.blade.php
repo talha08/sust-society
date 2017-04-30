@@ -21,13 +21,48 @@
                                     <div class="m-t-xs btn-group">
                                         <a class="btn btn-xs btn-white" href="{!! route('event.details',$reg->event_meta_data ) !!}" ><i class="fa fa-envelope"></i> Event Details </a>
                                         <a class="btn btn-xs btn-white" href="{!! route('registration.show',$reg->id ) !!}" ><i class="fa fa-users"></i> Registered Lists </a>
-                                        <a class="btn btn-xs btn-white" data-toggle="modal" href="#myModal2"><i class="fa fa-check-circle"></i> Register </a>
+                                        @if(App\Registration::where('event_id' , $reg->id)->pluck('user_id') == Auth::user()->id)
+                                            <a class="btn btn-xs btn-white" data-toggle="modal" href="#myModal21" style="color: #0d5613; background: #cece1d;"><i class="fa fa-check-circle"></i> Registered </a>
+                                        @else
+                                            <a class="btn btn-xs btn-white" data-toggle="modal" href="#myModal2"><i class="fa fa-check-circle"></i> Register </a>
+                                        @endif
                                     </div>
                                 </div>
 
 
 
-                                <!-- Modal For reset -->
+
+
+
+
+                                <!-- Modal For Already reg. notifi -->
+                                <div class="modal inmodal" id="myModal21" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content animated flipInY">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                <h4 class="modal-title">Registration Status</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h3 class="text-center" style="color: darkgoldenrod">You are alreay Registered on this event</h3>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End of Modal -->
+
+
+
+
+
+
+
+
+
+                                <!-- Modal For Registration -->
                                 <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content animated flipInY">

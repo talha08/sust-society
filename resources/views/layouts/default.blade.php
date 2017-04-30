@@ -12,12 +12,13 @@
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-12">
                 @if(Auth::user()->hasRole('admin'))
-                    <h2 class="text-center"><b>{!! $title or "SUSTSOCIETY" !!}</b> (Admin)</h2>
+                    <h2 class="text-center"><b>{!! $title or "SUSTSOCIETY" !!}</b>  <br> <small>{!! Auth::user()->dept->name !!} - (Admin) </small></h2>
                 @elseif(Auth::user()->hasRole('teacher'))
-                    <h2 class="text-center"><b>{!! $title or "SUSTSOCIETY" !!}</b> (Faculty)</h2>
+                    <h2 class="text-center"><b>{!! $title or "SUSTSOCIETY" !!}</b>  <br> <small>{!! Auth::user()->dept->name !!} - (Faculty)</small></h2>
                 @elseif(Auth::user()->hasRole('student'))
-                    <h2 class="text-center"><b>{!! $title  or "SUSTSOCIETY" !!}</b> (Student)</h2>
+                    <h2 class="text-center"><b>{!! $title  or "SUSTSOCIETY" !!}</b>  <br> <small>{!! Auth::user()->dept->name !!} - (Student)</small></h2>
                 @endif
+
 
 
             </div>
