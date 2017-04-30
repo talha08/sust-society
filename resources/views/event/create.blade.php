@@ -33,35 +33,35 @@
 
 									<div class="form-group">
 										{!! Form::label('headline', 'Headline :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('headline', '',array('class' => 'form-control','placeholder' =>  'Event headline here'))!!}
+										{!!Form::text('headline', '',array('class' => 'form-control','placeholder' =>  'Event headline here', 'required'))!!}
 									</div><br/>
 
 
 									<div class="form-group">
 										{!! Form::label('venue', 'Venue :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('venue', '',array('class' => 'form-control','placeholder' =>  'Event Venue Here'))!!}
+										{!!Form::text('venue', '',array('class' => 'form-control','placeholder' =>  'Event Venue Here','required'))!!}
 									</div><br/>
 
 									<div class="form-group">
 										{!! Form::label('start_time', 'Start Time :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('start_time', '',array('class' => 'form-control','id'=>'datepicker','placeholder' =>  'Event Start Date here'))!!}
+										{!!Form::text('start_time', '',array('class' => 'form-control','id'=>'datepicker','placeholder' =>  'Event Start Date here','required'))!!}
 									</div><br/>
 
 
 									<div class="form-group">
 										{!! Form::label('end_time', 'End Time :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('end_time', '',array('class' => 'form-control', 'id'=>'datepicker2','placeholder' =>  'Event End Date here'))!!}
+										{!!Form::text('end_time', '',array('class' => 'form-control', 'id'=>'datepicker2','placeholder' =>  'Event End Date here','required'))!!}
 									</div><br/>
 
 									<div class="form-group">
 										{!! Form::label('open_registration', 'Registration Type* :', array('class' => ' control-label')) !!}
-										{!!Form::select('open_registration', $openRegistration, '',array('class' => 'select2', 'autofocus'))!!}
+										{!!Form::select('open_registration', $openRegistration, '',array('class' => 'select2', 'autofocus','required'))!!}
 									</div><br/>
 
 
 									<div class="form-group">
 										{!! Form::label('description', 'Description :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::textarea('description', '',array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
+										{!!Form::textarea('description', '',array('class' => 'summernote form-control','placeholder' =>  '...................','required'))!!}
 									</div><br/>
 
 

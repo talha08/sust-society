@@ -33,12 +33,12 @@
 
 									<div class="form-group">
 										{!! Form::label('headline', 'Headline :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('headline', null,array('class' => 'form-control','placeholder' =>  'Event headline here'))!!}
+										{!!Form::text('headline', null,array('class' => 'form-control','placeholder' =>  'Event headline here','required'))!!}
 									</div><br/>
 
 									<div class="form-group">
 										{!! Form::label('description', 'Description :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::textarea('description',null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
+										{!!Form::textarea('description',null,array('class' => 'summernote form-control','placeholder' =>  '...................','required'))!!}
 									</div><br/>
 
 

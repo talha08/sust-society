@@ -32,13 +32,13 @@
 
 									<div class="form-group">
 										{!! Form::label('notice_file_title', 'File Title :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('notice_file_title', '',array('class' => 'form-control','placeholder' =>  'File title here'))!!}
+										{!!Form::text('notice_file_title', '',array('class' => 'form-control','placeholder' =>  'File title here','required'))!!}
 									</div><br/>
 
 
 									<div class="form-group">
 										{!! Form::label('notice_id', 'Select Notice :', array('class' => 'col-md-2 control-label')) !!}
-										{!!Form::select('notice_id', $notices, '',array('class' => 'select2', 'autofocus'))!!}
+										{!!Form::select('notice_id', $notices, '',array('class' => 'select2', 'autofocus','required'))!!}
 									</div><br/>
 
 

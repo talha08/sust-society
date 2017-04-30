@@ -33,14 +33,14 @@
 
 									<div class="form-group">
 										{!! Form::label('headline', 'Headline :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('headline', '',array('class' => 'form-control','placeholder' =>  'Notice headline here'))!!}
+										{!!Form::text('headline', '',array('class' => 'form-control','placeholder' =>  'Notice headline here','required'))!!}
 									</div><br/>
 
 
 
 									<div class="form-group">
 										{!! Form::label('description', 'Description :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::textarea('description', '',array('class' => 'summernote form-control','placeholder' =>  'Notice Details Here'))!!}
+										{!!Form::textarea('description', '',array('class' => 'summernote form-control','placeholder' =>  'Notice Details Here','required'))!!}
 									</div><br/>
 
 
