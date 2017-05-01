@@ -18,7 +18,7 @@
 									{!! Form::open(array('route' => 'slider.store', 'files'=>true) ) !!}
 									<div class="form-group">
 										{!! Form::label('slider_title', 'Title :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::text('slider_title', '',array('class' => 'form-control','placeholder' =>  'Slider title here'))!!}
+										{!!Form::text('slider_title', '',array('class' => 'form-control','placeholder' =>  'Slider title here', 'required'))!!}
 									</div>
 									<br/>
 									<div class="form-group">

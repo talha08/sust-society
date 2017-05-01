@@ -16,7 +16,7 @@ class SliderController extends Controller
      * @return $this
      */
     public function index(){
-        $sliders =DeptSlider::where('dept_id', \Auth::user()->id)->orderBy('id', 'desc')->get();
+         $sliders =DeptSlider::where('dept_id', \Auth::user()->id)->orderBy('id', 'desc')->get();
         return view('slider.index', compact('sliders'))->with('title',"All Slide List");
     }
 

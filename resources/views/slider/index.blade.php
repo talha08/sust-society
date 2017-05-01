@@ -41,6 +41,8 @@
 													<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $slide->id!!}"><i class="fa fa-trash" aria-hidden="true"></i></a>
 												</td>
 											</tr>
+
+
 											<!-- Modal -->
 											<div id="myModal_{{$slide->id}}" class="modal fade" role="dialog">
 												<div class="modal-dialog">
@@ -65,6 +67,8 @@
 												</div>
 											</div>
 											<!--modal -->
+
+
 										@endforeach
 										</tbody>
 									</table>
