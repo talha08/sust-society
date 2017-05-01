@@ -107,7 +107,7 @@
 															</div>
 															<div class="modal-body" >
 
-																{!! Form::open(array('route' => 'event.singleUpload',  'files' => true) ) !!}
+																{!! Form::open(array('route' => 'notice.singleUpload',  'files' => true) ) !!}
 																<br/><br/>
 																<div class="form-group">
 																	{!! Form::label('notice_file_title', 'File Title :', array('class' => 'control-label')) !!}<br/>

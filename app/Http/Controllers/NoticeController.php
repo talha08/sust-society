@@ -144,7 +144,7 @@ class NoticeController extends Controller
      */
         public function fileUploadView(){
 
-        $notices= Notice::lists('headline','id')->all();
+        $notices= Notice::where('dept_id', \Auth::user()->dept->id)->lists('headline','id')->all();
         return view('notice.eventFileUpload',compact('notices'))->with('title',"Upload file");
     }
 
@@ -208,7 +208,7 @@ class NoticeController extends Controller
                     $file->move($destinationPath, $fileName); // uploading file to given path
 
                     $notice = new NoticeAttachment();
-                    $notice->notice_id = $request->notice_id;
+                    $notice->notice_id = Input::get('id');
                     $notice->notice_file_title = $request->notice_file_title;
                     $notice->notice_file = '/upload/notice/' . $fileName;
                     $notice->save();

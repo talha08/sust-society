@@ -165,7 +165,7 @@ class EventController extends Controller
      */
     public function fileUploadView(){
 
-        $events= Event::lists('headline','id')->all();
+        $events= Event::where('dept_id', \Auth::user()->dept->id)->lists('headline','id')->all();
         return view('event.eventFileUpload',compact('events'))->with('title',"Upload file");
     }
 

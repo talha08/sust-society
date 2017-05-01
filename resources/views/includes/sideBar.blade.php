@@ -137,8 +137,8 @@
                             <a href="{!!  URL::route('notice.create') !!}">Create New Notice</a>
                         </li>
 
-                        <li class="{!! Menu::isActiveRoute('notice.eventFileUpload') !!}">
-                            <a href="{!!  URL::route('notice.eventFileUpload') !!}">Upload Attachment</a>
+                        <li class="{!! Menu::isActiveRoute('notice.noticeFileUpload') !!}">
+                            <a href="{!!  URL::route('notice.noticeFileUpload') !!}">Upload Attachment</a>
                         </li>
 
                     </ul>
