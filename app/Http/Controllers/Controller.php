@@ -23,6 +23,17 @@ abstract class Controller extends BaseController
             view()->share('department', $this->department);
 
 
+            $this->user_type= [
+                    '2' => 'Faculty Member',
+                    '3' => 'Student',
+                ];
+                view()->share('user_type', $this->user_type);
+
+
+            $this->dept_id = Department::lists('name','id');
+                view()->share('dept_id', $this->dept_id);
+
+
     }
 
 

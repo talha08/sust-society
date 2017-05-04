@@ -25,9 +25,12 @@ class FrontendController extends Controller
     public function index(){
          $depts = Department::all();
          $events = Event::orderBy('id', 'desc')
-                 ->take(10)
+                 ->take(4)
                  ->get();
-        return view('welcome', compact('events','depts'))->with('title',"Departments");
+        $notices = Notice::orderBy('id', 'desc')
+            ->take(4)
+            ->get();
+        return view('welcome', compact('events','depts','notices'))->with('title',"Home | SUST Society");
     }
 
 
@@ -38,8 +41,8 @@ class FrontendController extends Controller
      * @return $this
      */
     public function notice(){
-        $evenImg = Event::orderBy('id', 'desc')->take(9)->get();
-        $notices = Notice::orderBy('id')->paginate(10);
+        $evenImg = Event::orderBy('id', 'desc')->take(3)->get();
+        $notices = Notice::orderBy('id')->paginate(5);
         return view('notice',compact('notices','evenImg'))->with('title',"Departments Notice");
     }
 
@@ -52,7 +55,7 @@ class FrontendController extends Controller
      * @return $this
      */
     public function noticeDetails($notice_meta_data){
-        $evenImg = Event::orderBy('id', 'desc')->take(9)->get();
+        $evenImg = Event::orderBy('id', 'desc')->take(3)->get();
         $notice = Notice::where('notice_meta_data', $notice_meta_data)->first();
         return view('noticeFull',compact('notice','evenImg'))->with('title',$notice->headline);
     }
@@ -65,8 +68,8 @@ class FrontendController extends Controller
      * @return $this
      */
     public function event(){
-        $evenImg = Event::orderBy('id', 'desc')->take(9)->get();
-        $events = Event::orderBy('id')->paginate(10);
+        $evenImg = Event::orderBy('id', 'desc')->take(3)->get();
+        $events = Event::orderBy('id')->paginate(5);
         return view('event',compact('events','evenImg'))->with('title',"Departments Events");
     }
 
@@ -79,7 +82,7 @@ class FrontendController extends Controller
      * @return $this
      */
     public function eventDetails($event_meta_data){
-        $evenImg = Event::orderBy('id', 'desc')->take(9)->get();
+        $evenImg = Event::orderBy('id', 'desc')->take(3)->get();
         $event = Event::where('event_meta_data', $event_meta_data)->first();
         return view('eventFull',compact('event','evenImg'))->with('title',$event->headline);
     }

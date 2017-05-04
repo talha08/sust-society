@@ -1,103 +1,122 @@
 @extends('frontend.layouts.default')
 @section('content')
 
-    <section class="grey section">
+    <div class="breadcrumb-wrapper">
+        <div class="pattern-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                        <h2 class="title">Single Event</h2>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                        <div class="breadcrumbs pull-right">
+                            <ul>
+                                <li>You are Now on:</li>
+                                <li><a href="{!! route('welcome') !!}">Home</a></li>
+                                <li><a href="#">Events</a></li>
+                                <li>{!! str_limit($event->headline, 20) !!}..</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Main Content start-->
+    <div class="content margin-top60 margin-bottom60">
         <div class="container">
             <div class="row">
-                <div id="content" class="col-md-8 col-sm-8 col-xs-12">
-                    <div class="blog-wrapper">
-                        <div class="row second-bread">
-                            <div class="col-md-6 text-left">
-                                <h1> Event Details</h1>
-                            </div><!-- end col -->
-                            <div class="col-md-6 text-right">
-                                <div class="bread">
-                                    <ol class="breadcrumb">
-                                        <li><a href="#">Home</a></li>
-                                        <li class="active">Event Details</li>
-                                    </ol>
-                                </div><!-- end bread -->
-                            </div><!-- end col -->
-                        </div><!-- end row -->
-                    </div><!-- end blog-wrapper -->
 
-                    <div class="blog-wrapper single-blog-wrapper">
-                        <div class="blog-title">
-                            <h2><a href="#" title="">{!! $event->headline !!}</a></h2>
-                            <div class="post-meta">
-                                    <span>
+                <!-- Blog Posts -->
+                <div class="posts-block col-lg-8 col-md-8 col-sm-8 col-xs-12">
+
+                            <!-- Blog Post 1 -->
+                    <article class="post hentry">
+                        <div class="post-image">
+                            <a href="{!! asset($event->banner) !!}" data-rel="prettyPhoto">
+                                <span class="img-hover"></span>
+                                <span class="fullscreen"><i class="fa fa-plus"></i></span>
+                                <img src="{!! asset($event->banner) !!}" alt="" class="img-responsive">
+                            </a>
+                        </div>
+                        <header class="post-header">
+                            <h2><a href="{!! route('event.details',$event->event_meta_data) !!}" title="dd"> {!! $event->headline !!}</a></h2>
+                            <div class="blog-entry-meta">
+
+                                <div class="blog-entry-meta-author">
                                     <i class="fa fa-user"></i>
-                                    <a href="#">Department: {!! $event->dept->name !!}</a>
-                                    </span>
-                                    <span>
-                                    <i class="fa fa-tag"></i>
-                                    <a href="#">Venue: {!! $event->venue !!}</a>
-                                    </span>
-                                    <span>
+                                    <span class="blog-entry-meta-author">Department: {!! $event->dept->name !!}</span>
+                                </div>
+
+                                <div class="blog-entry-meta-tags">
+                                    <i class="fa fa-tags"></i>
+                                    <a href="#">Venue: {!! $event->venue !!}</a>,
+                                </div>
+
+                                <div class="blog-entry-meta-date">
                                     <i class="fa fa-clock-o"></i>
-                                    <a href="#">Start Date: {!! $event->start_time !!}</a>
-                                    </span>
+                                    <span class="blog-entry-meta-date-day">Start Date: {!! $event->start_time !!}</span>
+                                </div>
+
                             </div>
-                        </div><!-- end blog-title -->
-                        <div class="blog-image">
-                            <a href="single.html" title=""><img src="{!! asset($event->banner) !!}" alt="" class="img-responsive"></a>
-                        </div><!-- end image -->
-                        <div class="blog-desc">
-                         {!! $event->description !!}
-                            <hr class="invis">
 
 
 
-                            <p><b>Venue:</b> {!! $event->venue !!} </p>
-
-                            <p><b>Event Start Date:</b> {!! $event->start_time !!} </p>
-
-                            <p><b>Event End Date:</b>  {!! $event->end_time !!} </p>
-
-                            @if($event->open_registration ==1)
-                                <p><b>Event Registration:</b> Open </p>
-                            @else
-                                <p><b>Event Registration:</b> Close </p>
-                            @endif
+                        </header>
+                        <div class="post-content">
+                            <p>
+                                {!! $event->description !!}
+                            </p>
+                        </div>
 
 
-                            <p><b>EventFile:</b></p>
+                        <blockquote>
                             @if($event->eventFile->count() != 0)
+                                <p><b>Event Atrtachment:</b></p>
                                 @foreach($event->eventFile as $file)
-                                    {!! $file->event_file_title !!}
-                                    <a class="btn btn-info btn-xs btn-archive" href="{!! $file->event_file!!}" target="_blank">
+                                    {!! $event->event_file_title !!}
+                                    <a class="btn btn-info btn-xs btn-archive" href="{!! $event->event_file!!}" target="_blank">
                                         <i class="fa fa-download" aria-hidden="true"></i>
                                     </a><br><br/>
                                 @endforeach
                             @else
                                 <em>No File found.....</em>
                             @endif
+                        </blockquote>
 
-                        </div><!-- end desc -->
-
-
-
-
-
-                    </div><!-- end blog-wrapper -->
-                    <hr class="invis">
-                </div><!-- end content -->
+                    </article>
+                    <!-- /Blog Post 1 -->
 
 
+
+
+
+
+                </div>
+                <!-- /Blog Posts -->
                 @include('frontend.includes.rightsidebar')
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </section><!-- end section -->
+
+            </div>
+        </div>
+    </div>
+    <!-- /Main Content end-->
+
+
 
 
 @stop
 @section('style')
     <style>
-        .img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img{
-            padding-left: 79px;
-        }
+
     </style>
 @stop
 
 @section('script')
 @stop
+

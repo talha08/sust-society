@@ -14,7 +14,8 @@
         "guzzlehttp/guzzle": "^6.2",
         "oriceon/oauth-5-laravel": "dev-master",
         "intervention/image": "^2.3",
-        "garygreen/pretty-routes": "^0.0.6"
+        "garygreen/pretty-routes": "^0.0.6",
+        "webup/laravel-sendinblue": "^1.0"
 
     },
     "require-dev": {

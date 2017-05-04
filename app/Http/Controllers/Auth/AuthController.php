@@ -104,7 +104,7 @@ class AuthController extends Controller
         if ($validation->fails())
         {
 
-            return redirect()->route('login')
+            return redirect()->back()
                         ->withInput()
                         ->withErrors($validation);
         } else
@@ -121,7 +121,7 @@ class AuthController extends Controller
                 return redirect()->route('dashboard')->with('success','Welcome to SUST Society');
             } else
             {
-                return redirect()->route('user.create')
+                return redirect()->back()
                             ->withInput()
                             ->withErrors('Error in Email Address or Password.');
             }
@@ -133,7 +133,7 @@ class AuthController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('user.create')
+        return redirect()->route('welcome')
                     ->with('success',"You are successfully logged out.");
         // return 'Logout Panel';
     }

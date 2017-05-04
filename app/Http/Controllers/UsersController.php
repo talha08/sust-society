@@ -41,7 +41,6 @@ class UsersController extends Controller
         $user_type= [
             '2' => 'Faculty Member',
             '3' => 'Student',
-
         ];
         $dept_id = Department::lists('name','id');
             //auth.register
@@ -101,10 +100,10 @@ class UsersController extends Controller
                 $profile->save();
 
                 Auth::logout();
-                return redirect()->route('user.create')
+                return redirect()->back()
                             ->with('success','Registered successfully. Sign In Now.');
             }else{
-                return redirect()->route('dashboard')
+                return redirect()->back()
                             ->with('error',"Something went wrong.Please Try again.");
             }
         }

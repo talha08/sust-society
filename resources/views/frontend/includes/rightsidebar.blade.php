@@ -1,40 +1,42 @@
-<div id="sidebar" class="col-md-4 col-sm-4 col-xs-12">
-    <div class="widget">
-        <div class="searchform">
-            <form>
-                <input type="text" class="form-control" placeholder="What you are looking for?">
-            </form>
-        </div><!-- end newsletter -->
-    </div><!-- end widget -->
 
-    <div class="widget">
-        <div class="widget-title">
-            <h4>Subscribe Us</h4>
-            <hr>
+<!-- Sidebar Start -->
+<div class="sidebar col-lg-4 col-md-4 col-sm-4 col-xs-12">
+    <!-- Search Widget -->
+    <div class="widget search-form">
+        <div class="input-group">
+            <input type="text" value="Search..." onfocus="if(this.value=='Search...')this.value='';" onblur="if(this.value=='')this.value='Search...';" class="search-input form-control">
+                                        <span class="input-group-btn">
+                                        <button type="submit" class="subscribe-btn btn"><i class="fa fa-search"></i></button>
+                                        </span>
         </div>
+        <!-- /input-group -->
+    </div>
+    <!-- /Search Widget -->
 
-        <div class="newsletter">
-            <p>Subscribe to our weekly Newsletter and stay tuned and get more freebies.</p>
-            <form>
-                <input type="text" class="form-control" placeholder="Enter your email here...">
-                <input type="submit" value="Subscribe Now!" class="btn btn-primary btn-block" />
-            </form>
-        </div><!-- end newsletter -->
-    </div><!-- end widget -->
+    <!-- Tab -->
+    <div class="widget tabs">
+        <div id="horizontal-tabs">
+            <ul class="tabs">
+                <li id="tab1" class="current">Popular</li>
+            </ul>
+            <div class="contents">
+                <div class="tabscontent" id="content1" style="display: block;">
 
-    <div class="widget">
-        <div class="widget-title">
-            <h4>Recent Events</h4>
-            <hr>
+                    <ul class="posts">
+                        @foreach($evenImg as $eventNav)
+                        <li>
+                            <a href="{!! route('event.details', $eventNav->event_meta_data) !!}" title=""><img class="img-thumbnail" src="{!! asset($eventNav->banner) !!}" height="100px" width="100px" alt=""></a>
+                            <p><a href="#">  {!! str_limit($eventNav->headline, 150) !!}</a></p>
+                        </li>
+                        @endforeach
+                    </ul>
+
+                </div>
+            </div>
         </div>
+    </div>
+    <!-- /Tab -->
 
-        <ul class="popular-courses">
-           @foreach($evenImg as $eventNav)
-            <li>
-                <a href="{!! route('event.details', $eventNav->event_meta_data) !!}" title=""><img class="img-thumbnail" src="{!! asset($eventNav->banner) !!}" height="100px" width="100px" alt=""></a>
-            </li>
-           @endforeach
-        </ul>
-    </div><!-- end widget -->
 
-</div><!-- end col -->
+</div>
+<!-- Sidebar End -->

@@ -150,6 +150,7 @@ return [
         Artdarek\OAuth\OAuthServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         PrettyRoutes\ServiceProvider::class,
+        Webup\LaravelSendinBlue\SendinBlueServiceProvider::class, // sendinblue mail service provider
     ],
 
     /*

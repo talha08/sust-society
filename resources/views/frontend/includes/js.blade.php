@@ -1,19 +1,36 @@
-{!! Html::script('frontend/js/jquery.min.js') !!}
-{!! Html::script('frontend/js/bootstrap.min.js') !!}
-{!! Html::script('frontend/js/retina.js') !!}
-{!! Html::script('frontend/js/wow.js') !!}
-{!! Html::script('frontend/js/carousel.js') !!}
-        <!-- CUSTOM PLUGINS -->
-{!! Html::script('frontend/js/custom.js') !!}
-        <!-- SLIDER REV -->
-{!! Html::script('frontend/rs-plugin/js/jquery.themepunch.tools.min.js') !!}
-{!! Html::script('frontend/rs-plugin/js/jquery.themepunch.revolution.min.js') !!}
 
-        <!-- toastr -->
+ <!-- The Scripts -->
+{!! Html::script('frontend/js/jquery.min.js') !!}
+{!! Html::script('frontend/js/jquery-migrate-1.0.0.js') !!}
+{!! Html::script('frontend/js/jquery-ui.js') !!}
+{!! Html::script('frontend/js/bootstrap.js') !!}
+{!! Html::script('frontend/js/revolution-slider/js/jquery.themepunch.plugins.min.js') !!}
+{!! Html::script('frontend/js/revolution-slider/js/jquery.themepunch.revolution.min.js') !!}
+{!! Html::script('frontend/js/jquery.parallax.js') !!}
+{!! Html::script('frontend/js/jquery.wait.js') !!}
+{!! Html::script('frontend/js/fappear.js') !!}
+{!! Html::script('frontend/js/modernizr-2.6.2.min.js') !!}
+{!! Html::script('frontend/js/jquery.bxslider.min.js') !!}
+{!! Html::script('frontend/js/jquery.prettyPhoto.js') !!}
+{!! Html::script('frontend/js/superfish.js') !!}
+{!! Html::script('frontend/js/tweetMachine.js') !!}
+{!! Html::script('frontend/js/tytabs.js') !!}
+{!! Html::script('frontend/js/jquery.gmap.min.js') !!}
+{!! Html::script('frontend/js/jquery.sticky.js') !!}
+{!! Html::script('frontend/js/jquery.countTo.js') !!}
+{!! Html::script('frontend/js/jflickrfeed.js') !!}
+{!! Html::script('frontend/js/imagesloaded.pkgd.min.js') !!}
+{!! Html::script('frontend/js/waypoints.min.js') !!}
+{!! Html::script('frontend/js/wow.js') !!}
+{!! Html::script('frontend/js/jquery.fitvids.js') !!}
+{!! Html::script('frontend/js/spectrum.js') !!}
+{!! Html::script('frontend/js/switcher.js') !!}
+{!! Html::script('frontend/js/custom.js') !!}
+
+
+<!-- toastr -->
 {!! Html::script('js/plugins/toastr/toastr.min.js') !!}
 @include('includes.toastr')
-
-
 <script>
     jQuery(document).ready(function() {
         jQuery('.tp-banner').show().revolution(

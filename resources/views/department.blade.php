@@ -4,7 +4,10 @@
     {{--@include('frontend.department.happyStudents')--}}
     @include('frontend.department.about')
     @include('frontend.department.event')
+    <br>
     @include('frontend.department.notice')
+
+
 
 @stop
 @section('style')

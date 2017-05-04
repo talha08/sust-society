@@ -1,50 +1,59 @@
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
-
+<!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html>
+<!--<![endif]-->
 
 <head>
 
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="keywords" content="">
-
     <title>{!! $title or  "SUST Society" !!}</title>
-
-    <link rel="shortcut icon" href="frontend/images/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="frontend/images/apple-touch-icon.png" />
-    <link rel="apple-touch-icon" sizes="57x57" href="frontend/images/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="frontend/images/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="frontend/images/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="frontend/images/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="frontend/images/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="frontend/images/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="frontend/images/apple-touch-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="frontend/images/apple-touch-icon-180x180.png" />
+    <meta name="description" content="Gallaxy Responsive HTML5/CSS3 Template from FIFOTHEMES.COM">
+    <meta name="author" content="FIFOTHEMES.COM">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,700,800,900' rel='stylesheet' type='text/css'>
 
 
-    {!! Html::style('frontend/rs-plugin/css/settings.css') !!}
-    {!! Html::style('frontend/fonts/font-awesome-4.3.0/css/font-awesome.min.css') !!}
+
+    <!-- Library CSS -->
     {!! Html::style('frontend/css/bootstrap.css') !!}
-    {!! Html::style('frontend/css/animate.css') !!}
-    {!! Html::style('frontend/css/menu.css') !!}
-    {!! Html::style('frontend/css/carousel.css') !!}
+    {!! Html::style('frontend/css/bootstrap-theme.css') !!}
+    {!! Html::style('frontend/css/fonts/font-awesome/css/font-awesome.css') !!}
+    {!! Html::style('frontend/css/animations.css') !!}
+    {!! Html::style('frontend/css/superfish.css') !!}
+    {!! Html::style('frontend/css/revolution-slider/css/settings.css') !!}
+    {!! Html::style('frontend/css/revolution-slider/css/extralayers.css') !!}
+    {!! Html::style('frontend/css/prettyPhoto.css') !!}
+    <!-- Theme CSS -->
     {!! Html::style('frontend/css/style.css') !!}
-    {!! Html::style('frontend/css/style2.css') !!}
-            <!-- Toastr style -->
-    {!! Html::style('css/plugins/toastr/toastr.min.css') !!}
+    <!-- Skin -->
+    {!! Html::style('frontend/css/colors/green.css') !!}
+    <!-- Responsive CSS -->
+    {!! Html::style('frontend/css/theme-responsive.css') !!}
+    <!-- Switcher CSS -->
+    {!! Html::style('frontend/css/switcher.css') !!}
+    {!! Html::style('frontend/css/spectrum.css') !!}
 
-    <!-- COLORS -->
-    {!! Html::style('frontend/css/custom.css') !!}
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="frontend/img/ico/favicon.ico">
+    <link rel="apple-touch-icon" href="frontend/img/ico/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="frontend/img/ico/apple-touch-icon-72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="frontend/img/ico/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="frontend/img/ico/apple-touch-icon-144.png">
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-    {!! Html::script('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js') !!}
-    {!! Html::script('https://oss.maxcdn.com/respond/1.4.2/respond.min.js') !!}
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="frontend/js/respond.min.js"></script>
     <![endif]-->
+    <!--[if IE]>
+    <link rel="stylesheet" href="frontend/css/ie.css">
+    <![endif]-->
+
+
     @yield('style')
 </head>
