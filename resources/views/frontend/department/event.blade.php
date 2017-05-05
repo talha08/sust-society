@@ -1,37 +1,36 @@
-<section class="grey section">
+<!-- Latest Events -->
+<div id="latest-posts" class=" margin-top100">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="section-title text-center">
-                    <h4>Upcoming Events</h4>
-                    <p>Listed Below Our Most Popular Courses</p>
-                </div>
-            </div><!-- end col -->
-        </div><!-- end row -->
+            <div class="col-lg-12 col-md-12 text-center">
+                <h2 class="wow fadeIn">Latest Events</h2>
+                <h4 class="wow fadeInRight">SuST Society regularly post updates on our Events. Feel free to join with our Community!</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="padding-top40">
 
-        <div id="owl-featured" class="owl-custom">
             @if(count($dept->event) != 0)
-                @foreach($dept->event->take(10) as $dept_event)
-                    <div class="owl-featured">
-                        <div class="shop-item-list entry">
-                            <div class="">
-                                <img src="{!! URL::asset($dept_event->banner) !!}" alt="">
-                                <div class="magnifier">
-                                </div>
-                            </div>
-                            <div class="shop-item-title clearfix">
-                                <h4><a href="{!! route('event.details', $dept_event->event_meta_data ) !!}">{!! $dept_event->headline !!}</a></h4>
-                            </div><!-- end shop-item-title -->
-                            <div class="visible-buttons">
-                                <a title="Read More" href="{!! route('event.details', $dept_event->event_meta_data ) !!}"><span class="fa fa-search"></span></a>
-                            </div><!-- end buttons -->
-                        </div><!-- end relative -->
-                    </div><!-- end col -->
+                @foreach($dept->event->take(10) as $event)
+                <!-- post item -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 post-item wow fadeInUp">
+                        <div class="post-img">
+                            <a href="{!! route('event.details', $event->event_meta_data ) !!}"><img alt="" src="{!! asset($event->banner)  !!}" height="200px" width="262px"></a>
+                        </div>
+                        <div class="post-content blog-post-content">
+                            <h4><a href="{!! route('department', $event->dept->id ) !!}"></a>{!! $event->dept->name !!}</h4>
+                            <p>
+                                {!! strip_tags(str_limit($event->description, 100)) !!}
+                            </p>
+                        </div>
+                    </div>
+                    <!-- /post item -->
                 @endforeach
-            @else
-             <p class="text-center">No Event Found</p>
-            @endif
-
-        </div><!-- end owl-featured -->
-    </div><!-- end container -->
-</section><!-- end section -->
+                @else
+                    <p class="text-center">No Event Found</p>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Latest Events -->

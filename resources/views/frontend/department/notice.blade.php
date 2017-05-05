@@ -1,37 +1,38 @@
-<section class="grey section">
+<!-- Latest Notice -->
+<div id="latest-posts" class=" margin-top100">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="section-title text-center">
-                    <h4>Upcoming Notice</h4>
-                    <p>Listed Below Our Most Popular Courses</p>
-                </div>
-            </div><!-- end col -->
-        </div><!-- end row -->
-
-        <div id="owl-featured" class="owl-custom">
+            <div class="col-lg-12 col-md-12 text-center">
+                <h2 class="wow fadeIn">Latest Notice</h2>
+                <h4 class="wow fadeInRight">SUST Society regularly post updates on our notice board. Feel free to join with our Community!</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="padding-top40">
             @if(count($dept->notice) != 0)
-                @foreach($dept->notice->take(10) as $dept_notice)
-                    <div class="owl-featured">
-                        <div class="shop-item-list entry">
-                            <div class="">
-                                <img src="{!! URL::asset($dept_notice->banner) !!}" alt="">
-                                <div class="magnifier">
-                                </div>
-                            </div>
-                            <div class="shop-item-title clearfix">
-                                <h4><a href="{!! route('notice.details', $dept_notice->notice_meta_data ) !!}">{!! $dept_notice->headline !!}</a></h4>
-                            </div><!-- end shop-item-title -->
-                            <div class="visible-buttons">
-                                <a title="Read More" href="{!! route('notice.details', $dept_notice->notice_meta_data ) !!}"><span class="fa fa-search"></span></a>
-                            </div><!-- end buttons -->
-                        </div><!-- end relative -->
-                    </div><!-- end col -->
+                @foreach($dept->notice->take(10) as $notice)
+                <!-- post item -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 post-item wow fadeInUp">
+                        <div class="post-img">
+                            <a href="{!! route('notice.details', $notice->notice_meta_data ) !!}"><img alt="" src="{!! asset($notice->banner)  !!}" height="200px" width="262px"></a>
+                        </div>
+                        <div class="post-content blog-post-content">
+                            <h4><a href="{!! route('department', $notice->dept->id ) !!}"></a>{!! $notice->dept->name !!}</h4>
+                            <p>
+                                {!! strip_tags(str_limit($notice->description, 100)) !!}
+                            </p>
+                        </div>
+                    </div>
+                    <!-- /post item -->
                 @endforeach
-            @else
-                <p class="text-center">No Notice Found</p>
-            @endif
+                @else
+                    <p class="text-center">No Notice Found</p>
+                @endif
 
-        </div><!-- end owl-featured -->
-    </div><!-- end container -->
-</section><!-- end section -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Latest Notice -->
+
+<br><br>

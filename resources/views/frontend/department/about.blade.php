@@ -1,12 +1,19 @@
-<section class="white section">
+<!-- Latest Notice -->
+
+<div id="latest-posts" class=" margin-top100">
     <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 text-center">
+                <h2 class="wow fadeIn">About {!! $dept->name !!}</h2>
+                <h4 class="wow fadeInRight">SUST Society regularly post updates on our notice board. Feel free to join with our Community!</h4>
+            </div>
+        </div>
+
+        <br>
+        <br>
         <div class="row">
             <div class="col-md-6">
                 <div class="content-widget">
-                    <div class="widget-title">
-                        <h4>From Our Gallery</h4>
-                        <hr>
-                    </div>
 
                     <div class="media-element">
                         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -14,14 +21,14 @@
 
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                    <img src="{!! URl::asset('frontend/upload/about_02.jpg') !!}" alt="" class="img-responsive">
+                                    <img src="{!! asset('frontend/img/blog/02.jpg') !!}" alt="" class="img-responsive">
                                 </div>
 
                                 @if($slider->count() != 0)
                                     @foreach($slider as $slide)
-                                    <div class="item">
-                                        <img src="{!!asset($slide->album_photo)!!}" height="200px" width="400px" alt="" class="img-responsive">
-                                    </div>
+                                        <div class="item">
+                                            <img src="{!!asset($slide->album_photo)!!}" height="200px" width="400px" alt="" class="img-responsive">
+                                        </div>
                                     @endforeach
                                 @endif
 
@@ -42,10 +49,6 @@
 
             <div class="col-md-6">
                 <div class="content-widget">
-                    <div class="widget-title">
-                        <h4>About Us</h4>
-                        <hr>
-                    </div>
 
                     <div class="tabbed-widget">
                         <ul class="nav nav-tabs">
@@ -64,9 +67,19 @@
                     </div><!-- end tabbed-widget -->
                 </div><!-- end content-widget -->
             </div><!-- end col -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-</section><!-- end section -->
+
+        </div>
+    </div>
+</div>
+<!-- /Latest Notice -->
+
+<br><br>
+
+
+
+
+
+
 
 
 
