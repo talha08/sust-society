@@ -122,6 +122,7 @@
         <div class="row">
             <div class="padding-top40">
 
+            @if(count($events) != 0)
                 @foreach($events as $event)
                 <!-- post item -->
                 <div class="col-lg-3 col-md-3 col-sm-6 post-item wow fadeInUp">
@@ -137,13 +138,14 @@
                 </div>
                 <!-- /post item -->
                 @endforeach
-
+                @else
+                    <p class="text-center">No Event Found</p>
+                @endif
             </div>
         </div>
     </div>
 </div>
 <!-- /Latest Events -->
-
 <br><br><br>
 
 
@@ -175,7 +177,7 @@
                         </div>
                         <div class="service-box-info">
                             <a href="#">
-                                <h3 class="padding-top25">Web Design</h3>
+                                <h3 class="padding-top25">Latest News</h3>
                             </a>
                             <p>
                                 Lorem Ipsum is simply dummy text of Lorem the printing and typesettings industry.
@@ -190,7 +192,7 @@
                         </div>
                         <div class="service-box-info">
                             <a href="#">
-                                <h3 class="padding-top25">Email Marketing</h3>
+                                <h3 class="padding-top25">Latest Events</h3>
                             </a>
                             <p>
                                 Lorem Ipsum is simply dummy text of Lorem the printing and typesettings industry.
@@ -205,7 +207,7 @@
                         </div>
                         <div class="service-box-info">
                             <a href="#">
-                                <h3 class="padding-top25">Corporate Solutions</h3>
+                                <h3 class="padding-top25">Running Society Committee</h3>
                             </a>
                             <p>
                                 Lorem Ipsum is simply dummy text of Lorem the printing and typesettings industry.
@@ -238,7 +240,7 @@
         </div>
         <div class="row">
             <div class="padding-top40">
-
+            @if(count($notices) != 0)
                 @foreach($notices as $notice)
                         <!-- post item -->
                 <div class="col-lg-3 col-md-3 col-sm-6 post-item wow fadeInUp">
@@ -254,6 +256,10 @@
                 </div>
                 <!-- /post item -->
                 @endforeach
+                @else
+                    <p class="text-center">No Notice Found</p>
+                @endif
+
 
             </div>
         </div>
@@ -262,23 +268,6 @@
 <!-- /Latest Notice -->
 
 <br><br>
-
-
-
-
-
-
-
-
-
-
-
-{{--@include('frontend.includes.map')--}}
-{{--@include('frontend.includes.whyChoose')--}}
-{{--@include('frontend.includes.courses')--}}
-{{--@include('frontend.includes.happyStudents')--}}
-
-
 
 @stop
 @section('style')
