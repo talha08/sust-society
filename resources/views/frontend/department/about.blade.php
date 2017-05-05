@@ -21,7 +21,7 @@
 
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                    <img src="{!! asset('frontend/img/blog/02.jpg') !!}" alt="" class="img-responsive">
+                                    <img src="{!! asset('frontend/img/blog/02.jpg') !!}"  height="200px" width="600px" alt="" class="img-responsive">
                                 </div>
 
                                 @if($slider->count() != 0)
@@ -73,7 +73,7 @@
 </div>
 <!-- /Latest Notice -->
 
-<br><br>
+
 
 
 
