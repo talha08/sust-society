@@ -19,7 +19,7 @@ abstract class Controller extends BaseController
     public function __construct()
     {
             //share variable in all view
-            $this->department = Department::all();
+            $this->department = Department::take(5)->get();
             view()->share('department', $this->department);
 
 
