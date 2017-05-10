@@ -310,7 +310,7 @@ class UsersController extends Controller
 
                // Auth::logout();
                 return redirect()->back()
-                    ->with('success','Society Admin Account successfully.');
+                    ->with('success','Society Admin Account Create successfully.');
             }else{
                 return redirect()->back()
                     ->with('error',"Something went wrong.Please Try again.");

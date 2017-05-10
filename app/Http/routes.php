@@ -82,7 +82,7 @@ Route::group(array('prefix' => '/auth/home','middleware' => 'auth'), function()
 	Route::get('user/students', array('as' => 'user.student', 'uses' => 'UsersController@students'));
 	Route::get('user/teachers', array('as' => 'user.teacher', 'uses' => 'UsersController@teachers'));
   //user admin
-	Route::get('user/adminUserStore', array('as' => 'user.adminUserStore', 'uses' => 'UsersController@adminUserStore'));
+	Route::post('user/adminUserStore', array('as' => 'user.adminUserStore', 'uses' => 'UsersController@adminUserStore'));
 
 
 

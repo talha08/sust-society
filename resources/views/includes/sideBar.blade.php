@@ -25,7 +25,7 @@
 
 
 
-            @if( Auth::user()->hasRole('teacher'))
+            @if( Auth::user()->hasRole('dept_admin'))
                 <li>
                     <a href="{!!route('department.edit',Auth::user()->dept->id)!!}">
                         <i class="fa fa-tasks"></i>
@@ -42,7 +42,7 @@
                         <a href="{!!  URL::route( 'album.index') !!}">Album</a>
                     </li>
 
-                    @if(Auth::user()->hasRole('teacher'))
+                    @if(Auth::user()->hasRole('dept_admin'))
                     <li class="{!! Menu::isActiveRoute('album.create') !!}">
                         <a href="{!!  URL::route( 'album.create') !!}">Create New Album</a>
                     </li>
@@ -89,7 +89,7 @@
 
 
 
-            @if(Auth::user()->hasRole('teacher'))
+            @if(Auth::user()->hasRole('dept_admin'))
             <li class="{!! Menu::areActiveRoutes(['slider.index', 'slider.create']) !!}">
                 <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Slide</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
@@ -186,7 +186,7 @@
                         <a href="{!!  URL::route( 'committee.index') !!}">Committee</a>
                     </li>
 
-                    @if(Auth::user()->hasRole('teacher'))
+                    @if(Auth::user()->hasRole('dept_admin'))
                         <li class="{!! Menu::isActiveRoute('committee.create') !!}">
                             <a href="{!!  URL::route( 'committee.create') !!}">Create New Committee</a>
                         </li>

@@ -32,7 +32,7 @@ abstract class Controller extends BaseController
                 view()->share('user_type', $this->user_type);
 
 
-            $this->dept_id = Department::lists('name','id');
+            $this->dept_id = Department::where('status', true)->lists('name','id');
                 view()->share('dept_id', $this->dept_id);
 
 

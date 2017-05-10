@@ -135,7 +135,7 @@
 
 
                     @if(Auth::user())
-                        @if(!Auth::user()->hasRole('admin'))
+                        @if(!Auth::user()->hasRole('admin') )
                           @if(\Auth::user()->hasRole('student') or \Auth::user()->hasRole('teacher'))
 
                             <li>
@@ -161,7 +161,11 @@
                         @endif
                     @endif
 
-
+                    @if(Auth::user())
+                    @if(Auth::user()->hasRole('dept_admin') )
+                            <li><a href="{!! route('dashboard') !!}"><i class="fa fa-sign-in"></i> Dashboard</a></li>
+                    @endif
+                    @endif
 
                     @if(!Auth::user())
                         <li><a href="{!! route('contact') !!}">Contact</a></li>
