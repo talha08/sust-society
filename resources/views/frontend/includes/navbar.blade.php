@@ -135,31 +135,38 @@
 
 
                     @if(Auth::user())
-                        @if(!Auth::user()->hasRole('admin') || !Auth::user()->hasRole('dept_admin') )
+                        @if(!Auth::user()->hasRole('admin'))
                           @if(\Auth::user()->hasRole('student') or \Auth::user()->hasRole('teacher'))
 
-                            <li>
-                                <a href="#" class="sf-with-ul">
-                                    <b>{!! Auth::user()->name !!} </b> &nbsp;
-                                   <span class="sf-sub-indicator pull-right">
-                                                <i class="fa fa-angle-right "></i>
-                                                </span>
-                                </a>
-                                <ul>
-                                    <li><a href="{!! route('profile') !!}" class="sf-with-ul">Profile</a></li>
-                                    <li><a href="{!! route('password.change') !!}" class="sf-with-ul">Change Password</a></li>
-                                    <li><a href="{!! route('logout') !!}" class="sf-with-ul">Logout</a></li>
-                                </ul>
-                            </li>
-                            <li style="top: 23px"> <img  alt="" src="{!! asset( Auth::user()->profile->photo) !!}" height="40px" width="40px" class="img-circle"></li>
+                                @if(!Auth::user()->hasRole('dept_admin'))
+                                    <li>
+                                        <a href="#" class="sf-with-ul">
+                                            <b>{!! Auth::user()->name !!} </b> &nbsp;
+                                            <span class="sf-sub-indicator pull-right">
+                                                    <i class="fa fa-angle-right "></i>
+                                                    </span>
+                                        </a>
+                                        <ul>
+                                            <li><a href="{!! route('profile') !!}" class="sf-with-ul">Profile</a></li>
+                                            <li><a href="{!! route('password.change') !!}" class="sf-with-ul">Change Password</a></li>
+                                            <li><a href="{!! route('logout') !!}" class="sf-with-ul">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                    <li style="top: 23px"> <img  alt="" src="{!! asset( Auth::user()->profile->photo) !!}" height="40px" width="40px" class="img-circle"></li>
+                                @endif
 
-                           @endif
+                             @endif
 
                         @else
                             <li><a href="{!! route('dashboard') !!}"><i class="fa fa-sign-in"></i> Dashboard</a></li>
-
                         @endif
                     @endif
+
+
+
+
+
+
 
                     @if(Auth::user())
                     @if(Auth::user()->hasRole('dept_admin') )

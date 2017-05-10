@@ -135,7 +135,7 @@ class DepartmentController extends Controller
      * Frontend View
      */
     public function allSociety(){
-        $society = Department::orderBy('id', 'desc')->paginate(9);
+        $society = Department::paginate(9);
         return view('society', compact('society'))->with('title',"Society List");
     }
 

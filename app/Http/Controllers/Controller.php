@@ -21,11 +21,12 @@ abstract class Controller extends BaseController
     public function __construct()
     {
             //share variable in all view
+            //this is for the nav bar
             $this->department = Department::take(5)->get();
             view()->share('department', $this->department);
 
-
-            $this->user_type= [
+             //this is for the registration system
+             $this->user_type= [
                     '2' => 'Faculty Member',
                     '3' => 'Student',
                 ];

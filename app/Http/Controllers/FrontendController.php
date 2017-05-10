@@ -73,8 +73,6 @@ class FrontendController extends Controller
             $evenImg = Event::orderBy('id', 'desc')->take(3)->get();
             $notice = Notice::where('notice_meta_data', $notice_meta_data)->first();
         }
-
-
         return view('noticeFull',compact('notice','evenImg'))->with('title',$notice->headline);
     }
 
@@ -107,8 +105,6 @@ class FrontendController extends Controller
      * @return $this
      */
     public function eventDetails($event_meta_data){
-
-
         if(\Auth::user()){
             $evenImg = Event::orderBy('id', 'desc')->where('dept_id', \Auth::user()->dept_id)->take(3)->get();
             $event = Event::where('event_meta_data', $event_meta_data)->first();
@@ -116,7 +112,6 @@ class FrontendController extends Controller
             $evenImg = Event::orderBy('id', 'desc')->take(3)->get();
             $event = Event::where('event_meta_data', $event_meta_data)->first();
         }
-
 
         return view('eventFull',compact('event','evenImg'))->with('title',$event->headline);
     }
@@ -185,15 +180,14 @@ class FrontendController extends Controller
     }
 
 
-
-
-
+    /**
+     * Current committee (Frontend)
+     * @return $this
+     */
     public function currentCommittee(){
 
 //        $type = CommitteeMemberType::lists('name','id');
 //        $user = User::where('dept_id', \Auth::user()->dept_id)->lists('name','id');
-
-
         $curr= Committee::where('dept_id',\Auth::user()->dept->id)->where('is_current', 'Running')->first();
          $comLists = CommitteeMemberList::where('committee_id',$curr->id )->get();
         return view('currentCommittee', compact('comLists','user','type'))->with('title',"Running Committee - ". $curr->year);

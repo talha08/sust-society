@@ -59,7 +59,7 @@
 
                     <div class="form-group">
                         {!! Form::label('member_type_id', 'Member Type :', array('class' => 'control-label')) !!}<br/>
-                        {!!Form::select('member_type_id', $type, '',array('id'=>'type','class' => 'select2 form-control placeholder-no-fix', 'autofocus'))!!}
+                        {!!Form::select('member_type_id', $type, '',array('placeholder' => 'Please select a client','id'=>'type','class' => 'select2 form-control placeholder-no-fix', 'autofocus'))!!}
                     </div><br/>
 
                     <div class="form-group">

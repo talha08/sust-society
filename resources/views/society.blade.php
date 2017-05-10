@@ -32,12 +32,20 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 wow fadeIn">
                     <div class="content-box big ch-item bottom-pad-small">
                         <div class="content-box-info">
-                            <img src="{!! asset($dept->logo_path) !!}"  width="130px" height="170px" alt="">
+                            <img src="{!! asset($dept->logo_path) !!}"  width="170px" height="170px" alt="">
                             <br>
                             <h4><a href="{!! route('department', $dept->id) !!}">{!! $dept->name !!}</a></h4>
                             <div class=" text-center">
                                 <span> Total {!! \App\User::where('dept_id', $dept->id )->count() !!} Member('s)</span>
+
+                                 @if($dept->status == true)
+                                    <p>Society Status:<em> Rnning</em></p>
+                                 @else
+                                    <p>Society Status: <em> Initialized</em> </p>
+                                 @endif
+
                             </div><!-- end shop-meta -->
+
                         </div>
                         <div class="border-bottom margin-top30">
                         </div>
@@ -46,10 +54,16 @@
                     </div>
                 </div>
                 @endforeach
+                <div class="text-center">
+                    {!! $society->render() !!}
+                </div>
             </div>
         </div>
     </div>
     <!-- /Main Content -->
+
+
+
 
 
 @stop
