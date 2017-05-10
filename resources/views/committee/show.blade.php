@@ -4,7 +4,7 @@
         <div class="col-lg-12">
             <div class="wrapper wrapper-content animated fadeInRight">
                 <center>
-                    @if(Auth::user()->hasRole('teacher'))
+                    @if(Auth::user()->hasRole('dept_admin'))
                         <a data-toggle="modal" class="btn btn-primary btn-xs" href="#myModal2"><i class="fa fa-user"></i> Add New Member </a>
                     @endif
                 </center>

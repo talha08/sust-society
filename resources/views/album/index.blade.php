@@ -24,7 +24,7 @@
 
 
 
-		@if(Auth::user()->hasRole('teacher'))
+		@if(Auth::user()->hasRole('dept_admin'))
 			@if(Route::currentRouteName() == 'album.index')
 				<a href="{!! route('album.create') !!}"><button class="btn btn-success">Create New Album</button></a>
 			@else

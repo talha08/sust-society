@@ -12,7 +12,7 @@
         <div class="row">
             <div class="padding-top40">
             @if(count($dept->event) != 0)
-                @foreach($dept->event->take(10) as $event)
+                @foreach($dept->event->take(4) as $event)
                 <!-- post item -->
                     <div class="col-lg-3 col-md-3 col-sm-6 post-item wow fadeInUp">
                         <div class="post-img">

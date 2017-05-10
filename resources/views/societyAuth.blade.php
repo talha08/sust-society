@@ -30,7 +30,7 @@
                             </div>
                             <div class="col-lg-2 col-md-2 wow fadeInRight">
                                 <div class="get-started wow fadeIn">
-                                    <a href="{!! route('user.create') !!}" class="btn-special btn-grey pull-right">Register</a>
+                                    <a href="{!! route('registration.index') !!}" class="btn-special btn-grey pull-right">Register</a>
                                 </div>
                             </div>
                             <div class="clearfix"></div>

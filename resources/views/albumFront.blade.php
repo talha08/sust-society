@@ -62,9 +62,10 @@
                                             <div class="overlay">
                                                 <h2>Album - {!! $photo->album->album_title !!}</h2>
                                                 <a  data-target="#myModal_{!!$photo->id!!}" data-toggle="modal" class="info">Full View</a>
-                                            </div>
-                                        </div>
+                                            </div><br>
+                                        </div><br>
                                     </div>
+
 
 
 

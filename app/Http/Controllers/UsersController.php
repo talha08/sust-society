@@ -291,6 +291,16 @@ class UsersController extends Controller
 
             if($user->save()){
 
+
+                if($data['user_type']== 2){
+                    $role = Role::find(2);  //role attach 2 that means teacher
+                    $user->attachRole($role);
+                }else if($data['user_type']==3){
+                    $role = Role::find(3);  //role attach 1 that means sudent
+                    $user->attachRole($role);
+                }
+
+
                     $role = Role::find(4);  //role attach 4 that means dept_admin
                     $user->attachRole($role);
 

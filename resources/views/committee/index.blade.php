@@ -32,7 +32,7 @@
 											<th>Society</th>
 											<th>Year</th>
 											<th>Status</th>
-											@if(Auth::user()->hasRole('teacher'))
+											@if(Auth::user()->hasRole('dept_admin'))
 												<th>Actions</th>
 											@endif
 										</tr>
@@ -43,7 +43,7 @@
 												<td> <a href="{!!route('committee.show',$committee->id)!!}" >{!! $committee->year  !!}</a></td>
 												<td>{!!$committee->department->name !!}</td>
 												<td>{!!$committee->is_current !!}</td>
-												@if(Auth::user()->hasRole('teacher'))
+												@if(Auth::user()->hasRole('dept_admin'))
 													<td>
 														<a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('committee.edit',$committee->id)!!}"  style="margin-right: 3px;"><i class="fa fa-edit" aria-hidden="true"></i></a>
 														<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn"  data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $committee->id!!}"><i class="fa fa-trash" aria-hidden="true"></i></a>

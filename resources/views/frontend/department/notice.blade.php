@@ -10,7 +10,7 @@
         <div class="row">
             <div class="padding-top40">
             @if(count($dept->notice) != 0)
-                @foreach($dept->notice->take(10) as $notice)
+                @foreach($dept->notice->take(4) as $notice)
                 <!-- post item -->
                     <div class="col-lg-3 col-md-3 col-sm-6 post-item wow fadeInUp">
                         <div class="post-img">
