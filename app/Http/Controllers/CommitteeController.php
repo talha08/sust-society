@@ -72,7 +72,7 @@ class CommitteeController extends Controller
             return redirect()->route('committee.show',$committee->id )->with('success', 'Committee Successfully Created!');
          }
         else{
-        return redirect()->back()->with('error', 'Something went wrong please try again!');
+        return redirect()->back()->withInput()->with('error', 'Something went wrong please try again!');
         }
 
     }

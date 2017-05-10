@@ -15,6 +15,8 @@ abstract class Controller extends BaseController
 
 
     private $department;
+    private $user_type;
+    private $dept_id;
 
     public function __construct()
     {

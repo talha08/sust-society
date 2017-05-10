@@ -17,7 +17,14 @@
                             <a href="{!! route('notice.details', $notice->notice_meta_data ) !!}"><img alt="" src="{!! asset($notice->banner)  !!}" height="200px" width="262px"></a>
                         </div>
                         <div class="post-content blog-post-content">
-                            <h4><a href="{!! route('department', $notice->dept->id ) !!}"></a>{!! $notice->dept->name !!}</h4>
+                            <h4>
+                                @if(!Auth::user())
+                                    <a href="{!! route('department', $notice->dept->id ) !!}"> {!! $notice->dept->name !!}  </a>
+                                @else
+                                    <a href="{!! route('notice.details',$notice->notice_meta_data ) !!}"> {!! str_limit($notice->headline,20) !!}  </a>
+
+                                @endif
+                            </h4>
                             <p>
                                 {!! strip_tags(str_limit($notice->description, 100)) !!}
                             </p>

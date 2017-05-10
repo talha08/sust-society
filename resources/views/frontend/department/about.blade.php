@@ -27,7 +27,7 @@
                                 @if($slider->count() != 0)
                                     @foreach($slider as $slide)
                                         <div class="item">
-                                            <img src="{!!asset($slide->album_photo)!!}" height="200px" width="400px" alt="" class="img-responsive">
+                                            <img src="{!!asset($slide->album_photo)!!}" height="200px" width="600px" alt="" class="img-responsive">
                                         </div>
                                     @endforeach
                                 @endif
@@ -35,13 +35,16 @@
                             </div>
 
                             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                <br> <br><br> <br><br> <br>
                                 <span class="fa fa-angle-left" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
                             <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                <br> <br><br> <br><br> <br>
                                 <span class="fa fa-angle-right" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
+
                         </div>
                     </div><!-- end blog-image -->
                 </div><!-- end content-widget -->
@@ -58,9 +61,11 @@
 
                         <div class="tab-content">
                             <div id="home" class="tab-pane fade in active">
+                                <br>
                                 <p>{!! $dept->description or "Not Update Yet" !!}</p>
                             </div>
                             <div id="menu1" class="tab-pane fade">
+                                <br>
                                 <p>{!! $dept->contact or "Not Update Yet" !!}</p>
                             </div>
                         </div>

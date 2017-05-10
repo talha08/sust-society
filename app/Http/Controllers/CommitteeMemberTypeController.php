@@ -48,7 +48,7 @@ class CommitteeMemberTypeController extends Controller
             if($com->save()){
                 return redirect()->back()->with('success', 'Committee Member Type Successfully Created');
             }else{
-                return redirect()->back()->with('error', 'Something went wrong, Please try again');
+                return redirect()->back()->withInput()->with('error', 'Something went wrong, Please try again');
             }
 
     }

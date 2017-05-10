@@ -52,7 +52,7 @@
                             <div class="input-group">
                                 <input type="text" value="mail@example.com" onfocus="if(this.value=='mail@example.com')this.value='';" onblur="if(this.value=='')this.value='mail@example.com';" class="subscribe form-control">
                                             <span class="input-group-btn">
-                                            <button class="btn subscribe-btn" type="button">Join</button>
+                                            <button style="height: 34px;" class="btn subscribe-btn" type="button">Join</button>
                                             </span>
                             </div>
                             <!-- /input-group -->

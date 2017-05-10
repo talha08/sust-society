@@ -58,7 +58,7 @@ class EventController extends Controller
     public function store(Request $request)
     {
 
-       // return $request->all();
+       //return $request->all();
         if( $request->hasFile('image')) {
             $file = $request->image;
             //getting the file extension
@@ -85,11 +85,11 @@ class EventController extends Controller
             if($event->save()){
                 return redirect()->route('event.index')->with('success', 'Event Successfully Created');
             }else{
-                return redirect()->back()->with('error', 'Something went wrong, Please try again');
+                return redirect()->back()->withInput()->with('error', 'Something went wrong, Please try again');
             }
 
         }else{
-            return redirect()->back()->with('error', 'Image Upload Problem, Please Try Again');
+            return redirect()->back()->withInput()->with('error', 'Image Upload Problem, Please Try Again');
         }
 
     }

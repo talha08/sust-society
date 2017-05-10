@@ -26,7 +26,7 @@
 										<tr>
 											<th>id</th>
 											<th>Society Name</th>
-											{{--<th>Description</th>--}}
+											<th>Status</th>
 											<th>Actions</th>
 										</tr>
 										</thead>
@@ -35,12 +35,84 @@
 											<tr>
 												<td>{!! $department->id !!}</td>
 												<td> <a data-toggle="modal" style="color: teal;" data-target="#myModal_{{$department->id}}" >{!! str_limit($department->name,30) !!}</a></td>
-												{{--<td>{!! str_limit($department->description,100) !!}</td>--}}
+												@if($department->status)
+													<td>{!! 'Running' !!}</td>
+												@else
+													<td>{!! 'Close' !!}</td>
+												@endif
+
+
 												<td>
+													<a class="btn btn-info btn-xs btn-archive Editbtn" data-toggle="modal" style="color: teal;" data-target="#myModalAddUser_{{$department->id}}" ><i class="fa fa-user" aria-hidden="true"></i></a>
 													<a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('department.edit',$department->id)!!}"  style="margin-right: 3px;"><i class="fa fa-edit" aria-hidden="true"></i></a>
 													<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn"  data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $department->id!!}"><i class="fa fa-trash" aria-hidden="true"></i></a>
 												</td>
 											</tr>
+
+
+
+
+											<!-- USER ADD Modal -->
+											<div id="myModalAddUser_{{$department->id}}" class="modal fade" role="dialog">
+												<div class="modal-dialog">
+													<!-- Modal content-->
+													<div class="modal-content" >
+														<center>
+															<div class="modal-header">
+																<button type="button" class="close" data-dismiss="modal">&times;</button>
+																<h4 class="modal-title"><img class="" src="" alt="" align="left">
+																	<br/><br/>
+																Create Admin For {{ $department->name}}
+																</h4>
+															</div>
+															<div class="modal-body" >
+
+																{!! Form::open(array('route' => 'user.adminUserStore', 'method' => 'post')) !!}
+
+																<div class="form-group">
+																	{!!Form::select('user_type', $user_type, '',array('class' => 'form-control', 'autofocus','placeholder' => 'Select Designation',))!!}
+																</div>
+
+																<div class="form-group ">
+																	{!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Full Name', 'autofocus', 'required')) !!}
+																</div>
+
+																<div class="form-group ">
+																	{!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus', 'required')) !!}
+																</div>
+
+
+																<div class="form-group ">
+																	{!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password', 'required')) !!}
+																</div>
+
+																<div class="form-group ">
+																	{!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm Password', 'required')) !!}
+																</div>
+
+																{!!  Form::hidden('dept_id', $department->id) !!}
+
+															</div>
+														</center>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+															{!! Form::submit('Submit', array('class' => 'btn btn-success')) !!}
+															{!! Form::close() !!}
+														</div>
+													</div>
+												</div>
+											</div>
+											<!--/USER ADD Modal -->
+
+
+
+
+
+
+
+
+
+
 
 											<!-- Details View Modal -->
 											<div id="myModal_{{$department->id}}" class="modal fade" role="dialog">

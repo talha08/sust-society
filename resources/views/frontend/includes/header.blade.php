@@ -27,6 +27,11 @@
     {!! Html::style('frontend/css/revolution-slider/css/settings.css') !!}
     {!! Html::style('frontend/css/revolution-slider/css/extralayers.css') !!}
     {!! Html::style('frontend/css/prettyPhoto.css') !!}
+
+    <!-- Toastr style -->
+    {!! Html::style('css/plugins/toastr/toastr.min.css') !!}
+
+
     <!-- Theme CSS -->
     {!! Html::style('frontend/css/style.css') !!}
     <!-- Skin -->
@@ -36,6 +41,7 @@
     <!-- Switcher CSS -->
     {!! Html::style('frontend/css/switcher.css') !!}
     {!! Html::style('frontend/css/spectrum.css') !!}
+
 
 
 
@@ -54,6 +60,13 @@
     <link rel="stylesheet" href="frontend/css/ie.css">
     <![endif]-->
 
+
+    <style>
+
+        /*.form-control{*/
+            /*height: 46px; !important;*/
+        /*}*/
+    </style>
 
     @yield('style')
 </head>

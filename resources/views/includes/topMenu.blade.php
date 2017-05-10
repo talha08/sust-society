@@ -12,7 +12,7 @@
     <ul class="nav navbar-top-links navbar-right">
 
         <li class="">
-            <a data-toggle="" class="dropdown-toggle" href="{!!route('welcome')!!}">
+            <a data-toggle="" class="dropdown-toggle" href="{!! URL::to('/') !!}">
                 <span class="btn btn-info btn-xs bg-purple ">Home</span>
             </a>
         </li>

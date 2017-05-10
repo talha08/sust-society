@@ -25,8 +25,9 @@
                     <ul class="posts">
                         @foreach($evenImg as $eventNav)
                         <li>
-                            <a href="{!! route('event.details', $eventNav->event_meta_data) !!}" title=""><img class="img-thumbnail" src="{!! asset($eventNav->banner) !!}" height="100px" width="100px" alt=""></a>
-                            <p><a href="#">  {!! str_limit($eventNav->headline, 150) !!}</a></p>
+                            <a href="{!! route('event.details', $eventNav->event_meta_data) !!}" title="">
+                                <img class="img-thumbnail" src="{!! asset($eventNav->banner) !!}" height="100px" width="100px" alt=""></a>
+                            <p><a href="{!! route('event.details', $eventNav->event_meta_data) !!}">  {!! str_limit($eventNav->headline, 150) !!}</a></p>
                         </li>
                         @endforeach
                     </ul>

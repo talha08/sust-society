@@ -41,6 +41,10 @@ class AlbumController extends Controller
 
 
 
+
+
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -92,7 +96,7 @@ class AlbumController extends Controller
             }
             return redirect()->route('album.index')->with('success', 'Album Successfully Created');
         }
-        return redirect()->route('album.index')->with('error', 'Something went wrong');
+        return redirect()->route('album.index')->withInput()->with('error', 'Something went wrong');
     }
 
 

@@ -118,7 +118,7 @@ class AuthController extends Controller
 
             if (Auth::attempt($credentials,$remember))
             {
-                return redirect()->route('dashboard')->with('success','Welcome to SUST Society');
+                return redirect()->to('/')->with('success','Welcome to SUST Society');
             } else
             {
                 return redirect()->back()
@@ -133,10 +133,12 @@ class AuthController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('welcome')
+        return redirect()->to('/')
                     ->with('success',"You are successfully logged out.");
         // return 'Logout Panel';
     }
+
+
 
     public function dashboard(){
         return view('dashboard')
@@ -146,11 +148,27 @@ class AuthController extends Controller
         // return 'Dashboard';
     }
 
+
+
+
     public function changePassword(){
-        return view('auth.changePassword')
-                    ->with('title',"Change Password")->with('user', Auth::user());
-        // return 'Change Password';
+        if(\Auth::user()->hasRole('student') or \Auth::user()->hasRole('teacher')){
+            $dept_id = Department::lists('name','id');
+            $user_type= [
+                '2' => 'Faculty Member',
+                '3' => 'Student',
+            ];
+            return view('frontend.onlyStudent.passwordChange',compact('dept_id','user_type'))
+                ->with('title',"Change Password")->with('user', Auth::user());
+        }else{
+            return view('auth.changePassword')
+                ->with('title',"Change Password")->with('user', Auth::user());
+
+        }
+
     }
+
+
 
     public function doChangePassword(Request $request){
         $rules =[
@@ -172,7 +190,7 @@ class AuthController extends Controller
                 return redirect()->route('user.create')
                             ->with('success','Your password changed successfully.');
             }else{
-                return redirect()->route('dashboard')
+                return redirect()->back()
                             ->with('error',"Something went wrong.Please Try again.");
             }
         }

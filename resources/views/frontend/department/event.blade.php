@@ -7,9 +7,10 @@
                 <h4 class="wow fadeInRight">SuST Society regularly post updates on our Events. Feel free to join with our Community!</h4>
             </div>
         </div>
+
+
         <div class="row">
             <div class="padding-top40">
-
             @if(count($dept->event) != 0)
                 @foreach($dept->event->take(10) as $event)
                 <!-- post item -->
@@ -18,7 +19,15 @@
                             <a href="{!! route('event.details', $event->event_meta_data ) !!}"><img alt="" src="{!! asset($event->banner)  !!}" height="200px" width="262px"></a>
                         </div>
                         <div class="post-content blog-post-content">
-                            <h4><a href="{!! route('department', $event->dept->id ) !!}"></a>{!! $event->dept->name !!}</h4>
+                            <h4>
+                               @if(!Auth::user())
+                                    <a href="{!! route('department', $event->dept->id ) !!}"> {!! $event->dept->name !!}  </a>
+                                @else
+                                    <a href="{!! route('event.details',$event->event_meta_data ) !!}"> {!! str_limit($event->headline,20) !!}  </a>
+
+                                @endif
+                              </h4>
+
                             <p>
                                 {!! strip_tags(str_limit($event->description, 100)) !!}
                             </p>

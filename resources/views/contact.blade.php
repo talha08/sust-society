@@ -13,7 +13,7 @@
                         <div class="breadcrumbs pull-right">
                             <ul>
                                 <li>You are Now on:</li>
-                                <li><a href="{!! route('welcome') !!}">Home</a></li>
+                                <li><a href="{!! URL::to('/') !!}">Home</a></li>
                                 <li>Contact Us</li>
                             </ul>
                         </div>
@@ -63,13 +63,13 @@
                             @include('includes.alert')
                             {!! Form:: open(array('route' => 'contact.store', 'id' => 'contactform')) !!}
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                {!! Form:: text ('name', '', array('class'=>'form-control', 'required'=>'required','placeholder' => 'Your Name'))!!}
+                                {!! Form:: text ('name', '', array('class'=>'form-control', 'required'=>'required','placeholder' => 'Your Name'))!!}<br>
                                 {!! Form:: email ('email', '', array('class'=>'form-control', 'required'=>'required','placeholder' => 'me@example.com')) !!}
 
                             </div>
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                {!! Form:: text ('subject', '', array('class'=>'form-control', 'required'=>'required','placeholder' => 'Your subject'))!!}
-                                {!! Form:: textarea ('message', '',array('class'=>'form-control', 'required'=>'required|min:25','placeholder' => 'Message must contain 25 alphabets'))!!}
+                                {!! Form:: text ('subject', '', array('class'=>'form-control', 'required'=>'required','placeholder' => 'Your subject'))!!}<br>
+                                {!! Form:: textarea ('message', '',array('class'=>'form-control', 'required'=>'required|min:25','placeholder' => 'Message must contain 25 alphabets'))!!} <br>
                                 {!! Form::reset('Clear', array('class' => 'you css class for button')) !!}
                                 {!! Form::submit('Send', array('class' => 'you css class for button')) !!}
                             </div>

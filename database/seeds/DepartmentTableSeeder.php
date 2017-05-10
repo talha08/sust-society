@@ -11,7 +11,7 @@ class DepartmentTableSeeder extends Seeder
      */
     public function run()
     {
-        Department::create(['name' => 'CSE Society']);
+        Department::create(['name' => 'CSE Society' , 'status' => true]);
         Department::create(['name' => 'EEE Society']);
         Department::create(['name' => 'CEE Society']);
         Department::create(['name' => 'GEB Society']);

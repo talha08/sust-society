@@ -17,6 +17,7 @@ class CreateDepartmentTable extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->text('contact')->nullable();
+            $table->boolean('status')->default(false);
             $table->string('logo_path')->default('upload/logo.png');
             $table->timestamps();
         });

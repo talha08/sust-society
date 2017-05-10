@@ -62,7 +62,7 @@ class CommitteeMemberListController extends Controller
             return redirect()->back()->with('success', 'Member Successfully Created!');
         }
         else{
-            return redirect()->back()->with('error', 'Something went wrong please try again!');
+            return redirect()->back()->withInput()->with('error', 'Something went wrong please try again!');
         }
 
     }
@@ -109,7 +109,7 @@ class CommitteeMemberListController extends Controller
             return redirect()->back()->with('success', 'Member Successfully Updated!');
         }
         else{
-            return redirect()->back()->with('error', 'Something went wrong please try again!');
+            return redirect()->back()->withInput()->with('error', 'Something went wrong please try again!');
         }
 
     }

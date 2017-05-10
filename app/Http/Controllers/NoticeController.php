@@ -72,11 +72,11 @@ class NoticeController extends Controller
             if($notice->save()){
                 return redirect()->route('notice.index')->with('success', 'Notice Successfully Created');
             }else{
-                return redirect()->back()->with('error', 'Something went wrong, Please try again');
+                return redirect()->back()->withInput()->with('error', 'Something went wrong, Please try again');
             }
 
         }else{
-            return redirect()->back()->with('error', 'Image Upload Problem, Please Try Again');
+            return redirect()->back()->withInput()->with('error', 'Image Upload Problem, Please Try Again');
         }
 
     }
@@ -180,10 +180,10 @@ class NoticeController extends Controller
                 }
             }
             else{
-                return redirect()->back()->with('error',"Please select files First");
+                return redirect()->back()->withInput()->with('error',"Please select files First");
             }
         }catch(\Exception $ex){
-            return redirect()->back()->with('error',"Something went wrong");
+            return redirect()->back()->withInput()->with('error',"Something went wrong");
         }
     }
 
@@ -216,10 +216,10 @@ class NoticeController extends Controller
                 }
             }
             else{
-                return redirect()->back()->with('error',"Please select files First");
+                return redirect()->back()->withInput()->with('error',"Please select files First");
             }
         }catch(\Exception $ex){
-            return redirect()->back()->with('error',"Something went wrong");
+            return redirect()->back()->withInput()->with('error',"Something went wrong");
         }
     }
 

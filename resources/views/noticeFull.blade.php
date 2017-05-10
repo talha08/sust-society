@@ -13,7 +13,7 @@
                             <div class="breadcrumbs pull-right">
                                 <ul>
                                     <li>You are Now on:</li>
-                                    <li><a href="{!! route('welcome') !!}">Home</a></li>
+                                    <li><a href="{!! URL::to('/') !!}">Home</a></li>
                                     <li><a href="#">Notice</a></li>
                                     <li>{!! str_limit($notice->headline, 20) !!}..</li>
                                 </ul>
@@ -38,7 +38,7 @@
                         <a href="{!! asset($notice->banner) !!}" data-rel="prettyPhoto">
                             <span class="img-hover"></span>
                             <span class="fullscreen"><i class="fa fa-plus"></i></span>
-                            <img src="{!! asset($notice->banner) !!}" alt="" class="img-responsive">
+                            <img src="{!! asset($notice->banner) !!}" alt="" class="img-responsive" width="800px">
                         </a>
                     </div>
                     <header class="post-header">

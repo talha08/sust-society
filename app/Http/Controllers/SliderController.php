@@ -67,11 +67,11 @@ class SliderController extends Controller
             if($slider->save()){
                 return redirect()->back()->with('success', "Slider Successfully Added");
             }else{
-                return redirect()->back()->with('error', 'Something went wrong, Please try again');
+                return redirect()->back()->withInput()->with('error', 'Something went wrong, Please try again');
             }
 
         }else{
-            return redirect()->back()->with('error', 'Image Upload Problem, Please Try Again');
+            return redirect()->back()->withInput()->with('error', 'Image Upload Problem, Please Try Again');
         }
 
     }

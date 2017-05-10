@@ -14,10 +14,10 @@
                         {!! Form::open(array('route' => 'login', 'method' => 'post', 'class' => '', 'id'=>'login')) !!}
 
                             <div class="form-group">
-                                {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'type'=>'text','autofocus', 'required')) !!}
+                                {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus', 'required')) !!}
                             </div>
                             <div class="form-group">
-                                {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password','type'=>'text', 'required')) !!}
+                                {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password', 'required')) !!}
                             </div>
                             <div class="form-group text-center">
                                 <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
@@ -118,7 +118,9 @@
                             <div class="form-group">
                                 <div class="col-md-6">
                                     {!!Form::select('dept_id', $dept_id, '',array('class' => 'select2 form-control', 'autofocus','placeholder' => 'Select Society',))!!}
+                                    <br>
                                 </div>
+
                                 <div class="col-md-6">
                                     {!!Form::select('user_type', $user_type, '',array('class' => 'select2 form-control', 'autofocus','placeholder' => 'Select Designation',))!!}
                                 </div>

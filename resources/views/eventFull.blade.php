@@ -12,7 +12,7 @@
                         <div class="breadcrumbs pull-right">
                             <ul>
                                 <li>You are Now on:</li>
-                                <li><a href="{!! route('welcome') !!}">Home</a></li>
+                                <li><a href="{!! URL::to('/') !!}">Home</a></li>
                                 <li><a href="#">Events</a></li>
                                 <li>{!! str_limit($event->headline, 20) !!}..</li>
 
@@ -39,10 +39,10 @@
                             <!-- Blog Post 1 -->
                     <article class="post hentry">
                         <div class="post-image">
-                            <a href="{!! asset($event->banner) !!}" data-rel="prettyPhoto">
+                            <a href="{!! asset($event->banner) !!}" data-rel="prettyPhoto" >
                                 <span class="img-hover"></span>
                                 <span class="fullscreen"><i class="fa fa-plus"></i></span>
-                                <img src="{!! asset($event->banner) !!}" alt="" class="img-responsive">
+                                <img src="{!! asset($event->banner) !!}" alt="" class="img-responsive" width="800px">
                             </a>
                         </div>
                         <header class="post-header">

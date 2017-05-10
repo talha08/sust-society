@@ -49,7 +49,7 @@
 
                                     <div class="form-group">
                                         <div class="col-lg-offset-2 col-lg-10">
-                                            {!! Form::submit('Reset Password', array('class' => 'btn btn-primary')) !!}
+                                            {!! Form::submit('Change Password', array('class' => 'btn btn-primary')) !!}
                                         </div>
                                     </div>
                                     {!! Form::close() !!}

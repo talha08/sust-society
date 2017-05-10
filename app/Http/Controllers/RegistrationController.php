@@ -19,7 +19,7 @@ class RegistrationController extends Controller
     public function index()
     {
 
-        $regis = Event::where('open_registration', true)->where('dept_id', \Auth::user()->dept->id)->get();
+        $regis = Event::where('open_registration', true)->where('dept_id', \Auth::user()->dept->id)->paginate(4);
         return  view('registration.index',compact('regis'))->with('title', 'All Open Registration');
     }
 

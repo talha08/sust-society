@@ -1844,10 +1844,10 @@ footer .contact-us a { color: #fff !important }
 textarea { height: 133px !important }
 
 .form-control {
-    margin-bottom: 25px;
-    height: 62px;
+    /*margin-bottom: 25px;*/
+    /*height: 62px;*/
     border-color: #dddddd;
-    box-shadow: none;
+    /*box-shadow: none;*/
 }
 
 #contactform span.required {
@@ -1860,7 +1860,7 @@ textarea { height: 133px !important }
     overflow: hidden;
 }
 
-select.form-control { padding: 18px 12px }
+/*select.form-control { padding: 18px 12px }*/
 
 .subscribe-btn {
     height: 62px;
@@ -2099,7 +2099,7 @@ textarea:focus {
 
 .contact-box:hover { border: none }
 
-.contact-box i { font-size: 48px }
+.contact-box i { font-size: 17px }
 
 /* ===[ Home page posts section ]===
    ==================================================

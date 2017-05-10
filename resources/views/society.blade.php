@@ -1,13 +1,34 @@
 @extends('frontend.layouts.default')
 @section('content')
 
+    <div class="breadcrumb-wrapper">
+        <div class="pattern-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                        <h2 class="title">Society List</h2>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                        <div class="breadcrumbs pull-right">
+                            <ul>
+                                <li>You are Now on:</li>
+                                <li><a href="{!! URL::to('/') !!}">Home</a></li>
+                                <li><a href="#">Society</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Main Content -->
     <div class="main-content">
         <div class="container">
             <div class="row">
-                @foreach($department as $dept)
+                @foreach($society as $dept)
                 <div class="col-lg-4 col-md-4 col-sm-4 wow fadeIn">
                     <div class="content-box big ch-item bottom-pad-small">
                         <div class="content-box-info">

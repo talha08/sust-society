@@ -12,7 +12,13 @@
 */
 
 Route::get('/', function () {
-	return Redirect::route('welcome');
+
+    if(Auth::user())
+        return redirect()->route('societyAuth');
+    else
+        return redirect()->route('welcome');
+
+
 });
 
 
@@ -48,9 +54,24 @@ Route::get('department/{id}',['as' => 'department', 'uses' => 'FrontendControlle
 
 
 
-Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
+
+
+Route::group(array('prefix' => '/auth/home','middleware' => 'auth'), function()
 {
-	#User Section
+
+
+
+
+    #if auth then home view
+    #album
+    Route::get('society-album', ['as' => 'albumFront', 'uses' => 'FrontendController@album']);
+    Route::get('society-album/search/{id}', array('as' => 'albumFront.search', 'uses' => 'FrontendController@search'));
+    Route::get('society-home',['as' => 'societyAuth', 'uses' => 'FrontendController@societyAuth']);
+    Route::get('running-committee',['as' => 'currentCommittee', 'uses' => 'FrontendController@currentCommittee']);
+
+
+
+    #User Section
 	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
 	Route::get('profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
 	Route::put('profile/{id}', ['as' => 'profile.update', 'uses' => 'UsersController@profileUpdate']);
@@ -60,6 +81,8 @@ Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
 	Route::get('user/students', array('as' => 'user.student', 'uses' => 'UsersController@students'));
 	Route::get('user/teachers', array('as' => 'user.teacher', 'uses' => 'UsersController@teachers'));
+  //user admin
+	Route::get('user/adminUserStore', array('as' => 'user.adminUserStore', 'uses' => 'UsersController@adminUserStore'));
 
 
 
@@ -158,9 +181,9 @@ Route::group(array('prefix' => '/auth','middleware' => 'auth'), function()
 
 
 
-#	Route::get('event',function(){
-#		return View::make('event')->with('title','Profile');
-#	});
+//	Route::get('test',function(){
+//		return Auth::user();
+//	});
 
 
 

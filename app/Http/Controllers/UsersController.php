@@ -42,7 +42,7 @@ class UsersController extends Controller
             '2' => 'Faculty Member',
             '3' => 'Student',
         ];
-        $dept_id = Department::lists('name','id');
+        $dept_id = Department::where('status', true)->lists('name','id');
             //auth.register
         return view('auth.login',compact('dept_id','user_type'))
                     ->with('title', 'Register');
@@ -121,8 +121,14 @@ class UsersController extends Controller
      */
     public function profile()
     {
-         return view('auth.profile')
-                    ->with('title', 'Profile')->with('user', Auth::user());
+        if(\Auth::user()->hasRole('student') or \Auth::user()->hasRole('teacher')){
+            return view('frontend.onlyStudent.profile')
+                ->with('title', 'Profile')->with('user', Auth::user());
+        }else{
+            return view('auth.profile')
+                ->with('title', 'Profile')->with('user', Auth::user());
+        }
+
     }
 
 
@@ -138,9 +144,24 @@ class UsersController extends Controller
      */
     public function userProfile($id)
     {
-        $user = User::where('id', $id)->first();
-        return view('auth.profile', compact('user'))
-            ->with('title','Profile- '.$user->name);
+        if(\Auth::user()->hasRole('student') or \Auth::user()->hasRole('teacher')){
+
+            $dept_id = User::where('id', $id)->pluck('dept_id');
+            if($dept_id == Auth::user()->dept->id){
+                $user = User::where('id', $id)->first();
+                return view('frontend.onlyStudent.profile', compact('user'))
+                    ->with('title','Profile- '.$user->name);
+            }else{
+                return view('errors.503');
+            }
+
+
+        }else{
+            $user = User::where('id', $id)->first();
+            return view('auth.profile', compact('user'))
+                ->with('title','Profile- '.$user->name);
+        }
+
     }
 
 
@@ -194,7 +215,7 @@ class UsersController extends Controller
         if($profile->save()){
             return redirect()->back()->with('success', 'Profile Successfully Updated');
         }else{
-            return redirect()->back()->with('error', 'Something went wrong, Please try again.');
+            return redirect()->back()->withInput()->with('error', 'Something went wrong, Please try again.');
         }
 
 
@@ -239,11 +260,65 @@ class UsersController extends Controller
             ->where('users.dept_id', Auth::user()->dept_id)
             ->get();
 
-
-
         return view('user.teacher')
             ->with('title', 'Faculty member List')->with('users', $users);
     }
+
+
+
+
+    public function adminUserStore(Request $request)
+    {
+        $rules =[
+            'name'                  => 'required',
+            'email'                 => 'required|unique:users,email',
+            'password'              => 'required|confirmed',
+            'password_confirmation' => 'required',
+            'dept_id'               => 'required'
+        ];
+        $data = $request->all();
+
+        $validation = Validator::make($data,$rules);
+
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation)->withInput();
+        }else{
+            $user = new User;
+            $user->name = $data['name'];
+            $user->email = $data['email'];
+            $user->dept_id = $data['dept_id'];
+            $user->password = Hash::make($data['password']);
+
+            if($user->save()){
+
+                    $role = Role::find(4);  //role attach 4 that means dept_admin
+                    $user->attachRole($role);
+
+
+                $profile = new Profile();
+                $profile->user_id = $user->id;
+                if($data['user_type']== 2){
+                    $profile->designation = 'Faculty';
+                }else if($data['user_type']==3){
+                    $profile->designation = 'Student';
+                }
+                if($profile->save()){
+                    $dept = Department::findOrFail($data['dept_id']);
+                    $dept->status = true;
+                    $dept->save();
+                }
+
+               // Auth::logout();
+                return redirect()->back()
+                    ->with('success','Society Admin Account successfully.');
+            }else{
+                return redirect()->back()
+                    ->with('error',"Something went wrong.Please Try again.");
+            }
+        }
+    }
+
+
 
 
 

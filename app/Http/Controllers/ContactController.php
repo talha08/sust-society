@@ -52,7 +52,7 @@ class ContactController extends Controller
             return redirect()->back()->with('success','Your message has been sent');
         }else{
             //return contact form with errors
-            return \Redirect::route('contact')->withErrors($validator)->with('title','Contact | SUST Society');
+            return \Redirect::route('contact')->withInput()->withErrors($validator)->with('title','Contact | SUST Society');
         }
     }
 

@@ -13,9 +13,11 @@
 
 						<div class="panel-heading">
 							<h3 class="panel-title">{!!$title!!}</h3>
+							@if(Auth::user()->hasRole('teacher'))
 							<span class="pull-right">
 								   <a href="{!! route('committee.create')!!}"><button class="btn btn-success">Create New Committee</button></a>
 							</span>
+							@endif
 						</div><br>
 
 

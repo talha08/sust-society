@@ -93,7 +93,7 @@
 
                                         {!!Form::model($user->profile,['route' => ['profile.update',$user->id], 'method' => 'put' , 'files'=>true])!!}
 
-                                        @if(Auth::user()->role == 3)
+                                        @if(Auth::user()->hasRole('student'))
                                         <div class="form-group">
                                             {!! Form::label('father_name', 'Father Name :', array('class' => 'control-label')) !!}<br/>
                                             {!!Form::text('father_name', null ,array('class' => 'form-control','placeholder' =>  'Father Name....'))!!}
@@ -153,41 +153,41 @@
 
                             @else
 
-                                @if($user->role == 3)
+                                @if($user->hasRole('student'))
                                         <div class="feed-element">
                                             <div class="media-body ">
-                                                Father name: {!! $user->profile->father_name !!}
+                                                Father name: {!! $user->profile->father_name or 'Not Updated Yet' !!}
                                             </div>
                                         </div>
                                         <div class="feed-element">
                                             <div class="media-body ">
-                                                Mother Name: {!! $user->profile->mother_name !!}
+                                                Mother Name: {!! $user->profile->mother_name or 'Not Updated Yet' !!}
                                             </div>
                                         </div>
                                         <div class="feed-element">
                                             <div class="media-body ">
-                                                District: {!! $user->profile->district !!}
+                                                District: {!! $user->profile->district or 'Not Updated Yet' !!}
                                             </div>
                                         </div>
                                         <div class="feed-element">
                                             <div class="media-body ">
-                                                High School: {!! $user->profile->high_school !!}
+                                                High School: {!! $user->profile->high_school  or 'Not Updated Yet'!!}
                                             </div>
                                         </div>
                                         <div class="feed-element">
                                             <div class="media-body ">
-                                                College: {!! $user->profile->college !!}
+                                                College: {!! $user->profile->college or 'Not Updated Yet' !!}
                                             </div>
                                         </div>
                                         <div class="feed-element">
                                             <div class="media-body ">
-                                                Registration: {!! $user->profile->reg !!}
+                                                Registration: {!! $user->profile->reg or 'Not Updated Yet' !!}
                                             </div>
                                         </div>
 
                                         <div class="feed-element">
                                             <div class="media-body ">
-                                                Batch: {!! $user->profile->batch !!}
+                                                Batch: {!! $user->profile->batch or 'Not Updated Yet' !!}
                                             </div>
                                         </div>
                                 @endif
@@ -195,13 +195,13 @@
 
                                    <div class="feed-element">
                                      <div class="media-body ">
-                                         Designation: {!! $user->profile->designation !!}
+                                         Designation: {!! $user->profile->designation  or 'Not Updated Yet'!!}
                                      </div>
                                    </div>
 
                                     <div class="feed-element">
                                         <div class="media-body ">
-                                            About User: {!! $user->profile->about_me !!}
+                                            About User: {!! $user->profile->about_me  or 'Not Updated Yet' !!}
                                         </div>
                                     </div>
 

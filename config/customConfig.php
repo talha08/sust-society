@@ -7,7 +7,8 @@ return [
     'roles' =>[
         'admin' => 'Admin',
         'teacher' => 'Teacher',
-        'student' => 'Student'
+        'student' => 'Student',
+        'dept_admin' => 'Society Admin'
     ]
 ];
 
