@@ -181,6 +181,15 @@ Route::group(array('prefix' => '/auth/home','middleware' => 'auth'), function()
 
 
 
+//Api route
+Route::get('api/section-dropdown', array('as' => 'apiroute', 'uses' => 'ApiController@sectionDropDownData'));
+
+
+
+
+
+
+
 //	Route::get('test',function(){
 //		return Auth::user();
 //	});

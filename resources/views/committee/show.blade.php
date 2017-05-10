@@ -59,12 +59,12 @@
 
                     <div class="form-group">
                         {!! Form::label('member_type_id', 'Member Type :', array('class' => 'control-label')) !!}<br/>
-                        {!!Form::select('member_type_id', $type, '',array('class' => 'select2 form-control placeholder-no-fix', 'autofocus'))!!}
+                        {!!Form::select('member_type_id', $type, '',array('id'=>'type','class' => 'select2 form-control placeholder-no-fix', 'autofocus'))!!}
                     </div><br/>
 
                     <div class="form-group">
                         {!! Form::label('user_id', 'Member Name :', array('class' => 'control-label')) !!}<br/>
-                        {!!Form::select('user_id', $user, '',array('class' => 'select2 form-control placeholder-no-fix', 'autofocus'))!!}
+                        {!!Form::select('user_id', $user, '',array('id'=>'user','class' => 'select2 form-control placeholder-no-fix', 'autofocus'))!!}
                     </div><br/>
 
                      {!!  Form::hidden('committee_id', $curr->id) !!}
@@ -91,5 +91,41 @@
 @stop
 
 @section('script')
+    <script type="text/javascript" charset="utf-8">
+        //depandable dropdown start
+        $('#type').on('change', function(e){
+
+            var member_type_id = e.target.value;
+
+
+            //ajax
+            var path =  "<?php echo URL::route('apiroute'); ?>";
+            $.get(path+'?member_type_id='+member_type_id, function(data){
+
+                //success data
+                $('#user').empty();
+                $('#user').append('<option value=""> Please choose one</option>');
+
+
+                $.each(data, function(key, value) {
+                    var option = $("<option></option>")
+                        .attr("value", key)
+                        .text(value);
+
+                    $('#user').append(option);
+                });
+
+
+//                $.each(data, function(index, subcatObj){
+//                   // console.log();
+//                    $('#user').append('<option value="' + subcatObj.id+'">'// this returns the value
+//                        + subcatObj.name + '</option>'); //this returns the key
+//                });
+
+            });
+        });
+        //depandable dropdown end
+
+    </script>
 @stop
 

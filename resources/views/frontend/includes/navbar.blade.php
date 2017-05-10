@@ -135,7 +135,7 @@
 
 
                     @if(Auth::user())
-                        @if(!Auth::user()->hasRole('admin') )
+                        @if(!Auth::user()->hasRole('admin') || !Auth::user()->hasRole('dept_admin') )
                           @if(\Auth::user()->hasRole('student') or \Auth::user()->hasRole('teacher'))
 
                             <li>
