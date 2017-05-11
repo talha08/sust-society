@@ -89,13 +89,13 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12 col-xs-12 text-center wow fadeInLeft">
                     <br><br><br><br><br>
-                    <img class="app-img" src="{!! asset('http://www.grandtech.com.tw/subsite/ss/images/about.png') !!}" alt="iPhone5c">
+                    <img class="app-img" src="{!! asset('frontend/img/about.png') !!}" alt="iPhone5c">
                 </div>
 
                 <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInRight">
                     <div class="app-service padding-bottom50">
                         <h2 class="light">SUST Society</h2>
-                        <h4>We provide all kinds of iPhone application design and development services.</h4>
+                        <h4>System for all departmental society at SUST</h4>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet.Lorem fermentum diam diam.
                         </p>
                         <div class="divider"></div>

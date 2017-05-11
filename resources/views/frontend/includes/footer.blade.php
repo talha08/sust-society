@@ -36,7 +36,7 @@
                             </li>
                             <li>
                                 <i class="fa fa-envelope"></i>
-                                <p><strong>Email:</strong><a href="mailto:support@fifothemes.com">support@fifothemes.com</a></p>
+                                <p><strong>Email:</strong><a href="mailto:support@fifothemes.com">support@sustsociety.com</a></p>
                             </li>
                         </ul>
                     </section>
@@ -76,9 +76,7 @@
                         <ul class="social social-icons-footer-bottom">
                             <li class="facebook"><a href="#" data-toggle="tooltip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
                             <li class="twitter"><a href="#" data-toggle="tooltip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                            <li class="dribbble"><a href="#" data-toggle="tooltip" title="Dribble"><i class="fa fa-dribbble"></i></a></li>
                             <li class="linkedin"><a href="#" data-toggle="tooltip" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-                            <li class="rss"><a href="#" data-toggle="tooltip" title="Rss"><i class="fa fa-rss"></i></a></li>
                         </ul>
                     </div>
                 </div>
