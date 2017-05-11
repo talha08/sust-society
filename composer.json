@@ -15,7 +15,8 @@
         "oriceon/oauth-5-laravel": "dev-master",
         "intervention/image": "^2.3",
         "garygreen/pretty-routes": "^0.0.6",
-        "webup/laravel-sendinblue": "^1.0"
+        "webup/laravel-sendinblue": "^1.0",
+        "sofa/eloquence": "~5.1"
 
     },
     "require-dev": {

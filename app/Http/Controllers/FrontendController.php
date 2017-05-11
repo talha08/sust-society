@@ -46,15 +46,38 @@ class FrontendController extends Controller
      */
     public function notice(){
         if(\Auth::user()){
-            $evenImg = Event::orderBy('id', 'desc')->where('dept_id', \Auth::user()->dept_id)->take(3)->get();
+            $evenImg = Notice::orderBy('id', 'desc')->where('dept_id', \Auth::user()->dept_id)->take(3)->get();
             $notices = Notice::orderBy('id')->where('dept_id', \Auth::user()->dept_id)->paginate(5);
         } else{
-            $evenImg = Event::orderBy('id', 'desc')->take(3)->get();
+            $evenImg = Notice::orderBy('id', 'desc')->take(3)->get();
             $notices = Notice::orderBy('id')->paginate(5);
         }
 
         return view('notice',compact('notices','evenImg'))->with('title',"Departments Notice");
     }
+
+
+
+    /**
+     * Search Notice Table
+     * @param Request $request
+     * @return $this
+     */
+    public function noticeSearch(Request $request){
+        $serachText = '%'.$request->search_value.'%';
+
+        if(\Auth::user()){
+            $evenImg = Notice::orderBy('id', 'desc')->where('dept_id', \Auth::user()->dept_id)->take(3)->get();
+            $notices = Notice::orderBy('id')->where('dept_id', \Auth::user()->dept_id)->search($serachText)->paginate(5);
+        } else{
+            $evenImg = Notice::orderBy('id', 'desc')->take(3)->get();
+            $notices = Notice::orderBy('id')->search($serachText)->paginate(5);
+        }
+
+        return view('notice',compact('notices','evenImg'))->with('title',"Departments Notice");
+
+    }
+
 
 
 
@@ -93,6 +116,27 @@ class FrontendController extends Controller
             $events = Event::orderBy('id')->paginate(5);
         }
 
+        return view('event',compact('events','evenImg'))->with('title',"Departments Events");
+    }
+
+
+
+
+    /**
+     * Search Event Table
+     * @param Request $request
+     * @return $this
+     */
+    public function eventSearch(Request $request){
+        $serachText = '%'.$request->search_value.'%';
+
+        if(\Auth::user()){
+            $evenImg = Event::orderBy('id', 'desc')->where('dept_id', \Auth::user()->dept_id)->take(3)->get();
+            $events = Event::orderBy('id')->where('dept_id', \Auth::user()->dept_id)->search($serachText)->paginate(5);
+        } else{
+            $evenImg = Event::orderBy('id', 'desc')->take(3)->get();
+            $events = Event::orderBy('id')->search($serachText)->paginate(5);
+        }
         return view('event',compact('events','evenImg'))->with('title',"Departments Events");
     }
 
@@ -193,6 +237,11 @@ class FrontendController extends Controller
         return view('currentCommittee', compact('comLists','user','type'))->with('title',"Running Committee - ". $curr->year);
 
     }
+
+
+
+
+
 
 
 

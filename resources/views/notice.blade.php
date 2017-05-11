@@ -90,7 +90,7 @@
 
                 </div>
                 <!-- /Blog Posts -->
-        @include('frontend.includes.rightsidebar')
+        @include('frontend.includes.rightsidebarNotice')
 
             </div>
         </div>

@@ -151,6 +151,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         PrettyRoutes\ServiceProvider::class,
         Webup\LaravelSendinBlue\SendinBlueServiceProvider::class, // sendinblue mail service provider
+        Sofa\Eloquence\ServiceProvider::class,
     ],
 
     /*

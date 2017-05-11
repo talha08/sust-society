@@ -3,14 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Sofa\Eloquence\Eloquence; // base trait
 class Notice extends Model
 {
 
 
     #table initialized
     protected $table = 'notice';
-
+    use Eloquence;
+    protected $searchableColumns = ['headline', 'description'];
 
 
     /**

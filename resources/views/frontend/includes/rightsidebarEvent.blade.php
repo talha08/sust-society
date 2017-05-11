@@ -3,12 +3,15 @@
 <div class="sidebar col-lg-4 col-md-4 col-sm-4 col-xs-12">
     <!-- Search Widget -->
     <div class="widget search-form">
+        {!! Form::open(array('route' => 'event.search','method' =>'GET') ) !!}
         <div class="input-group">
-            <input type="text" value="Search..." onfocus="if(this.value=='Search...')this.value='';" onblur="if(this.value=='')this.value='Search...';" class="search-input form-control">
-                                        <span class="input-group-btn">
-                                        <button type="submit" class="subscribe-btn btn"><i class="fa fa-search"></i></button>
-                                        </span>
+            <input type="text"  name="search_value"  onfocus="if(this.value=='Search Here.....')this.value='';" onblur="if(this.value=='')this.value='Search Here...';" class="subscribe form-control">
+            <span class="input-group-btn">
+                       <button style="height: 34px;" class="btn subscribe-btn" type="submit"><i class="fa fa-search"></i></button>
+                </span>
         </div>
+        <!-- /input-group -->
+    {!! Form::close() !!}
         <!-- /input-group -->
     </div>
     <!-- /Search Widget -->

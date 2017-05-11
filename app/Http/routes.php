@@ -38,10 +38,14 @@ Route::group(['prefix' => '/home'], function () {
 #frontend
 Route::get('welcome', ['as'=>'welcome','uses' => 'FrontendController@index']);
 Route::get('notices', ['as'=>'notice','uses' => 'FrontendController@notice']);
+Route::get('notices/search', ['as'=> 'notice.search','uses'=>'FrontendController@noticeSearch']);
 Route::get('notices/{notice_meta_data}', ['as'=>'notice.details','uses' => 'FrontendController@noticeDetails']);
 Route::get('events', ['as'=>'event','uses' => 'FrontendController@event']);
+Route::get('events/search', ['as'=> 'event.search','uses'=>'FrontendController@eventSearch']);
 Route::get('events/{event_meta_data}', ['as'=>'event.details','uses' => 'FrontendController@eventDetails']);
 Route::get('society', array('as' => 'society', 'uses' => 'DepartmentController@allSociety'));
+
+
 
 #Contact Section
 Route::get('contact', array('as' => 'contact', 'uses' => 'ContactController@contact'));

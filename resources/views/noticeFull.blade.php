@@ -80,7 +80,7 @@
 
 
             <!-- Sidebar -->
-            @include('frontend.includes.rightsidebar')
+            @include('frontend.includes.rightsidebarNotice')
             <!-- /Sidebar -->
 
         </div>

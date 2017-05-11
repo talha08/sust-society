@@ -3,12 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Sofa\Eloquence\Eloquence; // base trait
 class Event extends Model
 {
     #table initialized
     protected $table='events';
-
+    use Eloquence;
+    protected $searchableColumns = ['headline', 'description','venue'];
 
     /**
      * One to many relationship with EventAttachment
