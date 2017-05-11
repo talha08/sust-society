@@ -202,7 +202,7 @@ class UsersController extends Controller
         $profile->designation = $request->designation;
         $profile->about_me = $request->about_me;
 
-        if($profile->user->role ==3){
+        if(!Auth::user()->hasRole('teacher')){
             $profile->father_name = $request->father_name;
             $profile->mother_name = $request->mother_name;
             $profile->district = $request->district;
@@ -220,6 +220,9 @@ class UsersController extends Controller
 
 
         }
+
+
+
 
 
     /**
@@ -241,19 +244,15 @@ class UsersController extends Controller
     }
 
 
+
+
+
     /**
      * Getting ALl Teachers List By Department
      * @return mixed
      */
     public function teachers(){
-
-
-//          $user = User::where('dept_id', Auth::user()->dept_id)->lists('id');
-//
-//         return  $roles = \DB::table('role_user')->where('role_id', 3)->lists('user_id');
-
-
-        $users =\DB::table('role_user')
+     $users =\DB::table('role_user')
             ->join('users', 'role_user.user_id', '=', 'users.id')
             ->join('profile', 'users.id', '=', 'profile.id')
             ->where('role_user.role_id', '=', 2)
@@ -267,6 +266,15 @@ class UsersController extends Controller
 
 
 
+
+
+
+    /**
+     * Dept. Admin Creation by Admin
+     * @param Request $request
+     * @return $this|\Illuminate\Http\RedirectResponse
+     *
+     */
     public function adminUserStore(Request $request)
     {
         $rules =[

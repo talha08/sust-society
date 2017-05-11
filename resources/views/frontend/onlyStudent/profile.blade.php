@@ -148,32 +148,32 @@
                                                 <div class="media-body ">
                                                     <b>Father name:</b> {!! $user->profile->father_name or 'Not Updated Yet' !!}
                                                 </div>
-                                            </div>
+                                            </div><hr>
                                             <div class="feed-element">
                                                 <div class="media-body ">
                                                     <b>Mother Name:</b> {!! $user->profile->mother_name  or 'Not Updated Yet'!!}
                                                 </div>
-                                            </div>
+                                            </div><hr>
                                             <div class="feed-element">
                                                 <div class="media-body ">
                                                     <b>District:</b> {!! $user->profile->district or 'Not Updated Yet'!!}
                                                 </div>
-                                            </div>
+                                            </div><hr>
                                             <div class="feed-element">
                                                 <div class="media-body ">
                                                     <b>High School:</b> {!! $user->profile->high_school or 'Not Updated Yet' !!}
                                                 </div>
-                                            </div>
+                                            </div><hr>
                                             <div class="feed-element">
                                                 <div class="media-body ">
                                                     <b>College:</b> {!! $user->profile->college or 'Not Updated Yet' !!}
                                                 </div>
-                                            </div>
+                                            </div><hr>
                                             <div class="feed-element">
                                                 <div class="media-body ">
                                                     <b>Registration:</b> {!! $user->profile->reg or 'Not Updated Yet' !!}
                                                 </div>
-                                            </div>
+                                            </div><hr>
 
                                             <div class="feed-element">
                                                 <div class="media-body ">
@@ -182,18 +182,18 @@
                                             </div>
                                         @endif
 
-
+                                         <br><hr>
                                         <div class="feed-element">
                                             <div class="media-body ">
                                                 <b>Designation:</b> {!! $user->profile->designation or 'Not Updated Yet' !!}
                                             </div>
-                                        </div>
+                                        </div><hr>
 
                                         <div class="feed-element">
                                             <div class="media-body ">
                                                <B> About User:</B> {!! $user->profile->about_me or 'Not Updated Yet' !!}
                                             </div>
-                                        </div>
+                                        </div><hr>
 
                                     @endif
 

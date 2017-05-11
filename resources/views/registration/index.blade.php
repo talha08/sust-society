@@ -51,7 +51,7 @@
                                    <a class="btn btn-xs btn-white" href="{!! route('event.details',$reg->event_meta_data ) !!}" ><i class="fa fa-envelope"></i> Event Details </a>
                                    <a class="btn btn-xs btn-white" href="{!! route('registration.show',$reg->id ) !!}" ><i class="fa fa-users"></i> Registered Lists </a>
                                    @if(App\Registration::where('event_id' , $reg->id)->pluck('user_id') == Auth::user()->id)
-                                       <a class="btn btn-xs btn-white" data-toggle="modal" href="#myModal21" style="color: #0d5613; background: #cece1d;"><i class="fa fa-check-circle"></i> Registered </a>
+                                       <a class="btn btn-xs btn-white" data-toggle="modal" href="#myModal21" style="color: #35da42; background:greenyellow;"><i class="fa fa-check-circle"></i> Registered </a>
                                    @else
                                        <a class="btn btn-xs btn-white" data-toggle="modal" href="#myModal2"><i class="fa fa-check-circle"></i> Register </a>
                                    @endif
@@ -150,6 +150,7 @@
             margin-top: 5px;
             margin-bottom: 10px;
         }
+
     </style>
 @stop
 

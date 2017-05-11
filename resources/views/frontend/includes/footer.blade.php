@@ -13,8 +13,16 @@
                         </p>
                     </section>
                     <section class="col-lg-3 col-md-3 col-xs-12 col-sm-3 footer-two wow fadeIn">
-                        <h3 class="light">Twitter Stream</h3>
+
+                        <h3 class="light">Moment's Quote</h3>
                         <ul id="tweets">
+                            <p id="qod-quote">
+                                ... loading ...
+                            </p>
+                            {{-- using api for quote--}}
+                            <script src="http://quotesondesign.com/api/3.0/api-3.0.js"
+                                    type="text/javascript" charset="utf-8"></script>
+                            <!-- end of use api -->
                         </ul>
                     </section>
 
