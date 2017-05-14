@@ -2,7 +2,9 @@
  <!-- The Scripts -->
 
 {{--{!! Html::script('frontend/js/jquery.min.js') !!}--}}
- {!! Html::script('js/jquery-2.1.1.js') !!}
+ {{--{!! Html::script('js/jquery-2.1.1.js') !!}--}}
+ {!! Html::script('//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js') !!}
+
 {!! Html::script('frontend/js/jquery-migrate-1.0.0.js') !!}
 {!! Html::script('frontend/js/jquery-ui.js') !!}
 {!! Html::script('frontend/js/bootstrap.js') !!}
