@@ -39,8 +39,8 @@
                      data-elementdelay="0.1"
                      data-endelementdelay="0.1"
                      data-endspeed="300"
-                     style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">
-                    &nbsp; {!! Auth::user()->dept->name !!}
+                     style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">SUST Society
+                    &nbsp;
                 </div>
                 <!-- LAYER NR. 3 -->
                 <div class="tp-caption black_heavy_70 skewfromleftshort fadeout tp-resizeme rs-parallaxlevel-10"
@@ -54,8 +54,8 @@
                      data-elementdelay="0.1"
                      data-endelementdelay="0.1"
                      data-endspeed="300"
-                     style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap; font-size: 450%">SUST
-                    Departmental
+                     style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap; font-size: 450%">
+                    {!! Auth::user()->dept->name !!}
                 </div>
 
                 <!-- LAYER NR. 5 -->
@@ -193,7 +193,6 @@
 
         @if(count($dept->slider) != 0)
             @foreach($dept->slider as $slide)
-
                 <!-- THE RESPONSIVE SLIDE -->
                     <li data-transition="fade" data-slotamount="1" data-masterspeed="300">
                         <img src="{!! asset($slide->img_url) !!}" data-fullwidthcentering="on" alt="">
@@ -224,8 +223,8 @@
                         {{--<img src="{!! asset($slide->dept->logo_path) !!}"  width="250px" height="200px" alt="iMac Responsive">--}}
                         {{--</div>--}}
                     </li>
+                    <!-- THE RESPONSIVE SLIDE -->
                 @endforeach
-
             @endif
 
 

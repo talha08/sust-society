@@ -5,7 +5,8 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 text-center">
                 <h2 class="wow fadeIn">About {!! $dept->name !!}</h2>
-                <h4 class="wow fadeInRight">SUST Society regularly post updates on our notice board. Feel free to join with our Community!</h4>
+                <h4 class="wow fadeInRight">SUST Society regularly post updates on our notice board. Feel free to join
+                    with our Community!</h4>
             </div>
         </div>
 
@@ -21,13 +22,15 @@
 
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                    <img src="{!! asset('frontend/img/blog/02.jpg') !!}"  height="200px" width="600px" alt="" class="img-responsive">
+                                    <img src="{!! asset('frontend/img/blog/02.jpg') !!}" height="200px" width="600px"
+                                         alt="" class="img-responsive">
                                 </div>
 
                                 @if($slider->count() != 0)
                                     @foreach($slider as $slide)
                                         <div class="item">
-                                            <img src="{!!asset($slide->album_photo)!!}" height="200px" width="600px" alt="" class="img-responsive">
+                                            <img src="{!!asset($slide->album_photo)!!}" height="200px" width="600px"
+                                                 alt="" class="img-responsive">
                                         </div>
                                     @endforeach
                                 @endif
