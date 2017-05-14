@@ -9,7 +9,9 @@
                     <section class="col-lg-3 col-md-3 col-xs-12 col-sm-3 footer-one wow fadeIn">
                         <h3 class="light">About</h3>
                         <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                            A system for all organization where organization can update about their upcoming events, recent news.
+                            Also organization can post about their running committee and previous committee.
+                            Their is also a Alubum functionality in SUST Society Application.
                         </p>
                     </section>
                     <section class="col-lg-3 col-md-3 col-xs-12 col-sm-3 footer-two wow fadeIn">

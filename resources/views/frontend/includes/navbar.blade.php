@@ -18,7 +18,8 @@
                     <a><i class="fa fa-phone"></i> Call Us : +880 111-111-111</a>
                     @if(!Auth::user())
                     <a href="#" data-toggle="modal" data-target="#loginModal"><i class="fa fa-sign-in"></i> Login</a>
-                    <a href="#" data-toggle="modal" data-target="#registrationModal"><i class="fa fa-edit"></i> Registration</a>
+                    {{--<a href="#" data-toggle="modal" data-target="#registrationModal"><i class="fa fa-edit"></i> Registration</a>--}}
+                    <a href="{!! route('user.create') !!}"><i style="color: darkred" class="fa fa-edit"></i>Registration</a>
                     @else
                         <a href="{!! route('contact') !!}"><i style="color: darkred" class="fa fa-envelope-o"></i>Message Admin</a>
                     @endif
@@ -81,7 +82,7 @@
                     @if(!Auth::user())
                     <li>
                         <a href="#">
-                            Society
+                            Organization
                                     <span class="sf-sub-indicator">
                                     <i class="fa fa-angle-down"></i>
                                     </span>
@@ -90,7 +91,7 @@
                             @foreach($department as $dept)
                                 <li><a href="{!! route('department', $dept->id) !!}">{!! $dept->name !!}</a></li>
                             @endforeach
-                            <li><a href="{!! route('society') !!}" style="color: darkgreen"> See All Society</a></li>
+                            <li><a href="{!! route('society') !!}" style="color: darkgreen"> See All Organization</a></li>
                         </ul>
                     </li>
                     @endif
@@ -110,7 +111,7 @@
                             <a href="#" class="sf-with-ul">
                                Event
                                 <span class="sf-sub-indicator pull-right">
-                                                <i class="fa fa-angle-right "></i>
+                                    <i style=" color: black;font-size: larger;" class="fa fa-angle-down"></i>
                                                 </span>
                             </a>
                             <ul>
@@ -135,44 +136,31 @@
 
 
                     @if(Auth::user())
-                        @if(!Auth::user()->hasRole('admin'))
                           @if(\Auth::user()->hasRole('student') or \Auth::user()->hasRole('teacher'))
 
-                                @if(!Auth::user()->hasRole('dept_admin'))
                                     <li>
                                         <a href="#" class="sf-with-ul">
                                             <b>{!! Auth::user()->name !!} </b> &nbsp;
                                             <span class="sf-sub-indicator pull-right">
-                                                    <i class="fa fa-angle-right "></i>
+                                                     <i style=" color: black;font-size: larger;" class="fa fa-angle-down"></i>
                                                     </span>
                                         </a>
                                         <ul>
-                                            <li><a href="{!! route('profile') !!}" class="sf-with-ul">Profile</a></li>
-                                            <li><a href="{!! route('password.change') !!}" class="sf-with-ul">Change Password</a></li>
-                                            <li><a href="{!! route('logout') !!}" class="sf-with-ul">Logout</a></li>
+                                            <li><a href="{!! route('profile') !!}" class="sf-with-ul"><i class="fa fa-user"></i> Profile</a></li>
+                                            @if(Auth::user()->hasRole('dept_admin') or Auth::user()->hasRole('admin'))
+                                                <li><a href="{!! route('dashboard') !!}"><i class="fa fa-sign-in"></i> Dashboard</a></li>
+                                            @endif
+                                            <li><a href="{!! route('password.change') !!}" class="sf-with-ul"><i class="fa fa-key"></i>  Change Password</a></li>
+                                            <li><a href="{!! route('logout') !!}" class="sf-with-ul"><i class="fa fa-lock"></i> Logout</a></li>
                                         </ul>
                                     </li>
                                     <li style="top: 23px"> <img  alt="" src="{!! asset( Auth::user()->profile->photo) !!}" height="40px" width="40px" class="img-circle"></li>
-                                @endif
 
-                             @endif
-
-                        @else
-                            <li><a href="{!! route('dashboard') !!}"><i class="fa fa-sign-in"></i> Dashboard</a></li>
-                        @endif
-                    @endif
+                           @endif
+                     @endif
 
 
 
-
-
-
-
-                    @if(Auth::user())
-                    @if(Auth::user()->hasRole('dept_admin') )
-                            <li><a href="{!! route('dashboard') !!}"><i class="fa fa-sign-in"></i> Dashboard</a></li>
-                    @endif
-                    @endif
 
                     @if(!Auth::user())
                         <li><a href="{!! route('contact') !!}">Contact</a></li>

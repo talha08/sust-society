@@ -8,8 +8,8 @@
 
     <meta charset="utf-8">
     <title>{!! $title or  "SUST Society" !!}</title>
-    <meta name="description" content="Gallaxy Responsive HTML5/CSS3 Template from FIFOTHEMES.COM">
-    <meta name="author" content="FIFOTHEMES.COM">
+    <meta name="description" content="SUST Society">
+    <meta name="author" content="Talha">
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Google Fonts -->
@@ -42,7 +42,7 @@
     {!! Html::style('frontend/css/switcher.css') !!}
     {!! Html::style('frontend/css/spectrum.css') !!}
 
-
+    {{--{!! Html::favicon() !!}--}}
 
 
     <!-- Favicons -->

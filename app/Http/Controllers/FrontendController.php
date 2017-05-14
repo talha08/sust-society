@@ -27,6 +27,7 @@ class FrontendController extends Controller
      * @return $this
      */
     public function index(){
+         $slider = DeptSlider::take(5)->get();
          $depts = Department::all();
          $events = Event::orderBy('id', 'desc')
                  ->take(4)
@@ -34,7 +35,7 @@ class FrontendController extends Controller
         $notices = Notice::orderBy('id', 'desc')
                     ->take(4)
                     ->get();
-        return view('welcome', compact('events','depts','notices'))->with('title',"Home | SUST Society");
+        return view('welcome', compact('events','depts','notices','slider'))->with('title',"Home | SUST Society");
     }
 
 

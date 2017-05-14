@@ -792,9 +792,9 @@ border-style:none;
 }
 
 .tp-caption.light_heavy_50 {
-font-size:43px;
+font-size:34px;
 line-height:63px;
-font-weight:900;
+font-weight:600;
 font-family:Raleway;
 color:rgb(255, 255, 255);
 text-decoration:none;
@@ -822,7 +822,7 @@ border-style:none;
 .tp-caption.black_heavy_70 {
 font-size:70px;
 line-height:70px;
-font-weight:900;
+font-weight:600;
 font-family:Raleway;
 color:rgb(0, 0, 0);
 text-decoration:none;

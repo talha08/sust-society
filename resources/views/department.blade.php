@@ -45,8 +45,9 @@
 
 
     @include('frontend.department.event')
+    <br><br>
 
-    @include('frontend.department.notice')
+    {{--@include('frontend.department.notice')--}}
 
 
 
