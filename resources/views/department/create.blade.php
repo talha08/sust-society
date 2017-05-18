@@ -40,13 +40,8 @@
 										{!!Form::textarea('description', '',array('class' => ' form-control','placeholder' =>  '...................'))!!}
 									</div><br/>
 
-									<div class="form-group">
-										{!! Form::label('contact', 'Contact Information :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::textarea('contact', null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
-									</div><br/>
-
 									<fieldset>
-										<label>Upload Society Logo:</label>
+										<label>Upload Organization Logo:</label>
 										<br/>
 										<img class="preview frame" id="preview" alt=" " src="{!!asset('/upload/logo.png')!!}">
 										<br/>

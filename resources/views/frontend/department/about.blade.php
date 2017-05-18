@@ -97,9 +97,7 @@
 
         <div class="row">
 
-
                 <div class="tab">
-
                     <div class="tabbed-widget">
                         <ul class="nav nav-tabs">
                             <li class="active"><a data-toggle="tab" href="#home"><i class="fa fa-newspaper-o" aria-hidden="true"></i> About us</a></li>
@@ -115,6 +113,7 @@
                             </div>
                             <div id="menu1" class="tabs_item tab-pane fade">
                                 <br>
+                                <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=SUST%2C%20University%20Avenue%2C%20Sylhet%2C%20Bangladesh&key=AIzaSyA8GcRMANrzrCfoXsQICNsXvRTyWu5k9l0" allowfullscreen></iframe>
                                 <h4>{!! $dept->name !!} Contact Information</h4>
                                 <p>{!! $dept->contact or "Not Update Yet" !!}</p>
                             </div>
@@ -122,7 +121,7 @@
                     </div><!-- end tabbed-widget -->
                 </div> <!-- / tab -->
 
-         
+
         </div>
     </div>
 </div>
@@ -157,6 +156,14 @@
         float: left;
         margin-right: 30px;
     }
+
+    iframe{
+        width: 400px;
+        height: 300px;
+        float: left;
+        margin-right: 30px;
+    }
+
 
 </style>
 

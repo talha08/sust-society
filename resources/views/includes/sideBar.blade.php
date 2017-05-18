@@ -59,15 +59,18 @@
 
 
             @if( Auth::user()->hasRole('admin'))
-                <li class="{!! Menu::areActiveRoutes(['department.index', 'department.create']) !!}">
-                    <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Society</span> <span class="fa arrow"></span></a>
+                <li class="{!! Menu::areActiveRoutes(['department.index', 'department.create','department.inactive']) !!}">
+                    <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Organization</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
                         <li class="{!! Menu::isActiveRoute('department.index') !!}">
-                            <a href="{!!  URL::route( 'department.index') !!}">Society List</a>
+                            <a href="{!!  URL::route( 'department.index') !!}">Active Org. List</a>
+                        </li>
+                        <li class="{!! Menu::isActiveRoute('department.inactive') !!}">
+                            <a href="{!!  URL::route( 'department.inactive') !!}">Inactive Org. Listt</a>
                         </li>
 
                         <li class="{!! Menu::isActiveRoute('department.create') !!}">
-                            <a href="{!!  URL::route('department.create') !!}">Create New Society</a>
+                            <a href="{!!  URL::route('department.create') !!}">Create New Org.</a>
                         </li>
                     </ul>
                 </li>

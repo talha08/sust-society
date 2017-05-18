@@ -19,18 +19,31 @@
                             <div class="form-group">
                                 {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password', 'required')) !!}
                             </div>
-                            <div class="form-group text-center">
-                                <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                                <label for="remember">  &nbsp; Remember Me</label>
-                            </div>
+
+
+
+                        {{--<div class="form-group">--}}
+                            {{--<div class="row">--}}
+                                {{--<div class="col-lg-12">--}}
+                                    {{--<div class="text-center">--}}
+                                        {{--<input type="checkbox" tabindex="3" class="" name="remember" id="remember">--}}
+                                        {{--<label for="remember">  &nbsp; Remember Me</label>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+
+
+
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <button type="submit" class="form-control btn btn-success">Login Account</button>
-
                                     </div>
                                 </div>
                             </div>
+
+
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-12">

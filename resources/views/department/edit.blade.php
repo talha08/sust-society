@@ -31,7 +31,7 @@
 									{!!Form::model($department,['route' => ['department.update',$department->id], 'method' => 'put' ])!!}
 
 									<div class="form-group">
-										{!! Form::label('name', 'Society Name :', array('class' => 'control-label')) !!}<br/>
+										{!! Form::label('name', 'Organization Name :', array('class' => 'control-label')) !!}<br/>
 										{!!Form::text('name', null,array('class' => 'form-control','placeholder' =>  'Event title here'))!!}
 									</div><br/>
 
@@ -41,9 +41,25 @@
 									</div><br/>
 
 									<div class="form-group">
-										{!! Form::label('contact', 'Contact Information :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::textarea('contact', null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
+										{!! Form::label('email', 'Email :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::textarea('email', null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
 									</div><br/>
+
+									<div class="form-group">
+										{!! Form::label('fax', 'Fax Number :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::textarea('fax', null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
+									</div><br/>
+
+									<div class="form-group">
+										{!! Form::label('phone', 'Phone/Mobile :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::textarea('phone', null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
+									</div><br/>
+
+									<div class="form-group">
+										{!! Form::label('location', 'Location :', array('class' => 'control-label')) !!}<br/>
+										{!!Form::textarea('location', null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
+									</div><br/>
+
 
 									<div class="form-group">
 										{!! Form::submit('Submit', array('class' => 'btn btn-primary')) !!}

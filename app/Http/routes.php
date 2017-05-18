@@ -18,7 +18,6 @@ Route::get('/', function () {
     else
         return redirect()->route('welcome');
 
-
 });
 
 
@@ -28,6 +27,7 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('user/createOrLogin', ['as'=>'user.create','uses' => 'UsersController@create']);
 	Route::post('user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
 	Route::post('login', ['as'=>'login','uses' => 'Auth\AuthController@doLogin']);
+    Route::post('society/applly', array('as' => 'department.request', 'uses' => 'Auth\SignupController@deptRequest'));
 
 });
 
@@ -117,7 +117,8 @@ Route::group(array('prefix' => '/auth/home','middleware' => 'auth'), function()
 
 
 	#Society Section  Complete
-	Route::get('society', array('as' => 'department.index', 'uses' => 'DepartmentController@index'));
+	Route::get('society', array('as' => 'department.index', 'uses' => 'DepartmentController@activeSociety'));
+	Route::get('society/inactive', array('as' => 'department.inactive', 'uses' => 'DepartmentController@inactiveSociety'));
 	Route::get('society/create', array('as' => 'department.create', 'uses' => 'DepartmentController@create'));
 	Route::post('society', array('as' => 'department.store', 'uses' => 'DepartmentController@store'));
 	Route::get('society/{id}/edit', array('as' => 'department.edit', 'uses' => 'DepartmentController@edit'));

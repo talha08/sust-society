@@ -55,7 +55,7 @@
                      data-endelementdelay="0.1"
                      data-endspeed="300"
                      style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap; font-size: 450%">
-                    {!! Auth::user()->dept->name !!}
+                    {!! $dept->name !!}
                 </div>
 
                 <!-- LAYER NR. 5 -->

@@ -11,7 +11,6 @@
                     <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
                         <div class="breadcrumbs pull-right">
                             <ul>
-                                <li>You are Now on:</li>
                                 <li><a href="{!! URL::to('/') !!}">Home</a></li>
                                 <li><a href="#">Events</a></li>
 

@@ -277,6 +277,8 @@ class UsersController extends Controller
      */
     public function adminUserStore(Request $request)
     {
+
+
         $rules =[
             'name'                  => 'required',
             'email'                 => 'required|unique:users,email',
