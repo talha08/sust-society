@@ -42,22 +42,22 @@
 
 									<div class="form-group">
 										{!! Form::label('email', 'Email :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::textarea('email', null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
+										{!!Form::email('email', null,array('class' => ' form-control','placeholder' =>  '...................'))!!}
 									</div><br/>
 
 									<div class="form-group">
 										{!! Form::label('fax', 'Fax Number :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::textarea('fax', null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
+										{!!Form::text('fax', null,array('class' => ' form-control','placeholder' =>  '...................'))!!}
 									</div><br/>
 
 									<div class="form-group">
 										{!! Form::label('phone', 'Phone/Mobile :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::textarea('phone', null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
+										{!!Form::text('phone', null,array('class' => ' form-control','placeholder' =>  '...................'))!!}
 									</div><br/>
 
 									<div class="form-group">
 										{!! Form::label('location', 'Location :', array('class' => 'control-label')) !!}<br/>
-										{!!Form::textarea('location', null,array('class' => 'summernote form-control','placeholder' =>  '...................'))!!}
+										{!!Form::text('location', null,array('class' => ' form-control','placeholder' =>  '...................'))!!}
 									</div><br/>
 
 

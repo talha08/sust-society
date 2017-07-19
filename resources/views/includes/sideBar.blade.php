@@ -87,6 +87,10 @@
                     <li class="{!! Menu::isActiveRoute('user.teacher') !!}">
                         <a href="{!!  URL::route( 'user.teacher') !!}">Teacher List</a>
                     </li>
+
+                    <li class="{!! Menu::isActiveRoute('user.changeStatus') !!}">
+                        <a href="{!!  URL::route( 'user.changeStatus') !!}">Waiting Users</a>
+                    </li>
                 </ul>
             </li>
 

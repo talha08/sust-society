@@ -35,14 +35,19 @@
 											<tr>
 												<td>{!! $department->id !!}</td>
 												<td> <a data-toggle="modal" style="color: teal;" data-target="#myModal_{{$department->id}}" >{!! str_limit($department->name,30) !!}</a></td>
-												@if($department->status)
+												@if($department->status == true)
 													<td>{!! 'Running' !!}</td>
 												@else
-													<td>{!! 'Close' !!}</td>
+													<td>{!! 'Inactive' !!}</td>
 												@endif
 
 
 												<td>
+													@if($department->status == true)
+														<a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('department.statusChange',$department->id)!!}"  style="margin-right: 3px;">Deactive</a>
+													@else
+														<a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('department.statusChange',$department->id)!!}"  style="margin-right: 3px;">Activate</a>
+													@endif
 													<a class="btn btn-info btn-xs btn-archive Editbtn" data-toggle="modal" style="color: teal;" data-target="#myModalAddUser_{{$department->id}}" ><i class="fa fa-user" aria-hidden="true"></i></a>
 													<a class="btn btn-warning btn-xs btn-archive Editbtn" href="{!!route('department.edit',$department->id)!!}"  style="margin-right: 3px;"><i class="fa fa-edit" aria-hidden="true"></i></a>
 													<a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn"  data-toggle="modal" data-target="#deleteConfirm" deleteId="{!! $department->id!!}"><i class="fa fa-trash" aria-hidden="true"></i></a>

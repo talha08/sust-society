@@ -264,7 +264,37 @@ class UsersController extends Controller
     }
 
 
+    /**
+     * Waiting List
+     * @return $this
+     */
+    public function deptWaitingUser(){
+        $users = User::where('dept_id', Auth::user()->id)->where('status', 0)->get();
+        return view('user.waiting')
+            ->with('title', 'Waiting member List')->with('users', $users);
+    }
 
+
+
+    /**
+     * Change Current Status
+     * @param $id
+     */
+    public  function userChangeStatus($id){
+        $user = User::where('id', $id)->first();
+        if($user->status == 1){
+            $user1 = User::where('id', $id)->first();
+            $user1->status = 0;
+            $user1->save();
+            return redirect()->back()->with('success', "Status Successfully Changed");
+
+        }else{
+            $user1 = User::where('id', $id)->first();
+            $user1->status = 1;
+            $user1->save();
+            return redirect()->back()->with('success', "Status Successfully Changed");
+        }
+    }
 
 
 

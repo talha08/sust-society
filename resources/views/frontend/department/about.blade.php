@@ -115,7 +115,10 @@
                                 <br>
                                 <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=SUST%2C%20University%20Avenue%2C%20Sylhet%2C%20Bangladesh&key=AIzaSyA8GcRMANrzrCfoXsQICNsXvRTyWu5k9l0" allowfullscreen></iframe>
                                 <h4>{!! $dept->name !!} Contact Information</h4>
-                                <p>{!! $dept->contact or "Not Update Yet" !!}</p>
+                                <p><i  style="color: slateblue" class="fa fa-phone-square fa-2x" aria-hidden="true"></i> {!! $dept->phone or "Not Update Yet" !!}</p>
+                                <p><i style="color: yellowgreen" class="fa fa-envelope fa-2x" aria-hidden="true"></i>  {!! $dept->email or "Not Update Yet" !!}</p>
+                                <p><i style="color: tomato" class="fa fa-fax fa-2x" aria-hidden="true"></i>  {!! $dept->fax or "Not Update Yet" !!}</p>
+                                <p><i style="color: red" class="fa fa-map-marker fa-2x" aria-hidden="true"></i>  {!! $dept->location or "Not Update Yet" !!}</p>
                             </div>
                         </div>
                     </div><!-- end tabbed-widget -->

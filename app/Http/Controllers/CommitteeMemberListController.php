@@ -52,7 +52,7 @@ class CommitteeMemberListController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        //return $request->all();
 
         $com = new CommitteeMemberList();
         $com->user_id = $request->user_id;

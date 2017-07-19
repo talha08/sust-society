@@ -42,18 +42,15 @@ class AuthController extends Controller
 
 
 //    public function login(){
-//
-//        $user_type= [
-//            '2' => 'Faculty Member',
-//            '3' => 'Student',
-//
-//        ];
-//        $dept_id = Department::lists('name','id');
+//        $department = Department::all();
 //        // return 'Auth Login Panel';
-//        return view('auth.login',compact('dept_id','user_type'))
-//                    ->with('title', 'Login');
+//        return view('auth.userlogin')
+//                    ->with('title', 'Login')
+//                    ->with('department', $department )
+//                    ->with('dept_id ', $department );
 //    }
-
+//
+//
 
 
 

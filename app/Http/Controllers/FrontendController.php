@@ -28,7 +28,7 @@ class FrontendController extends Controller
      */
     public function index(){
          $slider = DeptSlider::take(5)->get();
-         $depts = Department::where('ststus', true)->get();
+         $depts = Department::where('status', true)->get();
          $events = Event::orderBy('id', 'desc')
                  ->take(4)
                  ->get();
@@ -234,7 +234,7 @@ class FrontendController extends Controller
 //        $type = CommitteeMemberType::lists('name','id');
 //        $user = User::where('dept_id', \Auth::user()->dept_id)->lists('name','id');
         $curr= Committee::where('dept_id',\Auth::user()->dept->id)->where('is_current', 'Running')->first();
-         $comLists = CommitteeMemberList::where('committee_id',$curr->id )->get();
+        $comLists = CommitteeMemberList::where('committee_id',$curr->id )->get();
         return view('currentCommittee', compact('comLists','user','type'))->with('title',"Running Committee - ". $curr->year);
 
     }

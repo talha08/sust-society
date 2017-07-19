@@ -36,6 +36,26 @@ class DepartmentController extends Controller
     }
 
 
+    /**
+     * Change Department Current Status
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function statusChange($id){
+        $dept = Department::where('id', $id)->first();
+        if($dept->status == 1){
+            $dept1 = Department::where('id', $id)->first();
+            $dept1->status = 0;
+            $dept1->save();
+            return redirect()->back()->with('success', "Department Successfully Deactivated");
+
+        }else{
+            $dept1 = Department::where('id', $id)->first();
+            $dept1->status = 1;
+            $dept1->save();
+            return redirect()->back()->with('success', "Department Successfully Activated");
+        }
+    }
 
     /**
      * Show the form for creating a new resource.

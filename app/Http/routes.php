@@ -85,6 +85,8 @@ Route::group(array('prefix' => '/auth/home','middleware' => 'auth'), function()
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
 	Route::get('user/students', array('as' => 'user.student', 'uses' => 'UsersController@students'));
 	Route::get('user/teachers', array('as' => 'user.teacher', 'uses' => 'UsersController@teachers'));
+	Route::get('user/waiting', array('as' => 'user.waiting', 'uses' => 'UsersController@deptWaitingUser'));
+	Route::get('user/changeStatus/{id}', array('as' => 'user.changeStatus', 'uses' => 'UsersController@userChangeStatus'));
   //user admin
 	Route::post('user/adminUserStore', array('as' => 'user.adminUserStore', 'uses' => 'UsersController@adminUserStore'));
 
@@ -119,6 +121,7 @@ Route::group(array('prefix' => '/auth/home','middleware' => 'auth'), function()
 	#Society Section  Complete
 	Route::get('society', array('as' => 'department.index', 'uses' => 'DepartmentController@activeSociety'));
 	Route::get('society/inactive', array('as' => 'department.inactive', 'uses' => 'DepartmentController@inactiveSociety'));
+	Route::get('society/statusChange/{id}', array('as' => 'department.statusChange', 'uses' => 'DepartmentController@statusChange'));
 	Route::get('society/create', array('as' => 'department.create', 'uses' => 'DepartmentController@create'));
 	Route::post('society', array('as' => 'department.store', 'uses' => 'DepartmentController@store'));
 	Route::get('society/{id}/edit', array('as' => 'department.edit', 'uses' => 'DepartmentController@edit'));
