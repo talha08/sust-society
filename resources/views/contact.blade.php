@@ -25,57 +25,73 @@
 
 
     <!-- Google Map -->
-    <br><br>
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div id="map-canvas" style="width: 80%; height: 400px"></div>
-        </div>
-    </div>
-    </div>
-    <!-- /Google Map -->
 
 
 
+
+
+
+    <!-- Main Content start-->
     <div class="content margin-top60 margin-bottom60">
         <div class="container">
+            <div class="row">
+                <!-- Blog Posts -->
+                <div class="posts-block col-md-12">
 
-            <!-- Star -->
-            <div class="star">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="star-divider">
-                            <div class="star-divider-icon">
-                                <i class=" fa fa-star"></i>
+
+
+
+                    <div class="row">
+                        <div class="col-lmd-12">
+                            <div id="map-canvas" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                <!-- /Google Map -->
+
+                    <!-- Star -->
+                    <div class="star">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="star-divider">
+                                    <div class="star-divider-icon">
+                                        <i class=" fa fa-star"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- Star -->
-            <div class="row">
-                <div class="white-wrapper nopadding">
-                    <div class="col-md-12">
-                        <h2>Send Us an Email</h2>
-                    </div>
-                    <div class="clearfix"></div>
-                    <!-- Contact Form -->
-                    <div class="contact-form">
-                            @include('includes.alert')
-                            {!! Form:: open(array('route' => 'contact.store', 'id' => 'contactform')) !!}
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                {!! Form:: text ('name', '', array('class'=>'form-control', 'required'=>'required','placeholder' => 'Your Name'))!!}<br>
-                                {!! Form:: email ('email', '', array('class'=>'form-control', 'required'=>'required','placeholder' => 'me@example.com')) !!}
+                    <!-- Star -->
 
+                    <div class="row padding-top margin-top">
+                            <div class="col-md-12">
+                                <h2>Send Us an Email</h2>
                             </div>
-                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                {!! Form:: text ('subject', '', array('class'=>'form-control', 'required'=>'required','placeholder' => 'Your subject'))!!}<br>
-                                {!! Form:: textarea ('message', '',array('class'=>'form-control', 'required'=>'required|min:25','placeholder' => 'Message must contain 25 alphabets'))!!} <br>
-                                {!! Form::reset('Clear', array('class' => 'you css class for button')) !!}
-                                {!! Form::submit('Send', array('class' => 'you css class for button')) !!}
+                            <div class="clearfix"></div>
+                            <!-- Contact Form -->
+                            <div class="contact-form">
+                                @include('includes.alert')
+                                {!! Form:: open(array('route' => 'contact.store', 'id' => 'contactform')) !!}
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    {!! Form:: text ('name', '', array('class'=>'form-control', 'required'=>'required','placeholder' => 'Your Name'))!!}<br>
+                                    {!! Form:: email ('email', '', array('class'=>'form-control', 'required'=>'required','placeholder' => 'me@example.com')) !!}
+
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                    {!! Form:: text ('subject', '', array('class'=>'form-control', 'required'=>'required','placeholder' => 'Your subject'))!!}<br>
+                                    {!! Form:: textarea ('message', '',array('class'=>'form-control', 'required'=>'required|min:25','placeholder' => 'Message must contain 25 alphabets'))!!} <br>
+                                    {!! Form::reset('Clear', array('class' => 'you css class for button')) !!}
+                                    {!! Form::submit('Send', array('class' => 'you css class for button')) !!}
+                                </div>
+                                {!! Form:: close() !!}
                             </div>
-                            {!! Form:: close() !!}
-                    </div>
-                    <!-- /Contact form -->
+                            <!-- /Contact form -->
+                        </div>
+
+
+
+
+
                     <!--  Star -->
                     <div class="star">
                         <div class="col-md-12">
@@ -87,6 +103,8 @@
                         </div>
                     </div>
                     <!-- Star -->
+
+
                     <div class="clearfix"></div>
                     <div class="row padding-top margin-top">
                         <!-- Contact Details -->
@@ -143,11 +161,15 @@
                         <!-- Contact Details -->
                     </div>
                     <!-- /margin-top --><br><br>
+
+
+
                 </div>
+                <!-- /Blog Posts -->
             </div>
         </div>
     </div>
-
+    <!-- /Main Content end-->
 
 @stop
 @section('style')
@@ -171,7 +193,7 @@
             var marker = new google.maps.Marker({
                 position: myLatlng,
                 map: map,
-                title: 'Hello World!'
+                title: 'SUST CSE!'
             });
         }
         google.maps.event.addDomListener(window, 'load', initialize);

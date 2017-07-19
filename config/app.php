@@ -205,6 +205,7 @@ return [
         'Entrust'   =>Zizaco\Entrust\EntrustFacade::class,
         'OAuth'     => Artdarek\OAuth\Facade\OAuth::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        
     ],
 
 ];

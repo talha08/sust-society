@@ -148,7 +148,7 @@ class DepartmentController extends Controller
      */
     public function allSociety()
     {
-        $society = Department::paginate(9);
+        $society = Department::where('status', true)->paginate(9);
         return view('society', compact('society'))->with('title', "Society List");
     }
 

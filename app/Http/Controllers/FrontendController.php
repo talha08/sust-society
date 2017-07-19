@@ -28,7 +28,7 @@ class FrontendController extends Controller
      */
     public function index(){
          $slider = DeptSlider::take(5)->get();
-         $depts = Department::all();
+         $depts = Department::where('ststus', true)->get();
          $events = Event::orderBy('id', 'desc')
                  ->take(4)
                  ->get();

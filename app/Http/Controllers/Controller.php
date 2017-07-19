@@ -22,7 +22,7 @@ abstract class Controller extends BaseController
     {
             //share variable in all view
             //this is for the nav bar
-            $this->department = Department::take(5)->get();
+            $this->department = Department::where('status', true)->take(5)->get();
             view()->share('department', $this->department);
 
              //this is for the registration system

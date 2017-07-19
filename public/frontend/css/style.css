@@ -1698,13 +1698,13 @@ span.color {
     padding: 50px 0;
 }
 
-.footer-bottom {
+.footer-bottom1 {
     background: #212733;
     color: #fff;
     line-height: 30px;
 }
 
-.footer-bottom a { color: #ccc }
+.footer-bottom1 a { color: #ccc }
 
 .comming-soon-footer .form-inline .input-group-btn {
     width: 1%;
