@@ -320,7 +320,7 @@
                                     <div class="item active">
                                         @foreach(DB::table('department')->where('status',true)->take(4)->get() as $departmentna)
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item wow fadeIn">
-                                            <div class="item-inner"><a href="#"><img width="250px" height="100px" alt="Upportdash" src="{!! asset($departmentna->logo_path) !!}"></a></div>
+                                            <div class="item-inner"><a href="{!! route('department', $departmentna->id) !!}"><img width="250px" height="100px" alt="Upportdash" src="{!! asset($departmentna->logo_path) !!}"></a></div>
                                         </div>
                                         @endforeach
                                     </div>
@@ -329,7 +329,7 @@
                                     <div class="item">
                                         @foreach(DB::table('department')->where('status',true)->skip(4)->take(4)->get() as $departmentna)
                                         <div class="col-lg-4 col-md-3 col-sm-3 col-xs-6 item">
-                                            <div class="item-inner"><a href="#"><img alt="Upportdash" src="img/clientslogo/04.png"></a></div>
+                                             <div class="item-inner"><a href="{!! route('department', $departmentna->id) !!}"><img width="250px" height="100px" alt="Upportdash" src="{!! asset($departmentna->logo_path) !!}"></a></div>
                                         </div>
                                         @endforeach
                                     </div>
