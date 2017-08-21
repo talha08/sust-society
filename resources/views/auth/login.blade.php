@@ -28,128 +28,145 @@
 
 
 
-    <div class="row login-wrapper">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="panel-body">
+    <!-- Main Content -->
+    <div class="content margin-top60 margin-bottom60">
+        <div class="container">
+            <div class="row">
+                <div class="posts-block col-sm-offset-2 col-md-8">
+                    <div class="panel panel-color panel-success">
 
+                        <div class="panel-body"><br>
+                            <h2 class="text-center"><span id="formHeading">User Account or </span><a class="btn btn-success" id="formOption" onclick="formToggle()" href="#"><button type="button" class="btn btn-success">Organization Account</button></a></h2><br>
 
-
-
-                        <br><h2><span id="formHeading">User Account or </span><a class="btn btn-success" id="formOption" onclick="formToggle()" href="#"><button type="button" class="btn btn-success">Organization Account</button></a></h2><br>
-
-                        {{--@include('includes.alert')--}}
+                        @include('includes.alert')
                        <!--User Signup form-->
-                        {!! Form::open(array('route' => 'user.store', 'method' => 'post','class' => 'form-horizontal', 'id'=>'login_form')) !!}
 
-                        <div class="form-group">
-                            {!!Form::select('dept_id', $dept_id, '',array('class' => 'select2 form-control', 'autofocus','placeholder' => 'Select Organization ....',))!!}
+                      <div class="col-sm-offset-1 col-md-10">
+                          {!! Form::open(array('route' => 'user.store', 'method' => 'post','class' => 'form-horizontal', 'id'=>'login_form')) !!}
+
+                          <div class="form-group">
+                              {!!Form::select('dept_id', $dept_id, '',array('class' => 'select2 form-control', 'autofocus','placeholder' => 'Select Organization ....',))!!}
+                          </div>
+
+
+                          <div class="form-group">
+                              {!!Form::select('user_type', $user_type, '',array('class' => 'select2 form-control', 'autofocus','placeholder' => 'Select Your Designation...',))!!}
+                          </div>
+
+                          <div class="form-group ">
+                              {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Full Name', 'autofocus', 'required')) !!}
+                          </div>
+
+                          <div class="form-group ">
+                              {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus', 'required')) !!}
+                          </div>
+
+
+                          <div class="form-group ">
+                              {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password', 'required')) !!}
+                          </div>
+
+                          <div class="form-group ">
+                              {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm Password', 'required')) !!}
+                          </div>
+                          <div class="form-group">
+                              <div class="row">
+                                  <div class="col-sm-12">
+                                      <button type="submit" class="form-control btn btn-success btn-block">Request For User Account</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <br><br>
+                          {!! Form::close() !!}
+                      <!--/user Signup form-->
+
+
+
+
+
+
+
+                          <!--Dept. Signup form-->
+                          {!! Form::open(array('route' => 'department.request', 'method' => 'post','class' => 'form-horizontal', 'id'=>'signup_form', 'files'=>true)) !!}
+
+
+
+                          <h4 style="color: green"><em>Admin Details:</em></h4>
+
+                          <div class="form-group ">
+                              {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Full Name', 'autofocus', 'required')) !!}
+                          </div>
+
+                          <div class="form-group ">
+                              {!! Form::email('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus', 'required')) !!}
+                          </div>
+
+                          <div class="form-group">
+                              {!!Form::select('user_type', $user_type, '',array('class' => 'select2 form-control', 'autofocus','placeholder' => 'Select Your Designation...',))!!}
+                          </div>
+
+                          <div class="form-group ">
+                              {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password', 'required')) !!}
+                          </div>
+
+                          <div class="form-group ">
+                              {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm Password', 'required')) !!}
+                          </div>
+
+
+                          <hr> <h4 style="color: green"><em>Organization Details:</em></h4>
+                          <div class="form-group">
+                              {!!Form::text('dept_name', '',array('class' => 'form-control','placeholder' =>  'Organization Name', 'required'))!!}
+                          </div>
+
+                          <div class="form-group">
+                              {!!Form::textarea('dept_description', '',array('class' => ' form-control','placeholder' =>  'Organization Description...', 'required'))!!}
+                          </div>
+
+                          <fieldset>
+                              <label>Upload Organization Logo:</label>
+                              <br/>
+                              <img class="preview frame" id="preview" alt=" "  height="50px" width="50px" src="{!!asset('/upload/logo.png')!!}">
+                              <br/>
+                              <br/>
+                              <input type="file" name="image" id="imgInp" onchange="loadFile(event);">
+                          </fieldset>
+
+
+                          <div class="form-group">
+                              <div class="row">
+                                  <div class="col-sm-12">
+                                      <button type="submit" class="form-control btn btn-success btn-block">Request For Organization Account</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <br><br>
+                          {!! Form::close() !!}
+                      </div>
+
                         </div>
+                    </div>
 
-
-                        <div class="form-group">
-                            {!!Form::select('user_type', $user_type, '',array('class' => 'select2 form-control', 'autofocus','placeholder' => 'Select Your Designation...',))!!}
-                        </div>
-
-                        <div class="form-group ">
-                            {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Full Name', 'autofocus', 'required')) !!}
-                        </div>
-
-                        <div class="form-group ">
-                            {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus', 'required')) !!}
-                        </div>
-
-
-                        <div class="form-group ">
-                            {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password', 'required')) !!}
-                        </div>
-
-                        <div class="form-group ">
-                            {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm Password', 'required')) !!}
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <button type="submit" class="form-control btn btn-success btn-block">Request For User Account</button>
-                                </div>
-                            </div>
-                        </div>
-                        <br><br>
-                    {!! Form::close() !!}
-                    <!--/user Signup form-->
-
-
-
-
-
-
-
-                        <!--Dept. Signup form-->
-                        {!! Form::open(array('route' => 'department.request', 'method' => 'post','class' => 'form-horizontal', 'id'=>'signup_form', 'files'=>true)) !!}
-
-
-
-                            <h4 style="color: green"><em>Admin Details:</em></h4>
-
-                            <div class="form-group ">
-                                {!! Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Full Name', 'autofocus', 'required')) !!}
-                            </div>
-
-                            <div class="form-group ">
-                                {!! Form::email('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus', 'required')) !!}
-                            </div>
-
-                            <div class="form-group">
-                                {!!Form::select('user_type', $user_type, '',array('class' => 'select2 form-control', 'autofocus','placeholder' => 'Select Your Designation...',))!!}
-                            </div>
-
-                            <div class="form-group ">
-                                {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password', 'required')) !!}
-                            </div>
-
-                            <div class="form-group ">
-                                {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm Password', 'required')) !!}
-                            </div>
-
-
-                            <hr> <h4 style="color: green"><em>Organization Details:</em></h4>
-                            <div class="form-group">
-                                {!!Form::text('dept_name', '',array('class' => 'form-control','placeholder' =>  'Organization Name', 'required'))!!}
-                            </div>
-
-                            <div class="form-group">
-                                {!!Form::textarea('dept_description', '',array('class' => ' form-control','placeholder' =>  'Organization Description...', 'required'))!!}
-                            </div>
-
-                            <fieldset>
-                                <label>Upload Organization Logo:</label>
-                                <br/>
-                                <img class="preview frame" id="preview" alt=" "  height="50px" width="50px" src="{!!asset('/upload/logo.png')!!}">
-                                <br/>
-                                <br/>
-                                <input type="file" name="image" id="imgInp" onchange="loadFile(event);">
-                            </fieldset>
-
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <button type="submit" class="form-control btn btn-success btn-block">Request For Organization Account</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <br><br>
-                        {!! Form::close() !!}
-                        <!--./Dept. signup form-->
-                        <hr>
-
+                    <!--  /Single Post -->
+                </div>
             </div>
         </div>
     </div>
+    <!-- Main Content end-->
 
 
 @stop
 @section('style')
     <style>
+
+        .panel-body{
+            background: whitesmoke;
+        }
+        .panel{
+            border-color: teal;
+        }
+
+
         fieldset {
             border:0;
             margin-bottom:20px;

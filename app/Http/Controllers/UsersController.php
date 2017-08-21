@@ -19,14 +19,18 @@ class UsersController extends Controller
 
 
     /**
-     * Display a listing of the resource.
+     * Login Panel View
+     * @return $this
      *
-     * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function login(){
+        $dept_id = Department::where('status', true)->lists('name','id');
+        // return 'Auth Login Panel';
+        return view('auth.userlogin')
+            ->with('title', 'Login')
+            ->with('dept_id ', $dept_id );
     }
+
 
 
 

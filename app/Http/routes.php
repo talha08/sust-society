@@ -26,8 +26,11 @@ Route::group(['middleware' => 'guest'], function(){
 	#Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
 	Route::get('user/createOrLogin', ['as'=>'user.create','uses' => 'UsersController@create']);
 	Route::post('user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
-	Route::post('login', ['as'=>'login','uses' => 'Auth\AuthController@doLogin']);
     Route::post('society/applly', array('as' => 'department.request', 'uses' => 'Auth\SignupController@deptRequest'));
+
+    Route::get('login', ['as'=>'login','uses' => 'UsersController@login']);
+    Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
+
 
 });
 

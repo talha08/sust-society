@@ -77,7 +77,7 @@
             @endif
 
 
-            <li class="{!! Menu::areActiveRoutes(['user.student', 'user.teacher']) !!}">
+            <li class="{!! Menu::areActiveRoutes(['user.student', 'user.teacher', 'user.waiting']) !!}">
                 <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Society Members</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li class="{!! Menu::isActiveRoute('user.student') !!}">
@@ -88,8 +88,8 @@
                         <a href="{!!  URL::route( 'user.teacher') !!}">Teacher List</a>
                     </li>
 
-                    <li class="{!! Menu::isActiveRoute('user.changeStatus') !!}">
-                        <a href="{!!  URL::route( 'user.changeStatus') !!}">Waiting Users</a>
+                    <li class="{!! Menu::isActiveRoute('user.waiting') !!}">
+                        <a href="{!!  URL::route( 'user.waiting') !!}">Waiting Users</a>
                     </li>
                 </ul>
             </li>

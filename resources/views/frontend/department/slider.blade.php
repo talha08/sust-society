@@ -5,7 +5,7 @@
 
             <!-- THE FIRST SLIDE -->
             <li data-transition="fade" data-slotamount="7" data-masterspeed="2000"
-                data-thumb="{!! asset('homeslider_thumb2.jpg') !!}" data-delay="10000" data-saveperformance="on">
+                data-thumb="{!! asset('homeslider_thumb2.jpg') !!}" data-delay="4000" data-saveperformance="on">
                 <!-- MAIN IMAGE -->
                 <img src="{!! asset('frontend/img/dummy.png') !!}" alt="laptopmockup_sliderdy"
                      data-lazyload="{!! asset('frontend/img/slider/slider-bg-2.jpg') !!}" data-bgposition="right top"
@@ -195,7 +195,7 @@
             @foreach($dept->slider as $slide)
                 <!-- THE RESPONSIVE SLIDE -->
                     <li data-transition="fade" data-slotamount="1" data-masterspeed="300">
-                        <img src="{!! asset($slide->img_url) !!}" data-fullwidthcentering="on" alt="">
+                        <img src="{!! asset($slide->img_url) !!}"data-delay="3000"  data-fullwidthcentering="on" alt="">
                         <div class="caption large_text sft"
                              data-x="660"
                              data-y="54"

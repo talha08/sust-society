@@ -27,7 +27,10 @@ class FrontendController extends Controller
      * @return $this
      */
     public function index(){
-         $slider = DeptSlider::take(5)->get();
+         $slider = DeptSlider::orderBy(\DB::raw('RAND()'))->take(5)->get();
+
+
+
          $depts = Department::where('status', true)->get();
          $events = Event::orderBy('id', 'desc')
                  ->take(4)

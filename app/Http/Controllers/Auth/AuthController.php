@@ -41,16 +41,15 @@ class AuthController extends Controller
 
 
 
-//    public function login(){
-//        $department = Department::all();
-//        // return 'Auth Login Panel';
-//        return view('auth.userlogin')
-//                    ->with('title', 'Login')
-//                    ->with('department', $department )
-//                    ->with('dept_id ', $department );
-//    }
-//
-//
+    public function login(){
+        $dept_id = Department::where('status', true)->lists('name','id');
+        // return 'Auth Login Panel';
+        return view('auth.userlogin')
+            ->with('title', 'Login')
+            ->with('dept_id ', $dept_id );
+    }
+
+
 
 
 
@@ -78,6 +77,8 @@ class AuthController extends Controller
                         ->withErrors($validation);
         } else
         {
+
+
            // $remember = (\Input::has('remember')) ? true : false;
             $credentials = array
             (
@@ -85,15 +86,32 @@ class AuthController extends Controller
                         'password' => $allInput['password']
             );
 
-            if (Auth::attempt($credentials,true))
-            {
-                return redirect()->to('/')->with('success','Welcome to SUST Society');
-            } else
-            {
-                return redirect()->back()
-                            ->withInput()
-                            ->withErrors('Error in Email Address or Password.');
-            }
+
+           $check = User::where('email', $allInput['email'])->first();
+
+           if(! empty($check) &&  $check->status == 1){
+
+               if (Auth::attempt($credentials,true))
+               {
+                   return redirect()->to('/')->with('success','Welcome to SUST Society');
+               } else
+               {
+                   return redirect()->to('/login')
+                       ->withInput()
+                       ->with('error', 'Error in Email Address or Password.');
+               }
+           }elseif(! empty($check) &&  $check->status == 0){
+               return redirect()->to('/login')
+                   ->withInput()
+                   ->with('error', 'Admin not Approved your account yet, Please Wait');
+           } else{
+               return redirect()->to('/login')
+                   ->withInput()
+                   ->with('error', 'Email Not Registered Yet....');
+           }
+
+
+
         }
 
     }
