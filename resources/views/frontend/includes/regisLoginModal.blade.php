@@ -10,6 +10,9 @@
                     <h2 class="form-signin-heading modal-title" id="myModalLabel">Login</h2>
                 </div>
                     <div class="modal-body">
+                    <p class="text-cente">
+                            Email: <b>talhaqc@gmail.com</b> Pasword: <b>a</b>
+                            </p>
                         @include('includes.alert')
                         {!! Form::open(array('route' => 'login', 'method' => 'post', 'class' => '', 'id'=>'login')) !!}
 
