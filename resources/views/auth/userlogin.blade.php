@@ -38,7 +38,10 @@
 
                         <div class="panel-body">
                             <h2 class="text-center">Login</h2>
-
+                            talhaqc@gmail.com
+                            <p class="text-cente">
+                            Email: <b>talhaqc@gmail.com</b> Pasword: <b>a</b>
+                            </p>
                             <!--  Single Post -->
                             @include('includes.alert')
                             {!! Form::open(array('route' => 'login', 'method' => 'post', 'class' => '', 'id'=>'login')) !!}
